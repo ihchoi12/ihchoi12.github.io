@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 20 Nov 2020 22:52:56 +0800</lastBuildDate><atom:link href="https://ihchoi12.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Jun 2022 15:52:29 +0800</lastBuildDate><atom:link href="https://ihchoi12.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pytorch_tutorial</title>
+      <link>https://ihchoi12.github.io/posts/pytorch_tutorial/</link>
+      <pubDate>Tue, 14 Jun 2022 15:52:29 +0800</pubDate>
+      
+      <guid>https://ihchoi12.github.io/posts/pytorch_tutorial/</guid>
+      <description>To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.
+ML Intro Image source Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.
+Tensor  all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list)  PyTorch  a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&amp;rsquo;s great?</description>
+    </item>
+    
     <item>
       <title>Math Support</title>
       <link>https://ihchoi12.github.io/posts/math-support/</link>
