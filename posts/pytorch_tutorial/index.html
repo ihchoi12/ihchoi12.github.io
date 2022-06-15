@@ -78,7 +78,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
     },
     "headline": "Pytorch Tutorial | Eureka Demo","datePublished": "2022-06-14T15:52:29+08:00",
     "dateModified": "2022-06-14T15:52:29+08:00",
-    "wordCount":  214 ,
+    "wordCount":  216 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -240,7 +240,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
 <li>specify <code>require_grad = True</code> of a tensor to reduce unnecessary gradient calculation cost</li>
 </ul>
 <p>Example:</p>
-<pre><code class="language-python">def test():
+<pre><code class="language-py">def test():
     print hi
 # Create tensors.
 x = torch.tensor(3.)
@@ -254,6 +254,7 @@ y.backward()
 print('dy/dx:', x.grad)
 print('dy/dw:', w.grad)
 print('dy/db:', b.grad)
+print hi
 </code></pre>
 <pre><code class="language-c++">// hello c++
 int main () {
