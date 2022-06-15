@@ -78,7 +78,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
     },
     "headline": "Pytorch Tutorial | Eureka Demo","datePublished": "2022-06-14T15:52:29+08:00",
     "dateModified": "2022-06-14T15:52:29+08:00",
-    "wordCount":  210 ,
+    "wordCount":  214 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -240,18 +240,20 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
 <li>specify <code>require_grad = True</code> of a tensor to reduce unnecessary gradient calculation cost</li>
 </ul>
 <p>Example:</p>
-<pre><code class="language-python"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Create tensors.</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">3.</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">4.</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">5.</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Arithmetic Operation</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Compute derivatives</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Display gradients</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dy/dx:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dy/dw:&#39;</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dy/db:&#39;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span></span></span></code></pre></div>
+<pre><code class="language-python">def test():
+    print hi
+# Create tensors.
+x = torch.tensor(3.)
+w = torch.tensor(4., requires_grad=True)
+b = torch.tensor(5., requires_grad=True)
+# Arithmetic Operation
+y = w * x + b
+# Compute derivatives
+y.backward()
+# Display gradients
+print('dy/dx:', x.grad)
+print('dy/dw:', w.grad)
+print('dy/db:', b.grad)
 </code></pre>
 <pre><code class="language-c++">// hello c++
 int main () {
