@@ -78,7 +78,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
     },
     "headline": "Pytorch Tutorial | Eureka Demo","datePublished": "2022-06-14T15:52:29+08:00",
     "dateModified": "2022-06-14T15:52:29+08:00",
-    "wordCount":  216 ,
+    "wordCount":  235 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -240,26 +240,57 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
 <li>specify <code>require_grad = True</code> of a tensor to reduce unnecessary gradient calculation cost</li>
 </ul>
 <p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">def</span> <span style="color:#06b;font-weight:bold">test</span>():
-</span></span><span style="display:flex;"><span>    <span style="color:#007020">print</span> hi
-</span></span><span style="display:flex;"><span><span style="color:#888"># Create tensors.</span>
-</span></span><span style="display:flex;"><span>x <span style="color:#333">=</span> torch<span style="color:#333">.</span>tensor(<span style="color:#60e;font-weight:bold">3.</span>)
-</span></span><span style="display:flex;"><span>w <span style="color:#333">=</span> torch<span style="color:#333">.</span>tensor(<span style="color:#60e;font-weight:bold">4.</span>, requires_grad<span style="color:#333">=</span><span style="color:#080;font-weight:bold">True</span>)
-</span></span><span style="display:flex;"><span>b <span style="color:#333">=</span> torch<span style="color:#333">.</span>tensor(<span style="color:#60e;font-weight:bold">5.</span>, requires_grad<span style="color:#333">=</span><span style="color:#080;font-weight:bold">True</span>)
-</span></span><span style="display:flex;"><span><span style="color:#888"># Arithmetic Operation</span>
-</span></span><span style="display:flex;"><span>y <span style="color:#333">=</span> w <span style="color:#333">*</span> x <span style="color:#333">+</span> b
-</span></span><span style="display:flex;"><span><span style="color:#888"># Compute derivatives</span>
-</span></span><span style="display:flex;"><span>y<span style="color:#333">.</span>backward()
-</span></span><span style="display:flex;"><span><span style="color:#888"># Display gradients</span>
-</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="background-color:#fff0f0">&#39;dy/dx:&#39;</span>, x<span style="color:#333">.</span>grad)
-</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="background-color:#fff0f0">&#39;dy/dw:&#39;</span>, w<span style="color:#333">.</span>grad)
-</span></span><span style="display:flex;"><span><span style="color:#007020">print</span>(<span style="background-color:#fff0f0">&#39;dy/db:&#39;</span>, b<span style="color:#333">.</span>grad)
-</span></span><span style="display:flex;"><span><span style="color:#007020">print</span> hi
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#888">// hello c++
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#339;font-weight:bold">int</span> <span style="color:#06b;font-weight:bold">main</span> () {
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span> <span style="color:#00d;font-weight:bold">0</span>;
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-1"> 1</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-2"> 2</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-3"> 3</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-4"> 4</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-5"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-5"> 5</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-6"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-6"> 6</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-7"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-7"> 7</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-8"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-8"> 8</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-9"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-9"> 9</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-10"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-10">10</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-11"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-11">11</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-12"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-12">12</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-13"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-13">13</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-14"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-14">14</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-15"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-0-15">15</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">test</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">print</span> hi
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Create tensors.</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#ff79c6">=</span> torch<span style="color:#ff79c6">.</span>tensor(<span style="color:#bd93f9">3.</span>)
+</span></span><span style="display:flex;"><span>w <span style="color:#ff79c6">=</span> torch<span style="color:#ff79c6">.</span>tensor(<span style="color:#bd93f9">4.</span>, requires_grad<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
+</span></span><span style="display:flex;"><span>b <span style="color:#ff79c6">=</span> torch<span style="color:#ff79c6">.</span>tensor(<span style="color:#bd93f9">5.</span>, requires_grad<span style="color:#ff79c6">=</span><span style="color:#ff79c6">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Arithmetic Operation</span>
+</span></span><span style="display:flex;"><span>y <span style="color:#ff79c6">=</span> w <span style="color:#ff79c6">*</span> x <span style="color:#ff79c6">+</span> b
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Compute derivatives</span>
+</span></span><span style="display:flex;"><span>y<span style="color:#ff79c6">.</span>backward()
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Display gradients</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#39;dy/dx:&#39;</span>, x<span style="color:#ff79c6">.</span>grad)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#39;dy/dw:&#39;</span>, w<span style="color:#ff79c6">.</span>grad)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#39;dy/db:&#39;</span>, b<span style="color:#ff79c6">.</span>grad)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span> hi
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-1-2">2</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-1-3">3</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-4"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-1-4">4</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#6272a4">// hello c++
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">main</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">0</span>;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>[output]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>[output]
 dy/dx: None
 dy/dw: tensor(3.)
 dy/db: tensor(1.)</p>
