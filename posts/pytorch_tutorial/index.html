@@ -240,28 +240,26 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
 <li>specify <code>require_grad = True</code> of a tensor to reduce unnecessary gradient calculation cost</li>
 </ul>
 <p>Example:</p>
-<pre><code class="language-py">def test():
-    print hi
-# Create tensors.
-x = torch.tensor(3.)
-w = torch.tensor(4., requires_grad=True)
-b = torch.tensor(5., requires_grad=True)
-# Arithmetic Operation
-y = w * x + b
-# Compute derivatives
-y.backward()
-# Display gradients
-print('dy/dx:', x.grad)
-print('dy/dw:', w.grad)
-print('dy/db:', b.grad)
-print hi
-</code></pre>
-<pre><code class="language-c++">// hello c++
-int main () {
-    return 0;
-}
-</code></pre>
-<p>[output]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test</span>():
+</span></span><span style="display:flex;"><span>    print hi
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create tensors.</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>tensor(<span style="color:#ae81ff">3.</span>)
+</span></span><span style="display:flex;"><span>w <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>tensor(<span style="color:#ae81ff">4.</span>, requires_grad<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>tensor(<span style="color:#ae81ff">5.</span>, requires_grad<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Arithmetic Operation</span>
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> w <span style="color:#f92672">*</span> x <span style="color:#f92672">+</span> b
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Compute derivatives</span>
+</span></span><span style="display:flex;"><span>y<span style="color:#f92672">.</span>backward()
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Display gradients</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;dy/dx:&#39;</span>, x<span style="color:#f92672">.</span>grad)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;dy/dw:&#39;</span>, w<span style="color:#f92672">.</span>grad)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#39;dy/db:&#39;</span>, b<span style="color:#f92672">.</span>grad)
+</span></span><span style="display:flex;"><span>print hi
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// hello c++
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>[output]
 dy/dx: None
 dy/dw: tensor(3.)
 dy/db: tensor(1.)</p>
