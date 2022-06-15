@@ -48,7 +48,7 @@
 
 <meta name="description"
   content="To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.
-ML Intro Image source Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.
+Basic Concepts Image source Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.
 Tensor  all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list)  PyTorch  a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&rsquo;s great?">
 <script type="application/ld+json">
 {
@@ -78,7 +78,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
     },
     "headline": "Pytorch Tutorial | Eureka Demo","datePublished": "2022-06-14T15:52:29+08:00",
     "dateModified": "2022-06-14T15:52:29+08:00",
-    "wordCount":  212 ,
+    "wordCount":  522 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -87,7 +87,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
             "url": "https://ihchoi12.github.io/images/icon.png"
         }
         },
-    "description": "To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.\nML Intro Image source Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.\nTensor  all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list)  PyTorch  a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it\u0026rsquo;s great?"
+    "description": "To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.\nBasic Concepts Image source Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.\nTensor  all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list)  PyTorch  a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it\u0026rsquo;s great?"
 }
 </script><meta property="og:title" content="Pytorch Tutorial | Eureka Demo" />
 <meta property="og:type" content="article" />
@@ -102,7 +102,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
 
 
 <meta property="og:description" content="To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.
-ML Intro Image source Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.
+Basic Concepts Image source Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.
 Tensor  all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list)  PyTorch  a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&rsquo;s great?" />
 
 
@@ -221,7 +221,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
 
     <div class="content">
         <p>To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.</p>
-<h1 id="ml-intro">ML Intro</h1>
+<h1 id="basic-concepts">Basic Concepts</h1>
 <p align="center">
     <img src="/posts/2022-06-14-16-23-53.png" width="300" /> <br>
     <a href="https://jovian.ai/aakashns/machine-learning-intro">Image source</a> 
@@ -236,7 +236,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
 <ul>
 <li>a library for tensor processing</li>
 <li>the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls</li>
-<li>why it&rsquo;s great? we can automatically compute the gradient of the output w.r.t. a tensor</li>
+<li>why it&rsquo;s great? we can automatically compute the gradient (i.e., autograd using <code>.backward()</code>) of the output w.r.t. tensors</li>
 <li>specify <code>require_grad = True</code> of a tensor to reduce unnecessary gradient calculation cost</li>
 </ul>
 <p>Example:</p>
@@ -262,7 +262,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
 </span></span><span style="display:flex;"><span>b <span style="color:#666">=</span> torch<span style="color:#666">.</span>tensor(<span style="color:#666">5.</span>, requires_grad<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
 </span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Arithmetic Operation</span>
 </span></span><span style="display:flex;"><span>y <span style="color:#666">=</span> w <span style="color:#666">*</span> x <span style="color:#666">+</span> b
-</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Compute derivatives</span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Compute gradients using autograd</span>
 </span></span><span style="display:flex;"><span>y<span style="color:#666">.</span>backward()
 </span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Display gradients</span>
 </span></span><span style="display:flex;"><span><span style="color:#008000">print</span>(<span style="color:#ba2121">&#39;dy/dx:&#39;</span>, x<span style="color:#666">.</span>grad)
@@ -270,11 +270,85 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
 </span></span><span style="display:flex;"><span><span style="color:#008000">print</span>(<span style="color:#ba2121">&#39;dy/db:&#39;</span>, b<span style="color:#666">.</span>grad)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Output</p>
+</div><p>Output:</p>
 <pre tabindex="0"><code>dy/dx: None
 dy/dw: tensor(3.)
 dy/db: tensor(1.)
-</code></pre><h1 id="reference">Reference</h1>
+</code></pre><ul>
+<li>PyTorch interoperates well with <code>numpy</code>, so we can use <code>numpy</code> to easily handle our data and also take benefit of PyTorch (Autograd, tensor operations on GPU).</li>
+</ul>
+<h1 id="linear-regression">Linear Regression</h1>
+<p>Linear regression is to a relationship between <strong>input variables</strong> (e.g., study time) and <strong>target variables</strong> (score). Each target variable is estimated to be a weighted sum of the input variables, offset by some constant (i.e., bias).</p>
+<p>Here, <strong>learning</strong> means to figure out the weights using the training data. How? Gradient Descent: Just adjust slightly many times towards better accuracy.</p>
+<p>To represent this problem mathematically, we form a matrix of the weights and vector of biases (# of target variables == # of rows).</p>
+<h2 id="loss-function">Loss Function</h2>
+<ul>
+<li>to evaluate the model accuracy during training</li>
+<li>typically use <strong>MSE</strong> (Mean Squared Error), why square? to remove negative values</li>
+</ul>
+<h2 id="overall-process">Overall Process</h2>
+<ol>
+<li>Setup Model</li>
+<li>Generate Predictions</li>
+<li>Calculate Loss</li>
+<li>Compute Gradients w.r.t. Weights and Biases</li>
+<li>Adjust Weights and Biases</li>
+<li>Reset Gradients to Zero (why? gradients are accumulated throughout training)</li>
+</ol>
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-1"> 1</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-2"> 2</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-3"> 3</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-4"> 4</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-5"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-5"> 5</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-6"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-6"> 6</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-7"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-7"> 7</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-8"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-8"> 8</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-9"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-9"> 9</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-10"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-10">10</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-11"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-11">11</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-12"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-12">12</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-13"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-13">13</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-14"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-14">14</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-15"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-15">15</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-16"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-16">16</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-17"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-17">17</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-18"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-18">18</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-19"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-19">19</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-20"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-20">20</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-21"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-21">21</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-22"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-22">22</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-23"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-2-23">23</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Weights and biases</span>
+</span></span><span style="display:flex;"><span>w <span style="color:#666">=</span> torch<span style="color:#666">.</span>randn(<span style="color:#666">2</span>, <span style="color:#666">3</span>, requires_grad<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
+</span></span><span style="display:flex;"><span>b <span style="color:#666">=</span> torch<span style="color:#666">.</span>randn(<span style="color:#666">2</span>, requires_grad<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Setup model</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">model</span>(x):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> x <span style="color:#666">@</span> w<span style="color:#666">.</span>t() <span style="color:#666">+</span> b
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># MSE loss</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">mse</span>(t1, t2):
+</span></span><span style="display:flex;"><span>    diff <span style="color:#666">=</span> t1 <span style="color:#666">-</span> t2
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> torch<span style="color:#666">.</span>sum(diff <span style="color:#666">*</span> diff) <span style="color:#666">/</span> diff<span style="color:#666">.</span>numel()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Train for 100 epochs</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">for</span> i <span style="color:#a2f;font-weight:bold">in</span> <span style="color:#008000">range</span>(<span style="color:#666">100</span>):
+</span></span><span style="display:flex;"><span>    preds <span style="color:#666">=</span> model(inputs)
+</span></span><span style="display:flex;"><span>    loss <span style="color:#666">=</span> mse(preds, targets)
+</span></span><span style="display:flex;"><span>    loss<span style="color:#666">.</span>backward()
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">with</span> torch<span style="color:#666">.</span>no_grad(): <span style="color:#408080;font-style:italic"># stop tracking operations while adjusting</span>
+</span></span><span style="display:flex;"><span>        w <span style="color:#666">-=</span> w<span style="color:#666">.</span>grad <span style="color:#666">*</span> <span style="color:#666">1e-5</span>
+</span></span><span style="display:flex;"><span>        b <span style="color:#666">-=</span> b<span style="color:#666">.</span>grad <span style="color:#666">*</span> <span style="color:#666">1e-5</span>
+</span></span><span style="display:flex;"><span>        w<span style="color:#666">.</span>grad<span style="color:#666">.</span>zero_()
+</span></span><span style="display:flex;"><span>        b<span style="color:#666">.</span>grad<span style="color:#666">.</span>zero_()
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>** Note on <code>torch.no_grad()</code>: By default, PyTorch tracks all operations (during FP) on tensors with <code>required_grad=True</code>, which is called gradient context tracking by autograd engine. This tracking task has some processing and memory cost, so we deactivate it using <code>torch.no_grad()</code> when it&rsquo;s not needed.</p>
+<h1 id="reference">Reference</h1>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=GIsg-ZUy0MY">https://www.youtube.com/watch?v=GIsg-ZUy0MY</a></li>
 </ul>
