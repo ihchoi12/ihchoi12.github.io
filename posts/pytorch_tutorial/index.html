@@ -78,7 +78,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
     },
     "headline": "Pytorch Tutorial | Eureka Demo","datePublished": "2022-06-14T15:52:29+08:00",
     "dateModified": "2022-06-14T15:52:29+08:00",
-    "wordCount":  222 ,
+    "wordCount":  210 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -240,23 +240,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
 <li>specify <code>require_grad = True</code> of a tensor to reduce unnecessary gradient calculation cost</li>
 </ul>
 <p>Example:</p>
-<pre><code class="language-python"><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Create tensors.</span>
+<pre><code class="language-python"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Create tensors.</span>
 </span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">3.</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">w</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">4.</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">5.</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -267,9 +251,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
 </span></span><span class="line"><span class="cl"><span class="c1"># Display gradients</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dy/dx:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dy/dw:&#39;</span><span class="p">,</span> <span class="n">w</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dy/db:&#39;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span></span></span></code></pre></td></tr></table>
-</div>
-</div>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dy/db:&#39;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span></span></span></code></pre></div>
 </code></pre>
 <pre><code class="language-c++">// hello c++
 int main () {
