@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 14 Jun 2022 15:52:29 +0800</lastBuildDate><atom:link href="https://ihchoi12.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Jun 2022 12:09:20 +0000</lastBuildDate><atom:link href="https://ihchoi12.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS SageMaker</title>
+      <link>https://ihchoi12.github.io/posts/aws_sagemaker/</link>
+      <pubDate>Sat, 18 Jun 2022 12:09:20 +0000</pubDate>
+      
+      <guid>https://ihchoi12.github.io/posts/aws_sagemaker/</guid>
+      <description>Intro Using ML techniques is more challenging than it looks for some reasons including&amp;hellip;
+ Data Preprocessing:  to understand data that comes from different sources with different formats to decide which parameters to use in the model   Select Algorithm &amp;amp; Framework  many problems appears to be similar, and there is no clear guideline for a particular problem   Train &amp;amp; Tune Model  need to feed data for many iteration, while tuning hyperparameters depending on the progress   Integrate &amp;amp; Deploy  need to setup an environment for deployment need to integrate the trained model into the environment    SageMaker:</description>
+    </item>
+    
     <item>
       <title>Pytorch Tutorial</title>
       <link>https://ihchoi12.github.io/posts/pytorch_tutorial/</link>

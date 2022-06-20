@@ -78,7 +78,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
     },
     "headline": "Pytorch Tutorial | Eureka Demo","datePublished": "2022-06-14T15:52:29+08:00",
     "dateModified": "2022-06-14T15:52:29+08:00",
-    "wordCount":  1819 ,
+    "wordCount":  2444 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -694,7 +694,7 @@ dy/db: tensor(1.)
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">for</span> images, labels <span style="color:#a2f;font-weight:bold">in</span> train_loader:
 </span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(images<span style="color:#666">.</span>shape)
-</span></span><span style="display:flex;"><span>    outputs <span style="color:#666">=</span> model(images)
+</span></span><span style="display:flex;"><span>    outputs <span style="color:#666">=</span> model(images) <span style="color:#408080;font-style:italic"># the base class nn.Module calls the forward() method by default</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">break</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#008000">print</span>(<span style="color:#ba2121">&#39;outputs.shape : &#39;</span>, outputs<span style="color:#666">.</span>shape) 
@@ -766,6 +766,259 @@ dy/db: tensor(1.)
 </span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Interpretation: our model predicted the correct label with probability e^(-loss) in avg</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><hr>
+<p>Using the above logics, the overall training process is implemented as follows:</p>
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-1"> 1</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-2"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-2"> 2</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-3"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-3"> 3</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-4"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-4"> 4</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-5"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-5"> 5</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-6"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-6"> 6</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-7"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-7"> 7</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-8"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-8"> 8</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-9"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-9"> 9</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-10"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-10">10</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-11"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-11">11</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-12"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-12">12</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-13"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-13">13</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-14"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-14">14</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-15"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-15">15</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-16"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-16">16</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-17"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-17">17</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-18"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-18">18</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-19"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-19">19</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-20"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-20">20</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-21"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-21">21</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-22"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-22">22</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-23"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-23">23</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-24"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-24">24</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-25"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-25">25</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-26"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-26">26</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-27"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-27">27</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-28"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-28">28</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-29"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-29">29</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-30"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-30">30</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-31"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-31">31</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-32"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-32">32</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-33"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-33">33</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-34"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-34">34</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-35"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-35">35</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-36"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-36">36</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-37"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-37">37</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-38"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-38">38</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-39"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-39">39</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-40"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-40">40</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-41"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-41">41</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-42"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-42">42</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-43"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-43">43</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-44"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-44">44</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-45"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-45">45</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-46"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-46">46</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-47"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-47">47</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-48"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-48">48</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-49"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-49">49</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-50"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-50">50</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-51"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-51">51</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-52"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-52">52</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-53"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-53">53</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-54"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-54">54</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-55"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-55">55</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-56"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-56">56</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-57"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-57">57</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-58"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-58">58</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-59"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-18-59">59</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">evaluate</span>(model, val_loader):
+</span></span><span style="display:flex;"><span>    outputs <span style="color:#666">=</span> [model<span style="color:#666">.</span>validation_step(batch) <span style="color:#008000;font-weight:bold">for</span> batch <span style="color:#a2f;font-weight:bold">in</span> val_loader]
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> model<span style="color:#666">.</span>validation_epoch_end(outputs)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">MnistModel</span>(nn<span style="color:#666">.</span>Module):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">super</span>()<span style="color:#666">.</span>__init__()
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>linear <span style="color:#666">=</span> nn<span style="color:#666">.</span>Linear(input_size, num_classes)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">forward</span>(self, xb):
+</span></span><span style="display:flex;"><span>        xb <span style="color:#666">=</span> xb<span style="color:#666">.</span>reshape(<span style="color:#666">-</span><span style="color:#666">1</span>, <span style="color:#666">784</span>)
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> self<span style="color:#666">.</span>linear(xb)
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> out
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">training_step</span>(self, batch):
+</span></span><span style="display:flex;"><span>        images, labels <span style="color:#666">=</span> batch 
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> self(images)                  <span style="color:#408080;font-style:italic"># Generate predictions</span>
+</span></span><span style="display:flex;"><span>        loss <span style="color:#666">=</span> F<span style="color:#666">.</span>cross_entropy(out, labels) <span style="color:#408080;font-style:italic"># Calculate loss</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> loss
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">validation_step</span>(self, batch):
+</span></span><span style="display:flex;"><span>        images, labels <span style="color:#666">=</span> batch 
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> self(images)                    <span style="color:#408080;font-style:italic"># Generate predictions</span>
+</span></span><span style="display:flex;"><span>        loss <span style="color:#666">=</span> F<span style="color:#666">.</span>cross_entropy(out, labels)   <span style="color:#408080;font-style:italic"># Calculate loss</span>
+</span></span><span style="display:flex;"><span>        acc <span style="color:#666">=</span> accuracy(out, labels)           <span style="color:#408080;font-style:italic"># Calculate accuracy</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> {<span style="color:#ba2121">&#39;val_loss&#39;</span>: loss, <span style="color:#ba2121">&#39;val_acc&#39;</span>: acc}
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">validation_epoch_end</span>(self, outputs):
+</span></span><span style="display:flex;"><span>        batch_losses <span style="color:#666">=</span> [x[<span style="color:#ba2121">&#39;val_loss&#39;</span>] <span style="color:#008000;font-weight:bold">for</span> x <span style="color:#a2f;font-weight:bold">in</span> outputs]
+</span></span><span style="display:flex;"><span>        epoch_loss <span style="color:#666">=</span> torch<span style="color:#666">.</span>stack(batch_losses)<span style="color:#666">.</span>mean()   <span style="color:#408080;font-style:italic"># Combine losses</span>
+</span></span><span style="display:flex;"><span>        batch_accs <span style="color:#666">=</span> [x[<span style="color:#ba2121">&#39;val_acc&#39;</span>] <span style="color:#008000;font-weight:bold">for</span> x <span style="color:#a2f;font-weight:bold">in</span> outputs]
+</span></span><span style="display:flex;"><span>        epoch_acc <span style="color:#666">=</span> torch<span style="color:#666">.</span>stack(batch_accs)<span style="color:#666">.</span>mean()      <span style="color:#408080;font-style:italic"># Combine accuracies</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> {<span style="color:#ba2121">&#39;val_loss&#39;</span>: epoch_loss<span style="color:#666">.</span>item(), <span style="color:#ba2121">&#39;val_acc&#39;</span>: epoch_acc<span style="color:#666">.</span>item()}
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">epoch_end</span>(self, epoch, result):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Epoch [</span><span style="color:#b68;font-weight:bold">{}</span><span style="color:#ba2121">], val_loss: </span><span style="color:#b68;font-weight:bold">{:.4f}</span><span style="color:#ba2121">, val_acc: </span><span style="color:#b68;font-weight:bold">{:.4f}</span><span style="color:#ba2121">&#34;</span><span style="color:#666">.</span>format(epoch, result[<span style="color:#ba2121">&#39;val_loss&#39;</span>], result[<span style="color:#ba2121">&#39;val_acc&#39;</span>]))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>model <span style="color:#666">=</span> MnistModel()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">fit</span>(epochs, lr, model, train_loader, val_loader, opt_func<span style="color:#666">=</span>torch<span style="color:#666">.</span>optim<span style="color:#666">.</span>SGD):
+</span></span><span style="display:flex;"><span>    optimizer <span style="color:#666">=</span> opt_func(model<span style="color:#666">.</span>parameters(), lr)
+</span></span><span style="display:flex;"><span>    history <span style="color:#666">=</span> [] <span style="color:#408080;font-style:italic"># for recording epoch-wise results</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">for</span> epoch <span style="color:#a2f;font-weight:bold">in</span> <span style="color:#008000">range</span>(epochs):
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># Training Phase </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">for</span> batch <span style="color:#a2f;font-weight:bold">in</span> train_loader:
+</span></span><span style="display:flex;"><span>            loss <span style="color:#666">=</span> model<span style="color:#666">.</span>training_step(batch)
+</span></span><span style="display:flex;"><span>            loss<span style="color:#666">.</span>backward()
+</span></span><span style="display:flex;"><span>            optimizer<span style="color:#666">.</span>step()
+</span></span><span style="display:flex;"><span>            optimizer<span style="color:#666">.</span>zero_grad()
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># Validation phase</span>
+</span></span><span style="display:flex;"><span>        result <span style="color:#666">=</span> evaluate(model, val_loader)
+</span></span><span style="display:flex;"><span>        model<span style="color:#666">.</span>epoch_end(epoch, result)
+</span></span><span style="display:flex;"><span>        history<span style="color:#666">.</span>append(result)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> history
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="limitations-and-improvement">Limitations and Improvement</h2>
+<p>The above training algorithm works pretty well, but the accuracy improvement is saturated after about 80%. There are two potential reasons:</p>
+<ol>
+<li>the learning rate is too high, so the model is &ldquo;bouncing&rdquo; around the optimal state</li>
+<li>the linear model is not &ldquo;powerful&rdquo; enough</li>
+</ol>
+<p>To make the model more powerful, we can add one more layer along with a hidden layer (ReLU) to add non-linearity:</p>
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-1"> 1</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-2"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-2"> 2</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-3"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-3"> 3</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-4"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-4"> 4</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-5"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-5"> 5</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-6"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-6"> 6</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-7"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-7"> 7</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-8"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-8"> 8</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-9"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-9"> 9</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-10"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-10">10</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-11"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-11">11</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-12"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-12">12</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-13"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-13">13</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-14"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-14">14</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-15"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-15">15</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-16"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-16">16</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-17"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-17">17</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-18"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-18">18</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-19"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-19">19</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-20"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-20">20</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-21"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-21">21</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-22"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-22">22</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-23"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-23">23</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-24"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-24">24</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-25"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-25">25</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-26"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-26">26</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-27"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-27">27</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-28"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-28">28</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-29"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-29">29</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-30"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-30">30</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-31"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-31">31</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-32"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-32">32</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-33"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-33">33</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-34"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-34">34</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-35"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-35">35</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-36"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-36">36</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-37"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-37">37</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-38"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-38">38</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-39"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-39">39</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-40"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-40">40</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-41"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-41">41</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-42"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-42">42</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">MnistModel</span>(nn<span style="color:#666">.</span>Module):
+</span></span><span style="display:flex;"><span>    <span style="color:#ba2121">&#34;&#34;&#34;Feedfoward neural network with 1 hidden layer&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self, in_size, hidden_size, out_size):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">super</span>()<span style="color:#666">.</span>__init__()
+</span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># hidden layer</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>linear1 <span style="color:#666">=</span> nn<span style="color:#666">.</span>Linear(in_size, hidden_size)
+</span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># output layer</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>linear2 <span style="color:#666">=</span> nn<span style="color:#666">.</span>Linear(hidden_size, out_size)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">forward</span>(self, xb):
+</span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># Flatten the image tensors</span>
+</span></span><span style="display:flex;"><span>        xb <span style="color:#666">=</span> xb<span style="color:#666">.</span>view(xb<span style="color:#666">.</span>size(<span style="color:#666">0</span>), <span style="color:#666">-</span><span style="color:#666">1</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># Get intermediate outputs using hidden layer</span>
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> self<span style="color:#666">.</span>linear1(xb)
+</span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># Apply activation function</span>
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> F<span style="color:#666">.</span>relu(out)
+</span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># Get predictions using output layer</span>
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> self<span style="color:#666">.</span>linear2(out)
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> out
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">training_step</span>(self, batch):
+</span></span><span style="display:flex;"><span>        images, labels <span style="color:#666">=</span> batch 
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> self(images)                  <span style="color:#408080;font-style:italic"># Generate predictions</span>
+</span></span><span style="display:flex;"><span>        loss <span style="color:#666">=</span> F<span style="color:#666">.</span>cross_entropy(out, labels) <span style="color:#408080;font-style:italic"># Calculate loss</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> loss
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">validation_step</span>(self, batch):
+</span></span><span style="display:flex;"><span>        images, labels <span style="color:#666">=</span> batch 
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> self(images)                    <span style="color:#408080;font-style:italic"># Generate predictions</span>
+</span></span><span style="display:flex;"><span>        loss <span style="color:#666">=</span> F<span style="color:#666">.</span>cross_entropy(out, labels)   <span style="color:#408080;font-style:italic"># Calculate loss</span>
+</span></span><span style="display:flex;"><span>        acc <span style="color:#666">=</span> accuracy(out, labels)           <span style="color:#408080;font-style:italic"># Calculate accuracy</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> {<span style="color:#ba2121">&#39;val_loss&#39;</span>: loss, <span style="color:#ba2121">&#39;val_acc&#39;</span>: acc}
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">validation_epoch_end</span>(self, outputs):
+</span></span><span style="display:flex;"><span>        batch_losses <span style="color:#666">=</span> [x[<span style="color:#ba2121">&#39;val_loss&#39;</span>] <span style="color:#008000;font-weight:bold">for</span> x <span style="color:#a2f;font-weight:bold">in</span> outputs]
+</span></span><span style="display:flex;"><span>        epoch_loss <span style="color:#666">=</span> torch<span style="color:#666">.</span>stack(batch_losses)<span style="color:#666">.</span>mean()   <span style="color:#408080;font-style:italic"># Combine losses</span>
+</span></span><span style="display:flex;"><span>        batch_accs <span style="color:#666">=</span> [x[<span style="color:#ba2121">&#39;val_acc&#39;</span>] <span style="color:#008000;font-weight:bold">for</span> x <span style="color:#a2f;font-weight:bold">in</span> outputs]
+</span></span><span style="display:flex;"><span>        epoch_acc <span style="color:#666">=</span> torch<span style="color:#666">.</span>stack(batch_accs)<span style="color:#666">.</span>mean()      <span style="color:#408080;font-style:italic"># Combine accuracies</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> {<span style="color:#ba2121">&#39;val_loss&#39;</span>: epoch_loss<span style="color:#666">.</span>item(), <span style="color:#ba2121">&#39;val_acc&#39;</span>: epoch_acc<span style="color:#666">.</span>item()}
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">epoch_end</span>(self, epoch, result):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Epoch [</span><span style="color:#b68;font-weight:bold">{}</span><span style="color:#ba2121">], val_loss: </span><span style="color:#b68;font-weight:bold">{:.4f}</span><span style="color:#ba2121">, val_acc: </span><span style="color:#b68;font-weight:bold">{:.4f}</span><span style="color:#ba2121">&#34;</span><span style="color:#666">.</span>format(epoch, result[<span style="color:#ba2121">&#39;val_loss&#39;</span>], result[<span style="color:#ba2121">&#39;val_acc&#39;</span>]))
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="using-a-gpu">Using a GPU</h1>
+<p>As the dataset and model are getting bigger, we use GPUs to train our model in a reasonable amount of time. First, let&rsquo;s see how to move our data to GPU.</p>
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-20-1"> 1</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-2"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-20-2"> 2</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-3"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-20-3"> 3</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-4"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-20-4"> 4</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-5"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-20-5"> 5</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-6"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-20-6"> 6</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-7"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-20-7"> 7</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-8"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-20-8"> 8</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-9"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-20-9"> 9</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-10"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-20-10">10</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-11"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-20-11">11</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">get_default_device</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#ba2121">&#34;&#34;&#34;Pick GPU if available, else CPU&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> torch<span style="color:#666">.</span>cuda<span style="color:#666">.</span>is_available():
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> torch<span style="color:#666">.</span>device(<span style="color:#ba2121">&#39;cuda&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> torch<span style="color:#666">.</span>device(<span style="color:#ba2121">&#39;cpu&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">to_device</span>(data, device):
+</span></span><span style="display:flex;"><span>    <span style="color:#ba2121">&#34;&#34;&#34;Move tensor(s) to chosen device&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> <span style="color:#008000">isinstance</span>(data, (<span style="color:#008000">list</span>,<span style="color:#008000">tuple</span>)):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> [to_device(x, device) <span style="color:#008000;font-weight:bold">for</span> x <span style="color:#a2f;font-weight:bold">in</span> data]
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> data<span style="color:#666">.</span>to(device, non_blocking<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
+</span></span></code></pre></td></tr></table>
+</div>
 </div><h1 id="reference">Reference</h1>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=GIsg-ZUy0MY">https://www.youtube.com/watch?v=GIsg-ZUy0MY</a></li>
@@ -781,6 +1034,9 @@ dy/db: tensor(1.)
     
 <div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
     <div>
+        
+        <span class="block font-bold">Previous</span>
+        <a href="https://ihchoi12.github.io/posts/aws_sagemaker/" class="block">AWS SageMaker</a>
         
     </div>
     <div class="md:text-right mt-4 md:mt-0">
