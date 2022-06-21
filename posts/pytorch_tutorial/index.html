@@ -78,7 +78,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
     },
     "headline": "Pytorch Tutorial | Eureka Demo","datePublished": "2022-06-14T15:52:29+08:00",
     "dateModified": "2022-06-14T15:52:29+08:00",
-    "wordCount":  2791 ,
+    "wordCount":  2941 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -704,7 +704,8 @@ dy/db: tensor(1.)
 </span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># tensor([[ 0.0245,  0.0691, -0.1861,  0.1229, -0.1947, -0.1299,  0.1847, -0.2836, 0.2063, -0.1164], [-0.2538,  0.0495, -0.0900,  0.0783,  0.0670, -0.2608, -0.1726, -0.0452, 0.1272,  0.0451]])</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Then, we want to convert the output into probability of each label. For this, we use Softmax function provided by <code>import torch.nn.functional as F</code>:</p>
+</div><h2 id="softmax-convert-to-probability">Softmax: convert to probability</h2>
+<p>Then, we want to convert the output into probability of each label. For this, we use Softmax function provided by <code>import torch.nn.functional as F</code>:</p>
 <div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-15-1"> 1</a>
@@ -898,7 +899,7 @@ dy/db: tensor(1.)
 <li>the learning rate is too high, so the model is &ldquo;bouncing&rdquo; around the optimal state</li>
 <li>the linear model is not &ldquo;powerful&rdquo; enough</li>
 </ol>
-<p>To make the model more powerful, we can add one more layer along with a hidden layer (ReLU) to add non-linearity:</p>
+<p>As one way to make the model more powerful, we can add one more layer along with a hidden layer (ReLU) to add non-linearity:</p>
 <div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-19-1"> 1</a>
@@ -1083,12 +1084,84 @@ dy/db: tensor(1.)
 <li>Sparsity of connections since each output element depends on only a small part of input elements, which makes FP and BP more efficient</li>
 <li>Parameter sharing by using the kernel trained in one part of input to detect a similar pattern in another part as well</li>
 </ul>
-<h2 id="max-pooling">Max-pooling</h2>
-<p>From each convolutional layer, we can use max-pooling layers to progressively decrease height &amp; width of the output tensors</p>
+<h2 id="pooling">Pooling</h2>
+<p>From each convolutional layer, we can use pooling layers to progressively decrease height &amp; width of the output tensors</p>
 <p align="center">
     <img src="/posts/max-pooling.png" width="300" /> <br>
     <a href="https://jovian.ai/aakashns/05-cifar10-cnn">[source]</a> 
 </p>
+Note that there are several operations possible for pooling (e.g., max, avg).
+<h2 id="model">Model</h2>
+<p>Using the convolution and pooling operations, we can form a CNN model as follows:</p>
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-1"> 1</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-2"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-2"> 2</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-3"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-3"> 3</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-4"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-4"> 4</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-5"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-5"> 5</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-6"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-6"> 6</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-7"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-7"> 7</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-8"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-8"> 8</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-9"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-9"> 9</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-10"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-10">10</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-11"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-11">11</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-12"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-12">12</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-13"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-13">13</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-14"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-14">14</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-15"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-15">15</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-16"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-16">16</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-17"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-17">17</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-18"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-18">18</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-19"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-19">19</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-20"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-20">20</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-21"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-21">21</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-22"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-22">22</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-23"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-23">23</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-24"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-24">24</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-25"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-25">25</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-26"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-26">26</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-27"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-27">27</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-28"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-28">28</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-29"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-29">29</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-30"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-30">30</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-31"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-22-31">31</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Cifar10CnnModel</span>(ImageClassificationBase):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">super</span>()<span style="color:#666">.</span>__init__()
+</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>network <span style="color:#666">=</span> nn<span style="color:#666">.</span>Sequential(
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>Conv2d(<span style="color:#666">3</span>, <span style="color:#666">32</span>, kernel_size<span style="color:#666">=</span><span style="color:#666">3</span>, padding<span style="color:#666">=</span><span style="color:#666">1</span>),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>ReLU(),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>Conv2d(<span style="color:#666">32</span>, <span style="color:#666">64</span>, kernel_size<span style="color:#666">=</span><span style="color:#666">3</span>, stride<span style="color:#666">=</span><span style="color:#666">1</span>, padding<span style="color:#666">=</span><span style="color:#666">1</span>),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>ReLU(),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>MaxPool2d(<span style="color:#666">2</span>, <span style="color:#666">2</span>), <span style="color:#408080;font-style:italic"># output: 64 x 16 x 16</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>Conv2d(<span style="color:#666">64</span>, <span style="color:#666">128</span>, kernel_size<span style="color:#666">=</span><span style="color:#666">3</span>, stride<span style="color:#666">=</span><span style="color:#666">1</span>, padding<span style="color:#666">=</span><span style="color:#666">1</span>),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>ReLU(),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>Conv2d(<span style="color:#666">128</span>, <span style="color:#666">128</span>, kernel_size<span style="color:#666">=</span><span style="color:#666">3</span>, stride<span style="color:#666">=</span><span style="color:#666">1</span>, padding<span style="color:#666">=</span><span style="color:#666">1</span>),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>ReLU(),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>MaxPool2d(<span style="color:#666">2</span>, <span style="color:#666">2</span>), <span style="color:#408080;font-style:italic"># output: 128 x 8 x 8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>Conv2d(<span style="color:#666">128</span>, <span style="color:#666">256</span>, kernel_size<span style="color:#666">=</span><span style="color:#666">3</span>, stride<span style="color:#666">=</span><span style="color:#666">1</span>, padding<span style="color:#666">=</span><span style="color:#666">1</span>),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>ReLU(),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>Conv2d(<span style="color:#666">256</span>, <span style="color:#666">256</span>, kernel_size<span style="color:#666">=</span><span style="color:#666">3</span>, stride<span style="color:#666">=</span><span style="color:#666">1</span>, padding<span style="color:#666">=</span><span style="color:#666">1</span>),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>ReLU(),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>MaxPool2d(<span style="color:#666">2</span>, <span style="color:#666">2</span>), <span style="color:#408080;font-style:italic"># output: 256 x 4 x 4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>Flatten(), 
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>Linear(<span style="color:#666">256</span><span style="color:#666">*</span><span style="color:#666">4</span><span style="color:#666">*</span><span style="color:#666">4</span>, <span style="color:#666">1024</span>),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>ReLU(),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>Linear(<span style="color:#666">1024</span>, <span style="color:#666">512</span>),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>ReLU(),
+</span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>Linear(<span style="color:#666">512</span>, <span style="color:#666">10</span>))
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">forward</span>(self, xb):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>network(xb)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="r">R</h1>
 <h1 id="reference">Reference</h1>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=GIsg-ZUy0MY">https://www.youtube.com/watch?v=GIsg-ZUy0MY</a></li>
