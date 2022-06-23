@@ -78,7 +78,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
     },
     "headline": "Pytorch Tutorial | Eureka Demo","datePublished": "2022-06-14T15:52:29+08:00",
     "dateModified": "2022-06-14T15:52:29+08:00",
-    "wordCount":  2941 ,
+    "wordCount":  3153 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -1161,8 +1161,61 @@ Note that there are several operations possible for pooling (e.g., max, avg).
 </span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>network(xb)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h1 id="r">R</h1>
-<h1 id="reference">Reference</h1>
+</div><h1 id="techniques-for-higher-accuracy-or-better-performance">Techniques for higher accuracy or better performance</h1>
+<h3 id="data-normalization">Data Normalization</h3>
+<ul>
+<li>across each channel, subtract the mean, then divide by the standard deviation</li>
+<li>prevent one channel with a higher or wider range of values affecting the final loss and gradients disproportionately</li>
+<li>note that the same normalization (using the same stats) must be applied to validation and test dataset as well (since the model is trained on the normalized dataset)</li>
+</ul>
+<h3 id="data-transformation">Data Transformation</h3>
+<ul>
+<li>apply randomly chosen transformations, such as paddding &amp; random crop, flipping, etc., while loading the data</li>
+<li>generalize the model better</li>
+<li>note that this transformation need to be applied to the training dataset only (since its to give more information to the training process)</li>
+</ul>
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-23-1"> 1</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-2"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-23-2"> 2</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-3"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-23-3"> 3</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-4"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-23-4"> 4</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-5"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-23-5"> 5</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-6"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-23-6"> 6</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-7"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-23-7"> 7</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-8"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-23-8"> 8</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-9"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-23-9"> 9</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-10"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-23-10">10</a>
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-11"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-23-11">11</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Data transforms (normalization &amp; data augmentation)</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">torchvision.transforms</span> <span style="color:#008000;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">tt</span>
+</span></span><span style="display:flex;"><span>stats <span style="color:#666">=</span> ((<span style="color:#666">0.4914</span>, <span style="color:#666">0.4822</span>, <span style="color:#666">0.4465</span>), (<span style="color:#666">0.2023</span>, <span style="color:#666">0.1994</span>, <span style="color:#666">0.2010</span>))
+</span></span><span style="display:flex;"><span>train_tfms <span style="color:#666">=</span> tt<span style="color:#666">.</span>Compose([tt<span style="color:#666">.</span>RandomCrop(<span style="color:#666">32</span>, padding<span style="color:#666">=</span><span style="color:#666">4</span>, padding_mode<span style="color:#666">=</span><span style="color:#ba2121">&#39;reflect&#39;</span>), 
+</span></span><span style="display:flex;"><span>                         tt<span style="color:#666">.</span>RandomHorizontalFlip(), 
+</span></span><span style="display:flex;"><span>                         <span style="color:#408080;font-style:italic"># tt.RandomRotate</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#408080;font-style:italic"># tt.RandomResizedCrop(256, scale=(0.5,0.9), ratio=(1, 1)), </span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#408080;font-style:italic"># tt.ColorJitter(brightness=0.1, contrast=0.1, saturation=0.1, hue=0.1),</span>
+</span></span><span style="display:flex;"><span>                         tt<span style="color:#666">.</span>ToTensor(), 
+</span></span><span style="display:flex;"><span>                         tt<span style="color:#666">.</span>Normalize(<span style="color:#666">*</span>stats,inplace<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)])
+</span></span><span style="display:flex;"><span>valid_tfms <span style="color:#666">=</span> tt<span style="color:#666">.</span>Compose([tt<span style="color:#666">.</span>ToTensor(), tt<span style="color:#666">.</span>Normalize(<span style="color:#666">*</span>stats)])
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="dataloader-parameters">DataLoader Parameters</h3>
+<ul>
+<li><code>num_workers</code> to leverage multiple CPU cores in parallel</li>
+<li><code>pin_memory</code> to avid repeated memory allocation and deallocation by using the same portion of RAM for loading each batch (its possible when all the batches have the same size)</li>
+</ul>
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-1"><a style="outline: none; text-decoration:none; color:inherit" href="#hl-24-1">1</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>train_dl <span style="color:#666">=</span> DataLoader(train_ds, batch_size, shuffle<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>, num_workers<span style="color:#666">=</span><span style="color:#666">3</span>, pin_memory<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="reference">Reference</h1>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=GIsg-ZUy0MY">https://www.youtube.com/watch?v=GIsg-ZUy0MY</a></li>
 </ul>
