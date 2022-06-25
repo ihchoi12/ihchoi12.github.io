@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang='en' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Infiniband | Eureka Demo</title>
+<link rel="stylesheet" href="https://ihchoi12.github.io/css/eureka.min.css">
+<script defer src="https://ihchoi12.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.8.6/css/academicons.min.css"
+   crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://ihchoi12.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ihchoi12.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="Infiniband (IB)  Industry standard defining I/O architecture Used to interconnect compute nodes, communication equipments (e.g., switches), storage, and embedded systems Independent of host OS Designed to accelearate all protocol layers (Physical - Link - Network - Transport - Upper) to achieve maximum network utilization and performance Deployed in data centers, cloud computing, HPC, ML/AI  Main components [source]  IB switches: Move the traffics Subnet Manager: Manages all network activities Hosts (end-nodes): The clients of IB fabric Host Channel Adapter (HCA): Enable an IB connection between the host and IB switches IB to Ethernet Gateway: Allows for IP traffic exchanges between IB and Ethernet based networks IB Router: Allows for inter-connectivity between multiple IB subnets  SHARP  Scalable Hierarchical Aggregation and Reduction Protocol In-network computation technology Offloads collective operations from the host CPUs or GPUs to the network switches As a result, it dramatically improves performance of accelerated computing, MPI based applications, such as ML/AI.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://ihchoi12.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Infiniband",
+      "item":"https://ihchoi12.github.io/posts/infiniband/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ihchoi12.github.io/posts/infiniband/"
+    },
+    "headline": "Infiniband | Eureka Demo","datePublished": "2022-06-25T03:34:25+00:00",
+    "dateModified": "2022-06-25T03:34:25+00:00",
+    "wordCount":  684 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ihchoi12.github.io/images/icon.png"
+        }
+        },
+    "description": "Infiniband (IB)  Industry standard defining I\/O architecture Used to interconnect compute nodes, communication equipments (e.g., switches), storage, and embedded systems Independent of host OS Designed to accelearate all protocol layers (Physical - Link - Network - Transport - Upper) to achieve maximum network utilization and performance Deployed in data centers, cloud computing, HPC, ML\/AI  Main components [source]  IB switches: Move the traffics Subnet Manager: Manages all network activities Hosts (end-nodes): The clients of IB fabric Host Channel Adapter (HCA): Enable an IB connection between the host and IB switches IB to Ethernet Gateway: Allows for IP traffic exchanges between IB and Ethernet based networks IB Router: Allows for inter-connectivity between multiple IB subnets  SHARP  Scalable Hierarchical Aggregation and Reduction Protocol In-network computation technology Offloads collective operations from the host CPUs or GPUs to the network switches As a result, it dramatically improves performance of accelerated computing, MPI based applications, such as ML\/AI."
+}
+</script><meta property="og:title" content="Infiniband | Eureka Demo" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://ihchoi12.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://ihchoi12.github.io/posts/infiniband/" />
+
+
+
+
+<meta property="og:description" content="Infiniband (IB)  Industry standard defining I/O architecture Used to interconnect compute nodes, communication equipments (e.g., switches), storage, and embedded systems Independent of host OS Designed to accelearate all protocol layers (Physical - Link - Network - Transport - Upper) to achieve maximum network utilization and performance Deployed in data centers, cloud computing, HPC, ML/AI  Main components [source]  IB switches: Move the traffics Subnet Manager: Manages all network activities Hosts (end-nodes): The clients of IB fabric Host Channel Adapter (HCA): Enable an IB connection between the host and IB switches IB to Ethernet Gateway: Allows for IP traffic exchanges between IB and Ethernet based networks IB Router: Allows for inter-connectivity between multiple IB subnets  SHARP  Scalable Hierarchical Aggregation and Reduction Protocol In-network computation technology Offloads collective operations from the host CPUs or GPUs to the network switches As a result, it dramatically improves performance of accelerated computing, MPI based applications, such as ML/AI." />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Eureka Demo" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-06-25T03:34:25&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2022-06-25T03:34:25&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text font-bold">Eureka Demo</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+            <a href="/docs/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+  </header>
+  <main class="flex-grow pt-16">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="lg:pt-12"></div>
+<div
+    class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+    <h1 class="font-bold text-3xl text-primary-text">Infiniband</h1>
+    <div class="mr-6 my-2">
+    <span>2022-06-25</span>
+</div>
+
+
+
+
+    
+    
+    
+
+    <div class="content">
+        <h1 id="infiniband-ib">Infiniband (IB)</h1>
+<ul>
+<li>Industry standard defining I/O architecture</li>
+<li>Used to interconnect compute nodes, communication equipments (e.g., switches), storage, and embedded systems</li>
+<li>Independent of host OS</li>
+<li>Designed to accelearate all protocol layers (Physical - Link - Network - Transport - Upper) to achieve maximum network utilization and performance</li>
+<li>Deployed in data centers, cloud computing, HPC, ML/AI</li>
+</ul>
+<h3 id="main-components">Main components</h3>
+<p align="center">
+    <img src="/posts/infiniband-components.png" width="300" /> <br>
+    <a href="https://academy.nvidia.com/course/view.php?id=480">[source]</a> 
+</p>
+<ul>
+<li>IB switches: Move the traffics</li>
+<li>Subnet Manager: Manages all network activities</li>
+<li>Hosts (end-nodes): The clients of IB fabric</li>
+<li>Host Channel Adapter (HCA): Enable an IB connection between the host and IB switches</li>
+<li>IB to Ethernet Gateway: Allows for IP traffic exchanges between IB and Ethernet based networks</li>
+<li>IB Router: Allows for inter-connectivity between multiple IB subnets</li>
+</ul>
+<h3 id="sharp">SHARP</h3>
+<ul>
+<li>Scalable Hierarchical Aggregation and Reduction Protocol</li>
+<li>In-network computation technology</li>
+<li>Offloads collective operations from the host CPUs or GPUs to the network switches</li>
+<li>As a result, it dramatically improves performance of accelerated computing, MPI based applications, such as ML/AI.</li>
+</ul>
+<h3 id="key-features">Key Features</h3>
+<ul>
+<li>Simplified Management
+<ul>
+<li>IB is the first architecture to truly implement the vision of SDN</li>
+<li>IB is managed by a subnet manager which is a program that runs and manages the entire network</li>
+<li>Subnet manager provides centralized routing management, hence enables PnP of nodes</li>
+</ul>
+</li>
+<li>High Bandwidth</li>
+<li>H/W Offloads
+<ul>
+<li>RDMA using Kernel Bypass and H/W (NIC) based transport porotocol</li>
+<li>In ML/AI, GPU Direct RDMA</li>
+</ul>
+</li>
+<li>Low Latency
+<ul>
+<li>Thanks to NIC offloading and accleration techinques on the NIC, end-to-end latency is extremly low (e.g., 1us)</li>
+</ul>
+</li>
+<li>Easy Network Scale-out
+<ul>
+<li>Capable to deploy up to 48K nodes on a single subnet</li>
+<li>Further, multiple IB subnets can be interconnected using IB routers</li>
+</ul>
+</li>
+<li>Quality of Service (i.e., ability to provide different priority to different apps, users, and data flows)
+<ul>
+<li>IB switches have multiple port queues with different priorities</li>
+<li>flows are mapped to a different port queue depending on the priority</li>
+</ul>
+</li>
+<li>Fabric Resiliency
+<ul>
+<li>Link failures require traffic re-route</li>
+<li>Subnet manager can take about 5 seconds for this</li>
+<li>IB has a feature called Self-healing Networking: H/W based capability of Nvidia switches enabling 5000x faster link failure recovery</li>
+</ul>
+</li>
+<li>Optimal Loadbalancing
+<ul>
+<li>Necessary for high bandwidth utilization</li>
+<li>Use Adaptive Routing: equalize the amount of traffic sent on each switch port</li>
+<li>Nvidia switch H/W has Adaptive Routing Manager</li>
+</ul>
+</li>
+<li>MPI Super Performance with SHARP</li>
+<li>Spport Various Topologies
+<ul>
+<li>Fat-tree, Torus, Hypercube, HyperX, Drangonfly +, etc.</li>
+</ul>
+</li>
+</ul>
+<h3 id="architecture">Architecture</h3>
+<ul>
+<li>IB architecture is divided into 5 layers, in a similar way to the traditional TCP/IP model</li>
+<li>But there are many differences between IB and IP protocol</li>
+<li>Traditionally, applications relied on OS for communications</li>
+<li>IB enables applications to communicate w/o directly involving OS (application-centric approch)</li>
+</ul>
+<p align="center">
+    <img src="/posts/infiniband-rdma.png" width="300" /> <br>
+    <a href="https://academy.nvidia.com/course/view.php?id=480">[source]</a> 
+</p>
+<h4 id="layers">Layers</h4>
+<ul>
+<li>Upper layer
+<ul>
+<li>Defines the methods for applications (&ldquo;consumers&rdquo; of IB) to access IB services</li>
+<li>Provide standard protocol interfaces (e.g., MPI, NCCL, etc.) to applications</li>
+</ul>
+</li>
+<li>Transport layer
+<ul>
+<li>Unlike traditional TCP/IP (moving data from source node&rsquo;s OS to destination node&rsquo;s OS)</li>
+<li>In IB, End-to-end virtual &ldquo;channel&rdquo; is created between two end applications
+<ul>
+<li>IB provides H/W based transport implemented by HCA</li>
+<li>Once an application request transport of a message, the message is transmitted by the sending H/W HCA</li>
+<li>When the message arrives to the receiving H/W HCA, its delivered directly into the receiving application&rsquo;s buffer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Network layer
+<ul>
+<li>So far, we discussed end-nodes</li>
+<li>This layer describes the protocol for routing of pacekts between different subnets via IB routers</li>
+<li>Routers use network later addresses (called GID: global ID) to route packets to the destination node</li>
+<li>What if the packet is routed in the local subnet? see link layer</li>
+</ul>
+</li>
+<li>Link layer
+<ul>
+<li>Subnet manager assigns each node in a subnet with an address called LID: Local ID</li>
+<li>Subnet manager forms forwarding tables with entries of mapping between LIDs and egress ports, and programs it into IB switches</li>
+</ul>
+</li>
+<li>Physical layer
+<ul>
+<li>Eventually, data trasfers occurs when bits are transmitted over a physical medium</li>
+<li>This layer specifies how bits are placed on the wire and protocol to signal of valid packets</li>
+<li>Also it defines specifications of copper and optical cables</li>
+<li>Note: aggregating multiple physical lanes enables higher bandwidth</li>
+</ul>
+</li>
+</ul>
+<h4 id="flow-control-mechanism">Flow control mechanism</h4>
+<p>It&rsquo;s an element of the link layer in IB. The sender node dynamically tracks receive buffer usage and adjusts transmission rate, so that the receiver is not overloaded, enabling lossless network.</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://academy.nvidia.com/course/view.php?id=480">https://academy.nvidia.com/course/view.php?id=480</a></li>
+</ul>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="https://ihchoi12.github.io/posts/rdma/" class="block">RDMA</a>
+        
+    </div>
+</div>
+
+    
+</div>
+
+
+
+
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

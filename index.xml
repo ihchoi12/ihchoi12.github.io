@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 18 Jun 2022 12:09:20 +0000</lastBuildDate><atom:link href="https://ihchoi12.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Jun 2022 03:34:25 +0000</lastBuildDate><atom:link href="https://ihchoi12.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Infiniband</title>
+      <link>https://ihchoi12.github.io/posts/infiniband/</link>
+      <pubDate>Sat, 25 Jun 2022 03:34:25 +0000</pubDate>
+      
+      <guid>https://ihchoi12.github.io/posts/infiniband/</guid>
+      <description>Infiniband (IB)  Industry standard defining I/O architecture Used to interconnect compute nodes, communication equipments (e.g., switches), storage, and embedded systems Independent of host OS Designed to accelearate all protocol layers (Physical - Link - Network - Transport - Upper) to achieve maximum network utilization and performance Deployed in data centers, cloud computing, HPC, ML/AI  Main components [source]  IB switches: Move the traffics Subnet Manager: Manages all network activities Hosts (end-nodes): The clients of IB fabric Host Channel Adapter (HCA): Enable an IB connection between the host and IB switches IB to Ethernet Gateway: Allows for IP traffic exchanges between IB and Ethernet based networks IB Router: Allows for inter-connectivity between multiple IB subnets  SHARP  Scalable Hierarchical Aggregation and Reduction Protocol In-network computation technology Offloads collective operations from the host CPUs or GPUs to the network switches As a result, it dramatically improves performance of accelerated computing, MPI based applications, such as ML/AI.</description>
+    </item>
+    
+    <item>
+      <title>RDMA</title>
+      <link>https://ihchoi12.github.io/posts/rdma/</link>
+      <pubDate>Mon, 20 Jun 2022 15:31:53 +0000</pubDate>
+      
+      <guid>https://ihchoi12.github.io/posts/rdma/</guid>
+      <description>Terminologies  Infiniband (IB): consist of IB adapters and switches RoCE:  RDMA using an Ethernet switched fabric instead of IB Although it uses an Ethernet layer, it has nothing to do with TCP/IP layers    RoCE  RDMA over Ethernet Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting Mellanox Ethernet Spectrum switches acccelerate RoCE performance For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server  Over Lossy Fabric  Lossy Fabric: a fabric which doesn&amp;rsquo;t enforce Priority Flow Control (PFC) Originating from IB, RoCE traditionally required lossless fabric Since CX4, Mellanox enables RoCE over lossy fabric as well How?</description>
+    </item>
+    
     <item>
       <title>AWS SageMaker</title>
       <link>https://ihchoi12.github.io/posts/aws_sagemaker/</link>
