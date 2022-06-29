@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang='en' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Operating Systems | Eureka Demo</title>
+<link rel="stylesheet" href="https://ihchoi12.github.io/css/eureka.css">
+<script defer src="https://ihchoi12.github.io/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/styles/solarized-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.8.6/css/academicons.min.css"
+   crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.0/build/highlight.min.js"
+   crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://ihchoi12.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ihchoi12.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU Context Switching: Performed by dispatcher. Changing the process context (PCB) and state of two processes (1 Ready and 1 Run) for the preemption. (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time How process (or program) works?">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"Posts",
+      "item":"https://ihchoi12.github.io/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Operating Systems",
+      "item":"https://ihchoi12.github.io/posts/operating-systems/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://ihchoi12.github.io/posts/operating-systems/"
+    },
+    "headline": "Operating Systems | Eureka Demo","datePublished": "2021-06-29T08:58:30+00:00",
+    "dateModified": "2021-06-29T08:58:30+00:00",
+    "wordCount":  2024 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "C. Wang",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ihchoi12.github.io/images/icon.png"
+        }
+        },
+    "description": "Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU Context Switching: Performed by dispatcher. Changing the process context (PCB) and state of two processes (1 Ready and 1 Run) for the preemption. (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time How process (or program) works?"
+}
+</script><meta property="og:title" content="Operating Systems | Eureka Demo" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://ihchoi12.github.io/images/icon.png">
+
+
+<meta property="og:url" content="https://ihchoi12.github.io/posts/operating-systems/" />
+
+
+
+
+<meta property="og:description" content="Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU Context Switching: Performed by dispatcher. Changing the process context (PCB) and state of two processes (1 Ready and 1 Run) for the preemption. (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time How process (or program) works?" />
+
+
+
+
+<meta property="og:locale" content="en" />
+
+
+
+
+<meta property="og:site_name" content="Eureka Demo" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-06-29T08:58:30&#43;00:00" />
+
+
+<meta property="article:modified_time" content="2021-06-29T08:58:30&#43;00:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap p-4">
+    <a href="/" class="mr-6 text-primary-text font-bold">Eureka Demo</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/#about"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
+            <a href="/posts/"
+                class="block mt-4 md:inline-block md:mt-0  text-eureka  hover:text-eureka mr-4">Posts</a>
+            <a href="/docs/"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Docs</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka">Light</span>
+                    <span class="px-4 py-1 hover:text-eureka">Dark</span>
+                    <span class="px-4 py-1 hover:text-eureka">Auto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            switchMode('Auto')
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script></div>
+  </header>
+  <main class="flex-grow pt-16">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="lg:pt-12"></div>
+<div
+    class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+    <h1 class="font-bold text-3xl text-primary-text">Operating Systems</h1>
+    <div class="mr-6 my-2">
+    <span>2021-06-29</span>
+</div>
+
+
+
+
+    
+    
+    
+
+    <div class="content">
+        <h3 id="terminologies">Terminologies</h3>
+<ul>
+<li>Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU</li>
+<li>Context Switching: Performed by dispatcher. Changing the process context (PCB) and state of two processes (1 Ready and 1 Run) for the preemption.</li>
+<li>(CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens)</li>
+<li>Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time</li>
+</ul>
+<h1 id="how-process-or-program-works">How process (or program) works?</h1>
+<h5 id="life-cycle-of-a-program">Life-cycle of a program</h5>
+<ul>
+<li>I write a program <em>hello.c</em> (high-level)</li>
+<li><em>hello.c</em> is given to the compiler</li>
+<li>Compliler convert the high-level language to a low-level language, <em>a.out</em> (executable on the machine)</li>
+<li>Operating system does not take high-level language, but it can understand low-level language to run on HW</li>
+<li>Here, <em>hello.c</em> and <em>a.out</em> are <strong>programs</strong> residing in the hard-disk memory i.e., secondary memory.</li>
+<li>Now, OS takes a program and put it in the RAM (main memory) to execute</li>
+<li>When a program is put on the main memory, it will create a data structure ==&gt; This is the <strong>process</strong></li>
+<li><strong>Process</strong>: something created by the OS in order to execute a <strong>program</strong>.</li>
+</ul>
+<h5 id="process-in-the-main-memory-the-date-strucutre">Process in the main memory (the date strucutre)</h5>
+<ul>
+<li>Stack: for function call (grow downwards)</li>
+<li>Dynamic allocation (i.e., heap): to be used by the process at some point when needed (grow upwards)</li>
+<li>Static variables (variables remained forever thoughout the life-time of process)</li>
+<li>Executable code (<em>a.out</em>)</li>
+</ul>
+<hr>
+<ul>
+<li>On this structure, CPU takse the lines in <em>a.out</em> one by one to execute, while referring some points in the above memory on demand</li>
+<li>OS make sure to never access beyond the boundary of the process in the memory (otherwise, segmentation fault)</li>
+</ul>
+<h5 id="attributes-of-a-process-maintained-in-pcb-of-the-process">Attributes of a process (maintained in PCB of the process)</h5>
+<ul>
+<li>Process ID</li>
+<li>Program Counter: what is the next instruction to be executed?</li>
+<li>Process State: ready, running, blocked, etc.</li>
+<li>Priority</li>
+<li>General Purpose Registers: registers are multiplexed by multiple processes, so a preempted process need to store the state of them so that it can restore them again when it preempts again</li>
+<li>List of Open Files: to keep it across preemptions</li>
+<li>List of Open Devices: to keep it across preemptions</li>
+<li>Protection: prevent a process from accessing other processes&rsquo; data</li>
+</ul>
+<ul>
+<li>OS maintains the linked-list of PBCs</li>
+</ul>
+<h5 id="two-types-of-time-of-a-process">Two types of time of a process</h5>
+<ul>
+<li>CPU time</li>
+<li>I/O time (I/O can be perforemd w/o RAM, so the process can be in disk during this time)</li>
+</ul>
+<h5 id="states-of-a-process">States of a process</h5>
+<ul>
+<li>New (when the process is being created by OS, =&gt; program is being taken from disk)</li>
+<li>Ready (once the creation of process is completed, # of ready processes RAM can hold at a give time is limited =&gt; process is on the RAM)</li>
+<li>Run (the ready process has been chosen out of other ready processes according to the strategy, and is running =&gt; process is on the RAM)</li>
+<li>Block or Wait (when the process is in I/O time or waiting for other resources currently unavailable, so doesn&rsquo;t need for CPUs. Once finishes I/O or using other resources, go back to Ready state. =&gt; process is on RAM)</li>
+<li>Termination or Completion (once the process is done, the process will be killed and it&rsquo;s all traces like PCB context are deleted =&gt; process is deleted from RAM)</li>
+<li>Suspend Ready (the process was in Ready, then a new important process is created making RAM reaches degree of multi-programming, and this process is the least important according to the scheduling algorithm, so it&rsquo;s kicked out to the disk and is waiting to be restored =&gt; process on disk)</li>
+<li>Suspend Wait or Suspend Block: (similar as Suspend Ready, but kick out Block state process instead of Ready, which is more reasonable =&gt; process on disk)</li>
+</ul>
+<hr>
+<p>State transitions happen by OS or intrinsic logic of the process</p>
+<h5 id="operations-on-process">Operations on process</h5>
+<ul>
+<li>Creation: the process is placed on RAM and becomes ready</li>
+<li>Schedule (dispatch): the process is chosen and assigned to use CPU</li>
+<li>Execute: the process is executed by CPU</li>
+<li>Killing/Delete: the process is over</li>
+</ul>
+<h5 id="time-parameters-of-a-process">Time parameters of a process</h5>
+<ul>
+<li>Arrival Time: time at which the process enters into the ready state (ready queue)</li>
+<li>Burst Time: the amount of CPU time required by the process to be completed (it&rsquo;s practically difficult to estimate before execution)</li>
+<li>Completion Time: time at which the process finishes</li>
+<li>Turn Around Time: Completion Time - Arrival Time</li>
+<li>Waiting Time: time during which the process is waiting (to use CPU) in the ready queue or wait state</li>
+<li>Response Time: the first time at which the process is scheudled (dispatched) to CPU == duration of the first Waiting Time</li>
+</ul>
+<hr>
+<p>Turn Around Time = Completion Time - Arrival Time = Total Burst Time + Total Waiting Time</p>
+<h1 id="schedulers">Schedulers</h1>
+<h3 id="3-types-of-schedulers-in-state-transitions">3 types of schedulers in state transitions</h3>
+<p>All of them affects performance</p>
+<h5 id="long-term">Long-term:</h5>
+<ul>
+<li>At <em>New</em> state.</li>
+<li>How many processes should be created (this decision lasts for the entire process).</li>
+<li>It decides the degree of multi-programming.</li>
+<li>Affects system performance significantly (should balance CPU-bound and I/O-bound processes for better performance).</li>
+</ul>
+<h5 id="short-term">Short-term:</h5>
+<ul>
+<li>At <em>Ready</em> state</li>
+<li>which ready process to schedule (this decision lasts only during the <em>Run</em> state).</li>
+<li>Then, dispatcher handles the context switching.</li>
+<li>Good short-term scheduler make the decision such that minimizes the context switching time (which depends on the size of context to be changed)</li>
+</ul>
+<h5 id="medium-term">Medium-term:</h5>
+<ul>
+<li>At <em>Ready</em> or <em>Block</em> state,</li>
+<li>Whether to suspend a process or not</li>
+<li>Suspension of a process cause <em>swapping</em> &ndash; moving a process from RAM to disk, and getting it back</li>
+<li>Good midium-term scheduler minimizes the swapping overheads</li>
+</ul>
+<h2 id="process-scheduling">Process scheduling</h2>
+<p>The objective of multi-programming is to have some processes running at all times, to maximize CPU utilization. Also, the objective of time sharing is to switch the CPU among processes so frequently that users can interact with each of running processes. To achieve these, the <strong>process scheduler</strong> selects one of <strong>ready</strong> processes to be executed on the CPU.</p>
+<h3 id="scheduling-queues">Scheduling queues</h3>
+<p>Process scheduler has two types of queue to implement the scheduling.</p>
+<ul>
+<li>Job queue: As processes enter the RAM, they are put into the job queue, which consist of all processes in the system</li>
+<li>Ready queue: Once a process is ready and waiting to execute, it&rsquo;s moved into the ready queue</li>
+</ul>
+<p>Then, OS selects a process from the ready queue (according to the scheduling algorithm), and assign the CPU to the process.</p>
+<h1 id="basic-concepts">Basic Concepts</h1>
+<p align="center">
+    <img src="/posts/img/process-scheduling.png" width="500"/> <br>
+    <a href="https://www.youtube.com/watch?v=2h3eWaPx8SA">[source]</a> 
+</p>
+<ul>
+<li>What? to pick a ready process and allocate it to CPU</li>
+<li>Who? short-term scheduler</li>
+<li>Where? from ready to running state</li>
+<li>When? a process moves..
+<ul>
+<li>run -&gt; terminate (always)</li>
+<li>run -&gt; wait (always)</li>
+<li>run -&gt; ready (due to quantum expiration or a new process with higher priority) (always)</li>
+<li>new -&gt; ready (not always)</li>
+<li>wait -&gt; ready (not always)</li>
+</ul>
+</li>
+</ul>
+<h3 id="scheduling-algorithms">Scheduling Algorithms</h3>
+<h5 id="fcfs">FCFS</h5>
+<ul>
+<li>Criteria: the earlist arrival time</li>
+<li>Mode: non-preemptive</li>
+<li>Disadvantage: Convoy effect (a process with high burst time and low arrival time can cause later processes wait for long)</li>
+<li>Queue is a suitable data structure to implement this with O(n)</li>
+</ul>
+<h5 id="sjf">SJF</h5>
+<ul>
+<li>To solve Convoy effect</li>
+<li>Criteria: the shotest burst time (among the available process at the time)</li>
+<li>Mode: non-preemptive</li>
+<li>The Convoy effect is not removed completely (ex. a high burst time process arrives a bit earlier than some low bursr time processes)</li>
+<li>Min-heap is a suitable data structure to implement this with O(nlogn): logn for insertion or deletion</li>
+<li>Known to be the best scheduling algorithm, but practically difficult to implement (why? hard to know the burst time before execution), so normally use it as a theoritical benchmark to compare with</li>
+<li>Advantages
+<ul>
+<li>Max Throughput (at any point of time). Why? Processes will be completed as early as possible</li>
+<li>Min Avg WT &amp; TAT</li>
+</ul>
+</li>
+<li>Disadvantages
+<ul>
+<li>Starvation to longer tasks</li>
+<li>Not implementable in practice</li>
+</ul>
+</li>
+<li>(For approximate implementation) SJF with predicted BT. How to predict:
+<ul>
+<li>Static: based on either process size or type (e.g., OS, user, foreground, background, etc.)</li>
+<li>Dynamic: based on simple AVG or exponential AVG</li>
+</ul>
+</li>
+</ul>
+<h5 id="round-robin">Round Robin</h5>
+<ul>
+<li>FCFS with preemption</li>
+<li>Most popular with various advantages:
+<ul>
+<li>Practically implementable (not depending on the burst time)</li>
+<li>Implementable with a simple data structure like Queue</li>
+<li>No starvation</li>
+</ul>
+</li>
+<li>Excute a schedule process for only a particular time quantum (TQ), then preempt</li>
+<li>Queue is a suitable data structure to implement the ready pool</li>
+<li>The longer TQ, the less context switching (but more starvation, larger Response Time, so we should seek for balance)</li>
+<li>TQ is infinite =&gt; FCFS</li>
+</ul>
+<h5 id="ljf">LJF</h5>
+<ul>
+<li>Criteria: BT =&gt; Arrival Time</li>
+<li>Mode: non-preemptive</li>
+</ul>
+<h1 id="introduction">Introduction</h1>
+<h3 id="what-is-os">What is OS?</h3>
+<ul>
+<li>Interface between user and HW (help to generate system calls as user wants)</li>
+<li>Resource allocator (resource should be shared by many users or programs, or should be scheduled if not shareable)</li>
+<li>Manager for memory, process, files, security (e.g., resource isolation), etc.</li>
+</ul>
+<h5 id="history">History</h5>
+<ul>
+<li>evolve with Computer HW, app, and usage pattern</li>
+<li>There was NO OS for the first computers (e.g., ENIAC, Harvard Mark1) =&gt; not portable apps, inefficient</li>
+</ul>
+<h3 id="goal-of-os">Goal of OS</h3>
+<ul>
+<li>Convenience (e.g., for personal computer)</li>
+<li>Efficiency (e.g., for servers)</li>
+<li>Abstractions: users don&rsquo;t want to care about low-level details of large variations in HW configurations</li>
+<li>Programmability, Portability</li>
+<li>Manage resources and coordination</li>
+</ul>
+<h3 id="type-of-os">Type of OS</h3>
+<h5 id="batch-os">Batch OS:</h5>
+<ul>
+<li>Single computer, queue of jobs (FIFO),</li>
+<li>Can move on to next job iff the previous job is finished (starvation: waste of idle resource e.g., CPU or I/O), low efficiency</li>
+<li>Not interactive since an interactive process has to wait until all previous jobs are finished</li>
+</ul>
+<h5 id="multi-programming-wo-preemption">multi-programming w/o preemption</h5>
+<ul>
+<li>It has multiple processes in &lsquo;Ready&rsquo; state</li>
+<li>When a job is taking I/O resource but not CPU, the other job can take CPU (i.e., no CPU idle time)</li>
+</ul>
+<h5 id="time-sharing-os">Time-sharing OS</h5>
+<ul>
+<li>allow multiple users to interact with machine</li>
+<li>User job shceduling =&gt; illusion of concurrency</li>
+<li>memory management</li>
+<li>Virtualization of HW: each program executeds as if it has all the resources to itself (actually not)</li>
+</ul>
+<h5 id="multi-tasking-multi-programming-with-preemption">multi-tasking: multi-programming with preemption</h5>
+<ul>
+<li>Also called Time Sharing</li>
+<li>CPU can be multiplexing multiple jobs even before completing them (i.e., preemptive)</li>
+<li>Interactive</li>
+</ul>
+<h5 id="multi-processing">multi-processing</h5>
+<ul>
+<li>Have multiple CPUs</li>
+<li>Many processes can be supported simultaneously</li>
+<li>Differences from multiple computers: other resources (memory, etc.) can be shared, so less costly and more efficient</li>
+<li>Throughput improved</li>
+<li>Higher reliability (tolerant to some CPU failures)</li>
+<li>Each CPU can be operated as we want (batch? multi-tasking?)</li>
+</ul>
+<h5 id="real-time">Real-time</h5>
+<ul>
+<li>Requested jobs will be having some deadlines</li>
+<li>If fails to meet the deadline, results can be discarded</li>
+</ul>
+<h3 id="os-services">OS Services</h3>
+<ul>
+<li>OS provides program execution environment and services for the programs and users</li>
+<li>So, which services are provided?
+<ul>
+<li>User Interface: to allow users to interact with OS
+<ul>
+<li>CLI: user provides text-based commands to perform certain tasks by OS</li>
+<li>GUI</li>
+</ul>
+</li>
+<li>Program Execution: load a program to RAM, and run it</li>
+<li>I/O Operations (in between processes and I/O devices)</li>
+<li>File System Manipulation</li>
+<li>Communications (between processes)</li>
+<li>Error detection (on the entire system)</li>
+<li>Resource Allocation</li>
+<li>Accounting (which user is using how much and what kind of resources)</li>
+<li>Protection and Security (even in a processes scale)</li>
+</ul>
+</li>
+</ul>
+<h5 id="user-os-interface">User-OS interface</h5>
+<ul>
+<li>Some OS include the CLI in the kernel (the heart of OS)</li>
+<li>But many OSes (e.g., Windows, Unix) treat the CLI as a special program</li>
+<li>On systems with multiple CLIs, the command interpreters are known as shells
+<ul>
+<li>Bourne Shell</li>
+<li>C Shell</li>
+<li>Bourne-Again Shell (BASH)</li>
+<li>Korn Shell</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>Two approaches for executing the commands entered by user
+<ul>
+<li>Command interpreter contains the code to run the tasks, so interpreter itself executes the code</li>
+<li>Command interpreter does not contain any codes, but the codes are written in certain programs, so the interpreter calls the program based on the entered commands</li>
+</ul>
+</li>
+</ul>
+<h5 id="system-calls">System Calls</h5>
+<ul>
+<li>Provide an interface to the services provides by OS</li>
+<li>Two modes of operations where programs are executed
+<ul>
+<li>User mode
+<ul>
+<li>programs do not have direct access to the resources like memory, HW.</li>
+<li>If a program running on user mode crashes, the entire system does not crash (safer)</li>
+<li>most of programs are executed in user mode</li>
+</ul>
+</li>
+<li>Kernel mode (privileged mode)
+<ul>
+<li>programs have direct access to the resources</li>
+<li>If a program running on kernel mode crashes, the entire system will crash</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If a user mode program needs to access the resources, it makes a call (system calls!) to OS to request that ==&gt; Then, the program is switched to kernel mode (called Context Switching), so that it can access the resource</li>
+<li>Definition of System Call: The programmatic way in which a computer program requests a service from the kernel of OS. These calls are generally written in C or C++.</li>
+</ul>
+<h5 id="references">References</h5>
+<p>[1] <a href="https://www.youtube.com/watch?v=2i2N_Qo_FyM">https://www.youtube.com/watch?v=2i2N_Qo_FyM</a></p>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">Previous</span>
+        <a href="https://ihchoi12.github.io/posts/pytorch_tutorial/" class="block">Pytorch Tutorial</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">Next</span>
+        <a href="https://ihchoi12.github.io/posts/math-support/" class="block">Math Support</a>
+        
+    </div>
+</div>
+
+    
+</div>
+
+
+
+
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

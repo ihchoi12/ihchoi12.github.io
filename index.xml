@@ -14,7 +14,7 @@
       <pubDate>Sat, 25 Jun 2022 03:34:25 +0000</pubDate>
       
       <guid>https://ihchoi12.github.io/posts/rdma/</guid>
-      <description>Terminologies  Infiniband (IB): consist of IB adapters and switches RoCE:  RDMA using an Ethernet switched fabric instead of IB Although it uses an Ethernet layer, it has nothing to do with TCP/IP layers    RoCE  RDMA over Ethernet Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting Mellanox Ethernet Spectrum switches acccelerate RoCE performance For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server  Over Lossy Fabric  Lossy Fabric: a fabric which doesn&amp;rsquo;t enforce Priority Flow Control (PFC) Originating from IB, RoCE traditionally required lossless fabric Since CX4, Mellanox enables RoCE over lossy fabric as well How?</description>
+      <description>Terminologies Infiniband (IB): consist of IB adapters and switches RoCE: RDMA using an Ethernet switched fabric instead of IB Although it uses an Ethernet layer, it has nothing to do with TCP/IP layers RoCE RDMA over Ethernet Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting Mellanox Ethernet Spectrum switches acccelerate RoCE performance For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server Over Lossy Fabric Lossy Fabric: a fabric which doesn&amp;rsquo;t enforce Priority Flow Control (PFC) Originating from IB, RoCE traditionally required lossless fabric Since CX4, Mellanox enables RoCE over lossy fabric as well How?</description>
     </item>
     
     <item>
@@ -23,7 +23,7 @@
       <pubDate>Mon, 20 Jun 2022 15:31:53 +0000</pubDate>
       
       <guid>https://ihchoi12.github.io/posts/infiniband/</guid>
-      <description>Infiniband (IB)  Industry standard defining I/O architecture Used to interconnect compute nodes, communication equipments (e.g., switches), storage, and embedded systems Independent of host OS Designed to accelearate all protocol layers (Physical - Link - Network - Transport - Upper) to achieve maximum network utilization and performance Deployed in data centers, cloud computing, HPC, ML/AI  Main components [source]  IB switches: Move the traffics Subnet Manager: Manages all network activities Hosts (end-nodes): The clients of IB fabric Host Channel Adapter (HCA): Enable an IB connection between the host and IB switches IB to Ethernet Gateway: Allows for IP traffic exchanges between IB and Ethernet based networks IB Router: Allows for inter-connectivity between multiple IB subnets  SHARP  Scalable Hierarchical Aggregation and Reduction Protocol In-network computation technology Offloads collective operations from the host CPUs or GPUs to the network switches As a result, it dramatically improves performance of accelerated computing, MPI based applications, such as ML/AI.</description>
+      <description>Infiniband (IB) Industry standard defining I/O architecture Used to interconnect compute nodes, communication equipments (e.g., switches), storage, and embedded systems Independent of host OS Designed to accelearate all protocol layers (Physical - Link - Network - Transport - Upper) to achieve maximum network utilization and performance Deployed in data centers, cloud computing, HPC, ML/AI Main components [source] IB switches: Move the traffics Subnet Manager: Manages all network activities Hosts (end-nodes): The clients of IB fabric Host Channel Adapter (HCA): Enable an IB connection between the host and IB switches IB to Ethernet Gateway: Allows for IP traffic exchanges between IB and Ethernet based networks IB Router: Allows for inter-connectivity between multiple IB subnets SHARP Scalable Hierarchical Aggregation and Reduction Protocol In-network computation technology Offloads collective operations from the host CPUs or GPUs to the network switches As a result, it dramatically improves performance of accelerated computing, MPI based applications, such as ML/AI.</description>
     </item>
     
     <item>
@@ -33,7 +33,7 @@
       
       <guid>https://ihchoi12.github.io/posts/aws_sagemaker/</guid>
       <description>Intro Using ML techniques is more challenging than it looks for some reasons including&amp;hellip;
- Data Preprocessing:  to understand data that comes from different sources with different formats to decide which parameters to use in the model   Select Algorithm &amp;amp; Framework  many problems appears to be similar, and there is no clear guideline for a particular problem   Train &amp;amp; Tune Model  need to feed data for many iteration, while tuning hyperparameters depending on the progress   Integrate &amp;amp; Deploy  need to setup an environment for deployment need to integrate the trained model into the environment    SageMaker:</description>
+Data Preprocessing: to understand data that comes from different sources with different formats to decide which parameters to use in the model Select Algorithm &amp;amp; Framework many problems appears to be similar, and there is no clear guideline for a particular problem Train &amp;amp; Tune Model need to feed data for many iteration, while tuning hyperparameters depending on the progress Integrate &amp;amp; Deploy need to setup an environment for deployment need to integrate the trained model into the environment SageMaker:</description>
     </item>
     
     <item>
@@ -44,7 +44,16 @@
       <guid>https://ihchoi12.github.io/posts/pytorch_tutorial/</guid>
       <description>To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.
 Basic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.
-Tensor  all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list)  PyTorch  a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&amp;rsquo;s great?</description>
+Tensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&amp;rsquo;s great?</description>
+    </item>
+    
+    <item>
+      <title>Operating Systems</title>
+      <link>https://ihchoi12.github.io/posts/operating-systems/</link>
+      <pubDate>Tue, 29 Jun 2021 08:58:30 +0000</pubDate>
+      
+      <guid>https://ihchoi12.github.io/posts/operating-systems/</guid>
+      <description>Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU Context Switching: Performed by dispatcher. Changing the process context (PCB) and state of two processes (1 Ready and 1 Run) for the preemption. (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time How process (or program) works?</description>
     </item>
     
     <item>

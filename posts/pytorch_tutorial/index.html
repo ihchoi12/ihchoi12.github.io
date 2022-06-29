@@ -4,7 +4,7 @@
 
 
 <title>Pytorch Tutorial | Eureka Demo</title>
-<link rel="stylesheet" href="https://ihchoi12.github.io/css/eureka.min.css">
+<link rel="stylesheet" href="https://ihchoi12.github.io/css/eureka.css">
 <script defer src="https://ihchoi12.github.io/js/eureka.min.js"></script>
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,7 +49,7 @@
 <meta name="description"
   content="To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.
 Basic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.
-Tensor  all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list)  PyTorch  a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&rsquo;s great?">
+Tensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&rsquo;s great?">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -87,7 +87,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
             "url": "https://ihchoi12.github.io/images/icon.png"
         }
         },
-    "description": "To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.\nBasic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.\nTensor  all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list)  PyTorch  a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it\u0026rsquo;s great?"
+    "description": "To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.\nBasic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.\nTensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it\u0026rsquo;s great?"
 }
 </script><meta property="og:title" content="Pytorch Tutorial | Eureka Demo" />
 <meta property="og:type" content="article" />
@@ -103,7 +103,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
 
 <meta property="og:description" content="To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.
 Basic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.
-Tensor  all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list)  PyTorch  a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&rsquo;s great?" />
+Tensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&rsquo;s great?" />
 
 
 
@@ -223,7 +223,7 @@ Tensor  all data elements of a tensor are converted to have the same type (e.g.,
         <p>To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.</p>
 <h1 id="basic-concepts">Basic Concepts</h1>
 <p align="center">
-    <img src="/posts/2022-06-14-16-23-53.png" width="300" /> <br>
+    <img src="/posts/img/2022-06-14-16-23-53.png" width="300" /> <br>
     <a href="https://jovian.ai/aakashns/machine-learning-intro">[source]</a> 
 </p>
 <p>Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.</p>
@@ -550,7 +550,7 @@ dy/db: tensor(1.)
 <li>performance will be lower though (due to less parallelization).</li>
 </ul>
 <p align="center">
-    <img src="/posts/sgd.png" width="600" /> <br>
+    <img src="/posts/img/sgd.png" width="600" /> <br>
     <a href="https://arxiv.org/pdf/1802.09941.pdf">[source]</a> 
 </p>
 <h1 id="logistic-regression-for-image-classification">Logistic Regression for Image Classification</h1>
@@ -1087,7 +1087,7 @@ dy/db: tensor(1.)
 <h2 id="pooling">Pooling</h2>
 <p>From each convolutional layer, we can use pooling layers to progressively decrease height &amp; width of the output tensors</p>
 <p align="center">
-    <img src="/posts/max-pooling.png" width="300" /> <br>
+    <img src="/posts/img/max-pooling.png" width="300" /> <br>
     <a href="https://jovian.ai/aakashns/05-cifar10-cnn">[source]</a> 
 </p>
 Note that there are several operations possible for pooling (e.g., max, avg).
@@ -1238,7 +1238,7 @@ Note that there are several operations possible for pooling (e.g., max, avg).
     <div class="md:text-right mt-4 md:mt-0">
         
         <span class="block font-bold">Next</span>
-        <a href="https://ihchoi12.github.io/posts/math-support/" class="block">Math Support</a>
+        <a href="https://ihchoi12.github.io/posts/operating-systems/" class="block">Operating Systems</a>
         
     </div>
 </div>
