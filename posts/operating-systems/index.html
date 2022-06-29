@@ -47,7 +47,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="https://ihchoi12.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU Context Switching: Performed by dispatcher. Changing the process context (PCB) and state of two processes (1 Ready and 1 Run) for the preemption. (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time How process (or program) works?">
+  content="Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&rsquo;s current task to run a kernel module called dispatcher, which happens frequently.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -76,7 +76,7 @@
     },
     "headline": "Operating Systems | Eureka Demo","datePublished": "2021-06-29T08:58:30+00:00",
     "dateModified": "2021-06-29T08:58:30+00:00",
-    "wordCount":  2109 ,
+    "wordCount":  2087 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -85,7 +85,7 @@
             "url": "https://ihchoi12.github.io/images/icon.png"
         }
         },
-    "description": "Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU Context Switching: Performed by dispatcher. Changing the process context (PCB) and state of two processes (1 Ready and 1 Run) for the preemption. (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time How process (or program) works?"
+    "description": "Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H\/W or higher priority process) cause the OS to change a CPU from it\u0026rsquo;s current task to run a kernel module called dispatcher, which happens frequently."
 }
 </script><meta property="og:title" content="Operating Systems | Eureka Demo" />
 <meta property="og:type" content="article" />
@@ -99,7 +99,7 @@
 
 
 
-<meta property="og:description" content="Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU Context Switching: Performed by dispatcher. Changing the process context (PCB) and state of two processes (1 Ready and 1 Run) for the preemption. (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time How process (or program) works?" />
+<meta property="og:description" content="Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&rsquo;s current task to run a kernel module called dispatcher, which happens frequently." />
 
 
 
@@ -216,13 +216,14 @@
     
 
     <div class="content">
-        <h3 id="terminologies">Terminologies</h3>
+        <h1 id="some-terminologies">Some Terminologies</h1>
 <ul>
 <li>Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU</li>
-<li>Context Switching: Performed by dispatcher. Changing the process context (PCB) and state of two processes (1 Ready and 1 Run) for the preemption.</li>
 <li>(CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens)</li>
 <li>Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time</li>
 </ul>
+<h1 id="context-switching">Context Switching</h1>
+<p>Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&rsquo;s current task to run a kernel module called dispatcher, which happens frequently. The dispatcher saves context (represented in the PCB) of the currently running process, and restore context of the interrupting process. It happens during the CPU preemption.</p>
 <h1 id="how-process-or-program-works">How process (or program) works?</h1>
 <h5 id="life-cycle-of-a-program">Life-cycle of a program</h5>
 <ul>
@@ -338,20 +339,6 @@
 <li>Another process with a higher priority comes into the ready queue, so it gets swapped-out and into the list &ldquo;partially executed and swapped-out processes&rdquo;, and then swapped into the ready queue again</li>
 <li>The process needs to use some I/O devices (e.g., PCIe devices), so it becomes <strong>I/O Wait</strong> state and get into I/O waiting queues. Once the I/O devices is available, it executes the I/O operation and go back to the ready queue.</li>
 </ol>
-<ul>
-<li>What? to pick a ready process and allocate it to CPU</li>
-<li>Who? short-term scheduler</li>
-<li>Where? from ready to running state</li>
-<li>When? a process moves..
-<ul>
-<li>run -&gt; terminate (always)</li>
-<li>run -&gt; wait (always)</li>
-<li>run -&gt; ready (due to quantum expiration or a new process with higher priority) (always)</li>
-<li>new -&gt; ready (not always)</li>
-<li>wait -&gt; ready (not always)</li>
-</ul>
-</li>
-</ul>
 <h3 id="scheduling-algorithms">Scheduling Algorithms</h3>
 <h5 id="fcfs">FCFS</h5>
 <ul>
