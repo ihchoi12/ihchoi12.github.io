@@ -76,7 +76,7 @@
     },
     "headline": "Operating Systems | Eureka Demo","datePublished": "2021-06-29T08:58:30+00:00",
     "dateModified": "2021-06-29T08:58:30+00:00",
-    "wordCount":  2024 ,
+    "wordCount":  2109 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -328,12 +328,16 @@
 <li>Job queue: As processes enter the RAM, they are put into the job queue, which consist of all processes in the system</li>
 <li>Ready queue: Once a process is ready and waiting to execute, it&rsquo;s moved into the ready queue</li>
 </ul>
-<p>Then, OS selects a process from the ready queue (according to the scheduling algorithm), and assign the CPU to the process.</p>
-<h1 id="basic-concepts">Basic Concepts</h1>
 <p align="center">
     <img src="/posts/img/process-scheduling.png" width="500"/> <br>
     <a href="https://www.youtube.com/watch?v=2h3eWaPx8SA">[source]</a> 
 </p>
+<p>Then, OS selects a process from the ready queue (according to the scheduling algorithm), and assign the CPU to the process. Here, 3 cases can happen:</p>
+<ol>
+<li>The process completes execution and becomes terminated state (ends)</li>
+<li>Another process with a higher priority comes into the ready queue, so it gets swapped-out and into the list &ldquo;partially executed and swapped-out processes&rdquo;, and then swapped into the ready queue again</li>
+<li>The process needs to use some I/O devices (e.g., PCIe devices), so it becomes <strong>I/O Wait</strong> state and get into I/O waiting queues. Once the I/O devices is available, it executes the I/O operation and go back to the ready queue.</li>
+</ol>
 <ul>
 <li>What? to pick a ready process and allocate it to CPU</li>
 <li>Who? short-term scheduler</li>
@@ -527,8 +531,11 @@
 <li>If a user mode program needs to access the resources, it makes a call (system calls!) to OS to request that ==&gt; Then, the program is switched to kernel mode (called Context Switching), so that it can access the resource</li>
 <li>Definition of System Call: The programmatic way in which a computer program requests a service from the kernel of OS. These calls are generally written in C or C++.</li>
 </ul>
-<h5 id="references">References</h5>
-<p>[1] <a href="https://www.youtube.com/watch?v=2i2N_Qo_FyM">https://www.youtube.com/watch?v=2i2N_Qo_FyM</a></p>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=2i2N_Qo_FyM">https://www.youtube.com/watch?v=2i2N_Qo_FyM</a></li>
+<li><a href="https://www.youtube.com/watch?v=2h3eWaPx8SA">https://www.youtube.com/watch?v=2h3eWaPx8SA</a></li>
+</ul>
 
     </div>
     
