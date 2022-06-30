@@ -76,7 +76,7 @@
     },
     "headline": "Operating Systems | Eureka Demo","datePublished": "2021-06-29T08:58:30+00:00",
     "dateModified": "2021-06-29T08:58:30+00:00",
-    "wordCount":  2087 ,
+    "wordCount":  2110 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -223,7 +223,7 @@
 <li>Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time</li>
 </ul>
 <h1 id="context-switching">Context Switching</h1>
-<p>Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&rsquo;s current task to run a kernel module called dispatcher, which happens frequently. The dispatcher saves context (represented in the PCB) of the currently running process, and restore context of the interrupting process. It happens during the CPU preemption.</p>
+<p>Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&rsquo;s current task to run a kernel module called dispatcher, which happens frequently. The dispatcher saves context (represented in the PCB) of the currently running process, and restore context of the interrupting process. It happens during the CPU preemption. Note that the CPU is not running any process during the context switching, so it&rsquo;s a pure overhead (typically it&rsquo;s a few ms).</p>
 <h1 id="how-process-or-program-works">How process (or program) works?</h1>
 <h5 id="life-cycle-of-a-program">Life-cycle of a program</h5>
 <ul>
