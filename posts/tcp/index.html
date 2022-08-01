@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width">
 
 
-<title>RDMA | Eureka Demo</title>
+<title>TCP | Eureka Demo</title>
 <link rel="stylesheet" href="https://ihchoi12.github.io/css/eureka.css">
 <script defer src="https://ihchoi12.github.io/js/eureka.min.js"></script>
 
@@ -47,7 +47,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="https://ihchoi12.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="TEST Terminologies Infiniband (IB): consist of IB adapters and switches RoCE: RDMA using an Ethernet switched fabric instead of IB Although it uses an Ethernet layer, it has nothing to do with TCP/IP layers RoCE RDMA over Ethernet Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting Mellanox Ethernet Spectrum switches acccelerate RoCE performance For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server Over Lossy Fabric Lossy Fabric: a fabric which doesn&rsquo;t enforce Priority Flow Control (PFC) Originating from IB, RoCE traditionally required lossless fabric Since CX4, Mellanox enables RoCE over lossy fabric as well How?">
+  content="d Hello">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -59,8 +59,8 @@
       "item":"https://ihchoi12.github.io/posts/"},{
       "@type": "ListItem",
       "position": 2 ,
-      "name":"RDMA",
-      "item":"https://ihchoi12.github.io/posts/rdma/"}]
+      "name":"TCP",
+      "item":"https://ihchoi12.github.io/posts/tcp/"}]
 }
 </script>
 
@@ -72,11 +72,11 @@
     "@type": "Article",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://ihchoi12.github.io/posts/rdma/"
+        "@id": "https://ihchoi12.github.io/posts/tcp/"
     },
-    "headline": "RDMA | Eureka Demo","datePublished": "2022-06-25T03:34:25+00:00",
-    "dateModified": "2022-06-25T03:34:25+00:00",
-    "wordCount":  329 ,
+    "headline": "TCP | Eureka Demo","datePublished": "2022-07-30T02:45:11+00:00",
+    "dateModified": "2022-07-30T02:45:11+00:00",
+    "wordCount":  2 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -85,21 +85,21 @@
             "url": "https://ihchoi12.github.io/images/icon.png"
         }
         },
-    "description": "TEST Terminologies Infiniband (IB): consist of IB adapters and switches RoCE: RDMA using an Ethernet switched fabric instead of IB Although it uses an Ethernet layer, it has nothing to do with TCP\/IP layers RoCE RDMA over Ethernet Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting Mellanox Ethernet Spectrum switches acccelerate RoCE performance For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server Over Lossy Fabric Lossy Fabric: a fabric which doesn\u0026rsquo;t enforce Priority Flow Control (PFC) Originating from IB, RoCE traditionally required lossless fabric Since CX4, Mellanox enables RoCE over lossy fabric as well How?"
+    "description": "d Hello"
 }
-</script><meta property="og:title" content="RDMA | Eureka Demo" />
+</script><meta property="og:title" content="TCP | Eureka Demo" />
 <meta property="og:type" content="article" />
 
 
 <meta property="og:image" content="https://ihchoi12.github.io/images/icon.png">
 
 
-<meta property="og:url" content="https://ihchoi12.github.io/posts/rdma/" />
+<meta property="og:url" content="https://ihchoi12.github.io/posts/tcp/" />
 
 
 
 
-<meta property="og:description" content="TEST Terminologies Infiniband (IB): consist of IB adapters and switches RoCE: RDMA using an Ethernet switched fabric instead of IB Although it uses an Ethernet layer, it has nothing to do with TCP/IP layers RoCE RDMA over Ethernet Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting Mellanox Ethernet Spectrum switches acccelerate RoCE performance For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server Over Lossy Fabric Lossy Fabric: a fabric which doesn&rsquo;t enforce Priority Flow Control (PFC) Originating from IB, RoCE traditionally required lossless fabric Since CX4, Mellanox enables RoCE over lossy fabric as well How?" />
+<meta property="og:description" content="d Hello" />
 
 
 
@@ -116,10 +116,10 @@
 
 
 
-<meta property="article:published_time" content="2022-06-25T03:34:25&#43;00:00" />
+<meta property="article:published_time" content="2022-07-30T02:45:11&#43;00:00" />
 
 
-<meta property="article:modified_time" content="2022-06-25T03:34:25&#43;00:00" />
+<meta property="article:modified_time" content="2022-07-30T02:45:11&#43;00:00" />
 
 
 
@@ -203,9 +203,9 @@
 <div class="lg:pt-12"></div>
 <div
     class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
-    <h1 class="font-bold text-3xl text-primary-text">RDMA</h1>
+    <h1 class="font-bold text-3xl text-primary-text">TCP</h1>
     <div class="mr-6 my-2">
-    <span>2022-06-25</span>
+    <span>2022-07-30</span>
 </div>
 
 
@@ -216,70 +216,8 @@
     
 
     <div class="content">
-        <h1 id="test">TEST</h1>
-<h1 id="terminologies">Terminologies</h1>
-<ul>
-<li>Infiniband (IB): consist of IB adapters and switches</li>
-<li>RoCE:
-<ul>
-<li>RDMA using an Ethernet switched fabric instead of IB</li>
-<li>Although it uses an Ethernet layer, it has nothing to do with TCP/IP layers</li>
-</ul>
-</li>
-</ul>
-<h1 id="roce">RoCE</h1>
-<ul>
-<li>RDMA over Ethernet</li>
-<li>Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting</li>
-<li>Mellanox Ethernet Spectrum switches acccelerate RoCE performance</li>
-<li>For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server</li>
-</ul>
-<h3 id="over-lossy-fabric">Over Lossy Fabric</h3>
-<ul>
-<li>Lossy Fabric: a fabric which doesn&rsquo;t enforce Priority Flow Control (PFC)</li>
-<li>Originating from IB, RoCE traditionally required lossless fabric</li>
-<li>Since CX4, Mellanox enables RoCE over lossy fabric as well</li>
-<li>How? Use H/W based congestion control mechanisms of Mellanox NICs to make the network from lossy to lossless
-<ol>
-<li>Enable Explicit Congestion Notification (ECN) on a switch using a single CLI command</li>
-<li>When the switch&rsquo;s queues begin to fill up, they add ECN mark to received IP packets</li>
-<li>Once these ECN marked packets arrive to the receiver, it notifies the sender to slowdown sending rate by sending CNP marked packets</li>
-</ol>
-<ul>
-<li>This approach reduces the reaction time to congestion notifications to 10s of ns (x1000 faster than S/W based approach)</li>
-<li>Also, using this approach, RoCE shows a small (or 0) difference on performance in lossy and lossless fabrics</li>
-<li>Over this network, we can add a priority mark to classify RoCE traffic from others to enable QoS or other configurations for RoCE traffic only (this can be done over layer 2 marking PCP TAG, or over layer 3 marking DSCP TAG)</li>
-</ul>
-</li>
-</ul>
-<h1 id="rdma">RDMA</h1>
-<p>Advantages: lower latency, CPU bypass</p>
-<h1 id="basic-concepts">Basic Concepts</h1>
-<p align="center">
-    <img src="/posts/img/rdma-diagram.png" width="500" /> <br>
-    <a href="https://www.infinibandta.org/roce-and-infiniband-which-should-i-choose/">[source]</a> 
-</p>
-<ul>
-<li>OFA s/w: open source s/w stacks provided by the Open Fabrics Alliance which supports RDMA</li>
-</ul>
-<h2 id="verbs">Verbs</h2>
-<ul>
-<li>Two sided (channel semantics)
-<ul>
-<li>Send/Receive</li>
-</ul>
-</li>
-<li>One sided (memory semantics)
-<ul>
-<li>Read/Write: the initiator specifies the source or destination location, w/o involving the other end CPUs.</li>
-</ul>
-</li>
-</ul>
-<h1 id="reference">Reference</h1>
-<ul>
-<li><a href="https://www.infinibandta.org/roce-and-infiniband-which-should-i-choose/">https://www.infinibandta.org/roce-and-infiniband-which-should-i-choose/</a></li>
-<li><a href="https://academy.nvidia.com/mod/scorm/view.php?id=8214">https://academy.nvidia.com/mod/scorm/view.php?id=8214</a></li>
-</ul>
+        <h1 id="d">d</h1>
+<p>Hello</p>
 
     </div>
     
@@ -292,14 +230,11 @@
 <div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
     <div>
         
-        <span class="block font-bold">Previous</span>
-        <a href="https://ihchoi12.github.io/posts/tcp/" class="block">TCP</a>
-        
     </div>
     <div class="md:text-right mt-4 md:mt-0">
         
         <span class="block font-bold">Next</span>
-        <a href="https://ihchoi12.github.io/posts/infiniband/" class="block">Infiniband</a>
+        <a href="https://ihchoi12.github.io/posts/rdma/" class="block">RDMA</a>
         
     </div>
 </div>
