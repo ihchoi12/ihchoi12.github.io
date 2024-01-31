@@ -7,153 +7,119 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 16 Aug 2022 13:28:59 +0800</lastBuildDate><atom:link href="https://ihchoi12.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Aug 2022 13:28:59 +0800</lastBuildDate>
+    <atom:link href="https://ihchoi12.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MMIO</title>
       <link>https://ihchoi12.github.io/posts/mmio/</link>
       <pubDate>Tue, 16 Aug 2022 13:28:59 +0800</pubDate>
-      
       <guid>https://ihchoi12.github.io/posts/mmio/</guid>
       <description>Memory: On-chip vs Off-chip On-chip (SRAM): Storage on the processor chip to decrease latency for critical/ frequently used data Works as a cache for the main memory(DRAM) Usually single cycle access Off-chip (DRAM): Much cheaper than SRAM Usually has much more latency (5–15 cycles) Memory Space The memory space is devided into 6 pre-defiened regions Code: Typically, on-chip flash (not on-chip SRAM) To store program code or data SRAM: Primarily used to store data (e.g., heaps, stacks), or code Peripheral External device External RAM System Interfacing Peripherals Usually, each on-chip peripheral device has a few registers (e.</description>
     </item>
-    
     <item>
       <title>TCP</title>
       <link>https://ihchoi12.github.io/posts/tcp/</link>
       <pubDate>Sat, 30 Jul 2022 02:45:11 +0000</pubDate>
-      
       <guid>https://ihchoi12.github.io/posts/tcp/</guid>
       <description>d done2</description>
     </item>
-    
     <item>
       <title>RDMA</title>
       <link>https://ihchoi12.github.io/posts/rdma/</link>
       <pubDate>Sat, 25 Jun 2022 03:34:25 +0000</pubDate>
-      
       <guid>https://ihchoi12.github.io/posts/rdma/</guid>
       <description>hi please Terminologies Infiniband (IB): consist of IB adapters and switches RoCE: RDMA using an Ethernet switched fabric instead of IB Although it uses an Ethernet layer, it has nothing to do with TCP/IP layers RoCE RDMA over Ethernet Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting Mellanox Ethernet Spectrum switches acccelerate RoCE performance For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server Over Lossy Fabric Lossy Fabric: a fabric which doesn&amp;rsquo;t enforce Priority Flow Control (PFC) Originating from IB, RoCE traditionally required lossless fabric Since CX4, Mellanox enables RoCE over lossy fabric as well How?</description>
     </item>
-    
     <item>
       <title>Infiniband</title>
       <link>https://ihchoi12.github.io/posts/infiniband/</link>
       <pubDate>Mon, 20 Jun 2022 15:31:53 +0000</pubDate>
-      
       <guid>https://ihchoi12.github.io/posts/infiniband/</guid>
       <description>Infiniband (IB) Industry standard defining I/O architecture Used to interconnect compute nodes, communication equipments (e.g., switches), storage, and embedded systems Independent of host OS Designed to accelearate all protocol layers (Physical - Link - Network - Transport - Upper) to achieve maximum network utilization and performance Deployed in data centers, cloud computing, HPC, ML/AI Main components [source] IB switches: Move the traffics Subnet Manager: Manages all network activities Hosts (end-nodes): The clients of IB fabric Host Channel Adapter (HCA): Enable an IB connection between the host and IB switches IB to Ethernet Gateway: Allows for IP traffic exchanges between IB and Ethernet based networks IB Router: Allows for inter-connectivity between multiple IB subnets SHARP Scalable Hierarchical Aggregation and Reduction Protocol In-network computation technology Offloads collective operations from the host CPUs or GPUs to the network switches As a result, it dramatically improves performance of accelerated computing, MPI based applications, such as ML/AI.</description>
     </item>
-    
     <item>
       <title>AWS SageMaker</title>
       <link>https://ihchoi12.github.io/posts/aws_sagemaker/</link>
       <pubDate>Sat, 18 Jun 2022 12:09:20 +0000</pubDate>
-      
       <guid>https://ihchoi12.github.io/posts/aws_sagemaker/</guid>
-      <description>Intro Using ML techniques is more challenging than it looks for some reasons including&amp;hellip;
-Data Preprocessing: to understand data that comes from different sources with different formats to decide which parameters to use in the model Select Algorithm &amp;amp; Framework many problems appears to be similar, and there is no clear guideline for a particular problem Train &amp;amp; Tune Model need to feed data for many iteration, while tuning hyperparameters depending on the progress Integrate &amp;amp; Deploy need to setup an environment for deployment need to integrate the trained model into the environment SageMaker:</description>
+      <description>Intro Using ML techniques is more challenging than it looks for some reasons including&amp;hellip;&#xA;Data Preprocessing: to understand data that comes from different sources with different formats to decide which parameters to use in the model Select Algorithm &amp;amp; Framework many problems appears to be similar, and there is no clear guideline for a particular problem Train &amp;amp; Tune Model need to feed data for many iteration, while tuning hyperparameters depending on the progress Integrate &amp;amp; Deploy need to setup an environment for deployment need to integrate the trained model into the environment SageMaker:</description>
     </item>
-    
     <item>
       <title>Pytorch Tutorial</title>
       <link>https://ihchoi12.github.io/posts/pytorch_tutorial/</link>
       <pubDate>Tue, 14 Jun 2022 15:52:29 +0800</pubDate>
-      
       <guid>https://ihchoi12.github.io/posts/pytorch_tutorial/</guid>
-      <description>To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.
-Basic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.
-Tensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&amp;rsquo;s great?</description>
+      <description>To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.&#xA;Basic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.&#xA;Tensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&amp;rsquo;s great?</description>
     </item>
-    
     <item>
       <title>Operating Systems</title>
       <link>https://ihchoi12.github.io/posts/operating-systems/</link>
       <pubDate>Tue, 29 Jun 2021 08:58:30 +0000</pubDate>
-      
       <guid>https://ihchoi12.github.io/posts/operating-systems/</guid>
       <description>Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&amp;rsquo;s current task to run a kernel module called dispatcher, which happens frequently.</description>
     </item>
-    
     <item>
       <title>Math Support</title>
       <link>https://ihchoi12.github.io/posts/math-support/</link>
       <pubDate>Fri, 20 Nov 2020 22:52:56 +0800</pubDate>
-      
       <guid>https://ihchoi12.github.io/posts/math-support/</guid>
       <description>&lt;p&gt;Eureka supports the rendering of mathematical formulas by using KaTeX.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Chapter 1</title>
       <link>https://ihchoi12.github.io/docs/example-doc/chapter-1/</link>
       <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://ihchoi12.github.io/docs/example-doc/chapter-1/</guid>
       <description>&lt;p&gt;This is chapter 1 of example doc.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Chapter 1</title>
       <link>https://ihchoi12.github.io/docs/example-doc/nested-chapter/chapter-1/</link>
       <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://ihchoi12.github.io/docs/example-doc/nested-chapter/chapter-1/</guid>
       <description>&lt;p&gt;This is chapter 1 of nested chapter.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Chapter 2</title>
       <link>https://ihchoi12.github.io/docs/example-doc/chapter-2/</link>
       <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://ihchoi12.github.io/docs/example-doc/chapter-2/</guid>
       <description>&lt;p&gt;This is chapter 2 of example doc.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Chapter 2</title>
       <link>https://ihchoi12.github.io/docs/example-doc/nested-chapter/chapter-2/</link>
       <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://ihchoi12.github.io/docs/example-doc/nested-chapter/chapter-2/</guid>
       <description>&lt;p&gt;This is chapter 2 of nested chapter.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Featured Image</title>
       <link>https://ihchoi12.github.io/posts/featured-image/</link>
       <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://ihchoi12.github.io/posts/featured-image/</guid>
       <description>&lt;p&gt;Maecenas maximus, elit in ornare porttitor, nisi eros hendrerit nisl, sed fermentum nulla urna blandit tellus.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Markdown Syntax Guide</title>
       <link>https://ihchoi12.github.io/posts/markdown-syntax/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://ihchoi12.github.io/posts/markdown-syntax/</guid>
       <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Placeholder Text</title>
       <link>https://ihchoi12.github.io/posts/placeholder-text/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://ihchoi12.github.io/posts/placeholder-text/</guid>
       <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Emoji Support</title>
       <link>https://ihchoi12.github.io/posts/emoji-support/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://ihchoi12.github.io/posts/emoji-support/</guid>
       <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
