@@ -110,6 +110,8 @@
         <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
             <a href="/#about"
                 class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
+            <a href="/#work-in-progress"
+                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Work in Progress</a>
             <a href="/#publications"
                 class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Publications</a>
             <a href="/#experiences"
@@ -327,7 +329,7 @@ My research lies at the intersection of distributed systems, datacenter networks
         Ph.D. Student in Computer Science 
         (Advisor: <a href="https://www.comp.nus.edu.sg/~lijl/" >Jialin Li</a>)
       </p>
-      <p style="float: left; width: 20%; height: 50px; text-align: right;">
+      <p style="float: left; width: 20%; text-align: right; margin-bottom: 20px;">
         Aug 2019 — Present
       </p>
       <div style="clear: both;"></div>
@@ -341,7 +343,7 @@ My research lies at the intersection of distributed systems, datacenter networks
       <p style="float: left; width: 80%; text-align: left;">
         Bachelor's Degree in Computer Science
       </p>
-      <p style="float: left; width: 20%; height: 50px; text-align: right;">
+      <p style="float: left; width: 20%; text-align: right; margin-bottom: 20px;">
         Mar 2012 — Aug 2019
       </p>
       <div style="clear: both;"></div>
@@ -355,12 +357,24 @@ My research lies at the intersection of distributed systems, datacenter networks
       <p style="float: left; width: 80%; text-align: left;">
         Exchange Student in Information Technology
       </p>
-      <p style="float: left; width: 20%; height: 50px; text-align: right;">
+      <p style="float: left; width: 20%; text-align: right; margin-bottom: 20px;">
         Aug 2017 - Jan 2018
       </p>
       <div style="clear: both;"></div>
   </div>
 <br>
+<div id="work-in-progress"></div>
+<h2 id="work-in-progress-span-stylefont-size14px-font-style-italic-font-weight-normal-margin-left-10pxprojects-that-im-currently-leadingspan">Work in Progress <span style="font-size:14px; font-style: italic; font-weight: normal; margin-left: 10px;">(projects that I&rsquo;m currently leading)</span></h2>
+<p><b>- ML-native Dataplane Operating Systems<span style="color: rgba(13, 139, 243, 1);"> [Current Main Project]</span></b></p>
+  <p style="text-align: justify; line-height: 1.6;">
+  We design an ML-native dataplane OS architecture for automatic parameter tuning. Performance tuning remains a persistent challenge in modern datacenters, especially at microsecond scales. We are exploring how machine learning can be natively integrated into the OS dataplane, with case studies showing substantial performance gains through dynamic parameter optimization.
+  </p>
+  <br>
+<p><b>- Capybara: Dynamic Layer-4 Load Balancing with Microsecond-Scale TCP Migration<span style="color: rgba(13, 139, 243, 1);"> [Full Paper Under Review]</span></b></p>
+  <p style="text-align: justify; line-height: 1.6;">
+  Layer-4 load balancers are a popular solution to high tail latencies but perform poorly under unpredictable workloads and traffic bursts because they statically assign connections to servers. We present Capybara, the first dynamic L4 load balancer with &mu;s-scale stateful connection migration. Capybara leverages two trends — programmable switches and kernel-bypass — to efficiently implement TCP migration without packet loss, while maintaining transparency to clients.
+  </p>
+  <br>
 <div id="publications"></div>
 <h2 id="publications">Publications</h2>
 <p><b>[APSYS &lsquo;25]
@@ -425,7 +439,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     <p style="float: left; width: 80%; text-align: left;">
       Systems Research Group (Mentor: <a href="https://irenezhang.net/" >Irene Zhang</a>)
     </p>
-    <p style="float: left; width: 20%; height: 50px; text-align: right;">
+    <p style="float: left; width: 20%; text-align: right; margin-bottom: 20px;">
       June 2025 — Sep 2025
     </p>
     <div style="clear: both;"></div>
@@ -439,7 +453,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     <p style="float: left; width: 80%; text-align: left;">
       Systems Research Group (Mentor: <a href="https://drkp.net/" >Dan Ports</a>)
     </p>
-    <p style="float: left; width: 20%; height: 50px; text-align: right;">
+    <p style="float: left; width: 20%; text-align: right; margin-bottom: 20px;">
       June 2024 — Aug 2024
     </p>
     <div style="clear: both;"></div>
@@ -453,7 +467,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     <p style="float: left; width: 80%; text-align: left;">
        Xilinx - FPGA / System Design Lab (Mentor: <a href="https://www.linkedin.com/in/guanwen-henry-zhong-16817831/?originalSubdomain=sg" >Guanwen Zhong</a>)
     </p>
-    <p style="float: left; width: 20%; height: 50px; text-align: right;">
+    <p style="float: left; width: 20%; text-align: right; margin-bottom: 20px;">
       May 2023 — Aug 2023
     </p>
     <div style="clear: both;"></div>
@@ -467,7 +481,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     <p style="float: left; width: 80%; text-align: left;">
       Systems & Network Security Lab (Advisor: <a href="https://netsp.kaist.ac.kr/" >Min Suk Kang</a>)
     </p>
-    <p style="float: left; width: 20%; height: 50px; text-align: right;">
+    <p style="float: left; width: 20%; text-align: right; margin-bottom: 20px;">
       Sep 2018 — Feb 2019
     </p>
     <div style="clear: both;"></div>
@@ -481,7 +495,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     <p style="float: left; width: 80%; text-align: left;">
       Dependable Computing Lab (Advisor: <a href="http://dclab.yonsei.ac.kr/" >Kyoungwoo Lee</a>)
     </p>
-    <p style="float: left; width: 20%; height: 50px; text-align: right;">
+    <p style="float: left; width: 20%; text-align: right; margin-bottom: 20px;">
       Feb 2017 — May 2018
     </p>
     <div style="clear: both;"></div>
@@ -495,7 +509,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     <p style="float: left; width: 80%; text-align: left;">
       IT Planning Team
     </p>
-    <p style="float: left; width: 20%; height: 50px; text-align: right;">
+    <p style="float: left; width: 20%; text-align: right; margin-bottom: 20px;">
       July 2018 — Aug 2018
     </p>
     <!--  -->
@@ -510,7 +524,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     <p style="float: left; width: 40%; text-align: right;">
       National University of Singapore
     </p>
-    <p style="float: left; width: 100%; height: 50px; text-align: right;">
+    <p style="float: left; width: 100%; text-align: right; margin-bottom: 20px;">
       Oct 2023
     </p>
     <div style="clear: both;"></div>
@@ -520,7 +534,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     <p style="float: left; width: 40%; text-align: right;">
       National University of Singapore
     </p>
-    <p style="float: left; width: 100%; height: 50px; text-align: right;">
+    <p style="float: left; width: 100%; text-align: right; margin-bottom: 20px;">
       Jan 2023
     </p>
     <div style="clear: both;"></div>
@@ -530,7 +544,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     <p style="float: left; width: 40%; text-align: right;">
       National University of Singapore
     </p>
-    <p style="float: left; width: 100%; height: 50px; text-align: right;">
+    <p style="float: left; width: 100%; text-align: right; margin-bottom: 20px;">
       Aug 2018 - Present
     </p>
     <div style="clear: both;"></div>
@@ -540,7 +554,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     <p style="float: left; width: 40%; text-align: right;">
       Yonsei University
     </p>
-    <p style="float: left; width: 100%; height: 50px; text-align: right;">
+    <p style="float: left; width: 100%; text-align: right; margin-bottom: 20px;">
       Aug 2018
     </p>
     <div style="clear: both;"></div>
