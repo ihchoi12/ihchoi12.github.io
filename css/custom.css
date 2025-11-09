@@ -1,0 +1,84 @@
+/* Custom CSS to increase page width */
+
+/* Override Tailwind's max-w-screen-xl class - most important */
+.max-w-screen-xl {
+    max-width: 95% !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+/* Target main container */
+main > div {
+    max-width: 95% !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+/* Increase max-width for main content container */
+.max-w-prose {
+    max-width: none !important;
+}
+
+.max-w-7xl {
+    max-width: 95% !important;
+}
+
+.max-w-6xl {
+    max-width: 95% !important;
+}
+
+.max-w-5xl {
+    max-width: 95% !important;
+}
+
+.max-w-4xl {
+    max-width: 95% !important;
+}
+
+.max-w-3xl {
+    max-width: 95% !important;
+}
+
+.max-w-2xl {
+    max-width: 95% !important;
+}
+
+/* Increase container width */
+.container {
+    max-width: 95% !important;
+}
+
+/* Adjust article content width */
+article {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Adjust about widget content width */
+.content {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+/* Only justify and set width for paragraphs that don't use float (actual text paragraphs) */
+.content p:not([style*="float"]) {
+    text-align: justify !important;
+    max-width: 100% !important;
+}
+
+/* Make sure divs inside content take full width */
+.content div {
+    max-width: 100% !important;
+}
+
+/* Remove extra padding */
+.lg\:px-4 {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+}
+
+.xl\:px-8 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
