@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hierarchical Disaggregation for Large-Scale MoE Model Serving</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+        }
+        h1 { color: #1a1a1a; border-bottom: 2px solid #0D8BF3; padding-bottom: 10px; }
+        h2 { color: #0D8BF3; margin-top: 30px; }
+        h3 { color: #444; margin-top: 20px; }
+        ul { margin-left: 20px; }
+        li { margin-bottom: 8px; }
+        .limitation { background-color: #fff3cd; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        .proposed { background-color: #d4edda; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        strong { color: #0D8BF3; }
+    </style>
+</head>
+<body>
+    <h1>Hierarchical Disaggregation for Large-Scale MoE Model Serving</h1>
+
+    <h2>Background</h2>
+    <p>Two orthogonal disaggregation techniques have been proposed for efficient LLM serving:</p>
+
+    <h3>Prefill-Decode (P-D) Disaggregation</h3>
+    <ul>
+        <li><strong>Problem:</strong> Prefill (compute-bound) and decode (memory-bound) phases have different resource characteristics. Colocating them causes interference and suboptimal batching.</li>
+        <li><strong>Solution:</strong> Separates prefill and decode into distinct nodes. KV cache is transferred from prefill to decode nodes.</li>
+        <li><strong>Benefit:</strong> Enables independent scaling and reduces phase interference.</li>
+        <li><strong>Limitation:</strong> Focuses only on phase-level separation. Does not address low GPU utilization in MoE experts within the decode phase (i.e., MoE sparsity), as attention and experts remain colocated.</li>
+    </ul>
+
+    <h3>Attention-Expert Disaggregation</h3>
+    <ul>
+        <li><strong>Problem:</strong> MoE sparsity reduces tokens per expert (batch × top_k / num_total_experts), making FFN memory-bound and causing low GPU utilization.</li>
+        <li><strong>Solution:</strong> Separates attention and MoE FFN modules onto different GPU pools and replicates attention nodes to aggregate tokens from multiple sources.</li>
+        <li><strong>Benefit:</strong> Increases effective batch size per expert, restoring compute-intensity.</li>
+        <li><strong>Limitation:</strong> Does not address P-D interference. Limited to homogeneous hardware.</li>
+    </ul>
+
+    <p>Both approaches are validated in production systems (SGLang, ByteDance) but have been studied in isolation.</p>
+
+    <h2>Limitation</h2>
+    <div class="limitation">
+        <p>Applying either technique alone leaves efficiency gaps:</p>
+        <ul>
+            <li><strong>P-D Disaggregation only:</strong> Addresses P-D phase interference, but leaves MoE underutilization in the decode phase unresolved.</li>
+            <li><strong>Attention-Expert Disaggregation only:</strong> Addresses MoE sparsity and enables heterogeneous hardware deployment, but still suffers from P-D interference.</li>
+        </ul>
+        <p>Naively combining them introduces new challenges:</p>
+        <ul>
+            <li>Increased network communication overhead: P→D transfer and Attention↔Expert communication</li>
+            <li>Need unified scheduling across main operations: chunked prefill, KV cache transfer (from P to D), attention-expert ping-pong pipeline overlapping across microbatches</li>
+        </ul>
+    </div>
+
+    <h2>Proposed Idea</h2>
+    <div class="proposed">
+        <p><strong>Hierarchical Architecture:</strong> Apply P-D disaggregation at the top level, then Attention-Expert disaggregation within the decode cluster.</p>
+        <ul>
+            <li><strong>Prefill cluster:</strong> Compute-bound already to handle the entire prompt. Attn-Expert disaggregation can be applied on-demand (e.g., chunked prefill).</li>
+            <li><strong>Decode-Attention nodes:</strong> Perform attention using KV cache received from prefill nodes. GPUs with high memory bandwidth are better suited.</li>
+            <li><strong>Decode-Expert nodes:</strong> Execute MoE FFN via ping-pong pipeline with Attention nodes. GPUs with high computation efficiency are better suited.</li>
+        </ul>
+        <p><strong>Communication Co-scheduling:</strong> Overlap KV transfer (Prefill→Decode-Attention) with Decode-Expert computation phase to avoid network contention with Attn-Expert communication.</p>
+    </div>
+</body>
+</html>

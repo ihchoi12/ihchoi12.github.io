@@ -314,14 +314,14 @@
 <div class="content">
   <h2 id="heading"></h2>
 <p style="font-size:18px; color: #0d15f3d8; background-color: #bdbfc1ff; padding: 15px; border-radius: 8px; border-left: 4px solid #0D8BF3; margin-bottom: 20px; text-align: justify;">
-<strong>📢 I am graduating soon this year (2025) and currently on job market. I'd be happy to connect and chat!</strong>
+<strong>📢 I have successfully defended my thesis and am currently on the job market. I'd be happy to connect!</strong>
 </p>
 <p style="font-size:20px; text-align: justify;">
 I am a Ph.D. student in Computer Science at the National University of Singapore,
-advised by <a href="https://www.comp.nus.edu.sg/~lijl/">Jialin Li</a>. I also closely collaborate with <a href="https://irenezhang.net/">Irene Zhang</a> and <a href="https://drkp.net/">Dan Ports</a>.
+advised by <a href="https://www.comp.nus.edu.sg/~lijl/">Jialin Li</a>. I also closely collaborate with <a href="https://irenezhang.net/">Irene Zhang</a> and <a href="https://drkp.net/">Dan Ports</a> at Microsfot Research.
 </p>
 <p style="font-size:18px; margin-top: 15px; line-height: 1.6; text-align: justify;">
-My research interests lie at the intersection of <strong>distributed systems</strong>, <strong>datacenter networks</strong>, <strong>dataplane operating systems</strong>, and <strong>machine learning for systems</strong>. Currently, I am focusing on designing high-performance systems that leverage programmable hardware and ML-driven optimization to address challenges in modern datacenters.
+My research interests lie at the intersection of <strong>distributed systems</strong>, <strong>datacenter networks</strong>, <strong>dataplane operating systems</strong>, and <strong>machine learning systems</strong>. Currently, I am focusing on designing high-performance systems that leverage programmable hardware and ML-driven optimization to address challenges in modern datacenters.
 </p>
 <br>
 <h2 id="education">Education</h2>
@@ -333,11 +333,11 @@ My research interests lie at the intersection of <strong>distributed systems</st
         Singapore
       </p>
       <p style="float: left; width: 80%; text-align: left;">
-        Ph.D. Student in Computer Science 
+        Ph.D. in Computer Science 
         (Advisor: <a href="https://www.comp.nus.edu.sg/~lijl/" >Jialin Li</a>)
       </p>
       <p style="float: left; width: 20%; text-align: right; margin-bottom: 20px;">
-        Aug 2019 — Present
+        Aug 2019 — Jan 2026
       </p>
       <div style="clear: both;"></div>
       <!--  -->
@@ -372,16 +372,32 @@ My research interests lie at the intersection of <strong>distributed systems</st
 <br>
 <div id="work-in-progress"></div>
 <h2 id="work-in-progress-span-stylefont-size14px-font-style-italic-font-weight-normal-margin-left-10pxprojects-that-im-currently-leadingspan">Work in Progress <span style="font-size:14px; font-style: italic; font-weight: normal; margin-left: 10px;">(projects that I&rsquo;m currently leading)</span></h2>
-<p><b>- ML-native Dataplane Operating Systems<span style="color: rgba(13, 139, 243, 1);"> [Current Main Project]</span></b></p>
-  <p style="text-align: justify; line-height: 1.6;">
-  We design an ML-native dataplane OS architecture for automatic parameter tuning. Performance tuning remains a persistent challenge in modern datacenters, especially at microsecond scales. We are exploring how machine learning can be natively integrated into the OS dataplane, with case studies showing substantial performance gains through dynamic parameter optimization. Through this work, I actively perform comprehensive full-stack performance analysis and optimization, spanning from hardware-level signals (PCIe, memory access patterns, cache efficiency, DDIO) and inter-device data exchange to device drivers, OS components, and application layers.
+  <div style="border-left: 3px solid rgba(13, 139, 243, 0.6); padding-left: 15px; margin-bottom: 25px;">
+  <b>Dataplane OS Performance Optimization<span style="color: rgba(13, 139, 243, 1);"> [Current Main Project]</span></b>
+  <p style="text-align: justify; line-height: 1.6; margin-top: 8px; margin-left: 15px;">
+  Performance tuning remains a persistent challenge in modern datacenters, especially at microsecond scales. We are exploring new dataplane OS optimization techniques with two complementary directions:
   </p>
-  <br>
-<p><b>- Dynamic Layer-4 Load Balancing with Microsecond-Scale TCP Migration<span style="color: rgba(13, 139, 243, 1);"> [Full Paper Under Review]</span></b></p>
-  <p style="text-align: justify; line-height: 1.6;">
+  <p style="text-align: justify; line-height: 1.6; margin-top: 8px; margin-left: 30px;">
+  <b>(1) ML-driven optimization.</b> We natively integrate machine learning into the OS dataplane to support dynamic parameter optimization at runtime [<a href="https://dl.acm.org/doi/pdf/10.1145/3725783.3764392">Details</a>].
+  </p>
+  <p style="text-align: justify; line-height: 1.6; margin-top: 8px; margin-left: 30px;">
+  <b>(2) Intra-host network-aware optimization.</b> I am conducting comprehensive analysis on intra-host network spanning across hardware-level signals (PCIe, memory access patterns, cache efficiency, DDIO), inter-device data exchange, device drivers and OS dataplane. We aim to extend this to GPU hosts, where PCIe/NVLink interconnects and GPU memory hierarchies introduce additional complexity critical for ML workloads [<a href="/assets/intra-host-net.pdf">Details</a>].
+  </p>
+  </div>
+  <div style="border-left: 3px solid rgba(13, 139, 243, 0.6); padding-left: 15px; margin-bottom: 25px;">
+  <b>Dynamic Layer-4 Load Balancing with Microsecond-Scale TCP Migration<span style="color: rgba(13, 139, 243, 1);"> [Full Paper Under Review]</span></b>
+  <p style="text-align: justify; line-height: 1.6; margin-top: 8px; margin-left: 15px;">
   Layer-4 load balancers are a popular solution to high tail latencies but perform poorly under unpredictable workloads and traffic bursts because they statically assign connections to servers. We propose the first dynamic L4 load balancer with &mu;s-scale stateful connection migration. Our system leverages two trends — programmable switches and kernel-bypass — to efficiently implement TCP migration without packet loss, while maintaining transparency to clients.
   </p>
-  <br>
+  </div>
+  <!-- Hidden for now
+  <div style="border-left: 3px solid rgba(13, 139, 243, 0.6); padding-left: 15px; margin-bottom: 25px;">
+  <b>Systems for ML<span style="color: rgba(13, 139, 243, 1);"> [Early Stage]</span></b>
+  <p style="text-align: justify; line-height: 1.6; margin-top: 8px; margin-left: 15px;">
+  I am also interested in Systems for ML and currently exploring potential ideas in this space [<a href="/assets/moe-disaggregation.html">Example</a>].
+  </p>
+  </div>
+  -->
 <div id="publications"></div>
 <h2 id="publications">Publications</h2>
 <p><b>[APSYS &lsquo;25]
@@ -390,47 +406,34 @@ My research interests lie at the intersection of <strong>distributed systems</st
 16th ACM SIGOPS Asia-Pacific Workshop on Systems (APSys 2025) <br>
 <br></p>
 <p><b>[ArXiv]
-<a href="https://arxiv.org/pdf/2312.06207">
-A Primer on RecoNIC: RDMA-enabled Compute Offloading on SmartNIC</a> </b> <br>
+<a href="https://arxiv.org/pdf/2312.06207"> A Primer on RecoNIC: RDMA-enabled Compute Offloading on SmartNIC</a> </b> <br>
 Guanwen Zhong, Aditya Kolekar, Burin Amornpaisannon, <b><u>Inho Choi</u></b>, Haris Javaid, Mario Baldi. <br>
 ArXiv, Dec, 2023 <br>
 <br></p>
 <p><b>[APSYS &lsquo;23]
-<a href="https://apsys23.skku.edu/program.html"> Capybara: μSecond-scale live TCP migration</a> </b> <br>
+<a href="https://dl.acm.org/doi/pdf/10.1145/3609510.3609813"> Capybara: μSecond-scale live TCP migration</a> </b> <br>
 <b><u>Inho Choi</u></b>, Nimish Wadekar, Raj Joshi, Joshua Fried, Dan R. K. Ports, Irene Zhang, Jialin Li. <br>
 14th ACM SIGOPS Asia-Pacific Workshop on Systems (APSys 2023) <br>
-[<a href="https://dl.acm.org/doi/pdf/10.1145/3609510.3609813"> PDF </a>]
-<br><br></p>
+<br></p>
 <p><b>[SIGCOMM &lsquo;23]
-<a href="https://conferences.sigcomm.org/sigcomm/2023/"> Network Load Balancing with In-network Reordering Support for RDMA</a> </b> <br>
+<a href="https://dl.acm.org/doi/pdf/10.1145/3603269.3604849"> Network Load Balancing with In-network Reordering Support for RDMA</a> </b> <br>
 Cha Hwan Song, Xin Zhe Khooi, Raj Joshi, <b><u>Inho Choi</u></b>, Jialin Li, and Mun Choon Chan. <br>
 Proceedings of the 2023 ACM SIGCOMM Conference <br>
-[<a href="https://dl.acm.org/doi/pdf/10.1145/3603269.3604849"> PDF </a> |
-<a href="https://www.youtube.com/watch?v=SlCJBGpn_4I"> Talk </a>]
-<br><br></p>
+<br></p>
 <p><b>[NSDI &lsquo;23]
 <a href="https://www.usenix.org/conference/nsdi23/presentation/choi"> Hydra: Serialization-Free Network Ordering for Strongly Consistent Distributed Applications</a> </b> <br>
 <b><u>Inho Choi</u></b>, Ellis Michael, Yunfan Li, Dan Ports, and Jialin Li. <br>
 Proceedings of the 20th USENIX Conference on Network Systems Design and Implementation<br>
-[<a href="https://www.usenix.org/system/files/nsdi23-choi.pdf"> PDF </a> |
-<a href="https://www.youtube.com/watch?v=1TmAhFjczfs"> Talk </a> |
-<a href="https://www.usenix.org/system/files/nsdi23_slides_choi.pdf"> Slide </a>]
-<br><br></p>
+<br></p>
 <p><b>[S&amp;P &lsquo;20]
-<a href="https://ihchoi12.github.io/assets/tran2020stealthier.pdf">
-A Stealthier Partitioning Attack against Bitcoin Peer-to-Peer Network</a> </b> <br>
+<a href="https://ihchoi12.github.io/assets/tran2020stealthier.pdf"> A Stealthier Partitioning Attack against Bitcoin Peer-to-Peer Network</a> </b> <br>
 Muoi Tran, <b><u>Inho Choi</u></b>, Gi Jun Moon, Viet-Anh Vu, and Min Suk Kang. <br>
 In Proceedings of IEEE Symposium on Security and Privacy, May 2020.<br>
-[<a href="https://ihchoi12.github.io/assets/tran2020stealthier.pdf"> PDF </a> |
-<a href="https://www.youtube.com/watch?v=MYuj7iksxKA"> Talk </a> |
-<a href="https://erebus-attack.comp.nus.edu.sg/"> Website </a>]
-<br><br></p>
+<br></p>
 <p><b>[UbiComp Workshop &lsquo;17]
-<a href="https://ubicomp-mental-health.github.io/papers/2017/stress-kye.pdf">
-Multimodal Data Collection Framework for Mental Stress Monitoring</a> </b> <br>
+<a href="https://ubicomp-mental-health.github.io/papers/2017/stress-kye.pdf"> Multimodal Data Collection Framework for Mental Stress Monitoring</a> </b> <br>
 Saewon Kye, Junhyung Moon, Juneil Lee, <b><u>Inho Choi</u></b>, Dongmi Cheon, and Kyoungwoo Lee. <br>
-In Proceedings of the 2017 ACM International Joint Conference on Pervasive and Ubiquitous Computing and Proceedings of the 2017 ACM International Symposium on Wearable Computers. (Workshop Paper) <br>
-[<a href="https://ubicomp-mental-health.github.io/papers/2017/stress-kye.pdf"> PDF </a>]</p>
+In Proceedings of the 2017 ACM International Joint Conference on Pervasive and Ubiquitous Computing and Proceedings of the 2017 ACM International Symposium on Wearable Computers. (Workshop Paper) <br></p>
 <br>
 <div id="experiences"></div>
 <h2 id="experiences">Experiences</h2>
@@ -449,7 +452,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     </p>
     <div style="clear: both;"></div>
     <p style="text-align: justify; line-height: 1.6; margin-left: 20px; margin-right: 20px; margin-bottom: 20px; font-size: 15px;">
-      Conducted research on ML-native dataplane OS architecture for automatic parameter tuning to address performance optimization challenges in modern datacenters at microsecond scales. Designed system architecture integrating machine learning natively into the OS dataplane for dynamic parameter optimization. Developed and evaluated the approach to demonstrate benefits of automated tuning across diverse workloads. Published initial findings at APSys '25, with full-system development currently in progress.
+      Conducted research on ML-native dataplane OS architecture for automatic parameter tuning to address performance optimization challenges in modern datacenters at microsecond scales. Designed system architecture integrating machine learning natively into the OS dataplane for dynamic parameter optimization. Developed and evaluated the approach to demonstrate benefits of automated tuning across diverse workloads. Published initial findings at <a href="https://dl.acm.org/doi/pdf/10.1145/3725783.3764392">APSys '25</a>, with full-system development currently in progress.
     </p>
     <!--  -->
     <p style="float: left; width: 50%; text-align: left;">
@@ -466,7 +469,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     </p>
     <div style="clear: both;"></div>
     <p style="text-align: justify; line-height: 1.6; margin-left: 20px; margin-right: 20px; margin-bottom: 20px; font-size: 15px;">
-      Conducted research on dynamic Layer-4 load balancing to address tail latency issues in unpredictable workloads and traffic bursts caused by static TCP connection assignment between client and server. Designed and implemented microsecond-scale TCP connection migration system leveraging programmable switches and kernel-bypass technologies, achieving packet-loss-free migration while maintaining client transparency. Published initial findings at APSys '23, with full paper currently under submission.
+      Conducted research on dynamic Layer-4 load balancing to address tail latency issues in unpredictable workloads and traffic bursts caused by static TCP connection assignment between client and server. Designed and implemented microsecond-scale TCP connection migration system leveraging programmable switches and kernel-bypass technologies, achieving packet-loss-free migration while maintaining client transparency. Published initial findings at <a href="https://dl.acm.org/doi/pdf/10.1145/3609510.3609813">APSys '23</a>, with full paper currently under submission.
     </p>
     <!--  -->
     <p style="float: left; width: 50%; text-align: left;">
@@ -483,7 +486,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     </p>
     <div style="clear: both;"></div>
     <p style="text-align: justify; line-height: 1.6; margin-left: 20px; margin-right: 20px; margin-bottom: 20px; font-size: 15px;">
-      Contributed to research on hardware accelerator architectures for datacenter networks, specializing in RDMA protocol optimization and computation offloading on FPGA-based SmartNIC platforms. Participated in developing offloading techniques to enhance network stack performance while minimizing host CPU overhead. Participated in implementing and validating solutions through FPGA prototype and performance evaluation, with findings published on ArXiv.
+      Contributed to research on hardware accelerator architectures for datacenter networks, specializing in RDMA protocol optimization and computation offloading on FPGA-based SmartNIC platforms. Participated in developing offloading techniques to enhance network stack performance while minimizing host CPU overhead. Participated in implementing and validating solutions through FPGA prototype and performance evaluation, with findings published on <a href="https://arxiv.org/pdf/2312.06207">ArXiv</a>.
     </p>
     <!--  -->
     <p style="float: left; width: 50%; text-align: left;">
@@ -500,7 +503,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     </p>
     <div style="clear: both;"></div>
     <p style="text-align: justify; line-height: 1.6; margin-left: 20px; margin-right: 20px; margin-bottom: 20px; font-size: 15px;">
-      Contributed to research on network-level security vulnerabilities in Bitcoin's peer-to-peer network, analyzing how adversarial autonomous systems can execute stealth attacks without routing manipulations. Participated in developing and evaluating the EREBUS attack, demonstrating partition vulnerabilities in Bitcoin nodes and defense mechanisms through protocol modifications. Co-authored paper published at IEEE S&P '20, advancing cryptocurrency network security.
+      Contributed to research on network-level security vulnerabilities in Bitcoin's peer-to-peer network, analyzing how adversarial autonomous systems can execute stealth attacks without routing manipulations. Participated in developing and evaluating the EREBUS attack, demonstrating partition vulnerabilities in Bitcoin nodes and defense mechanisms through protocol modifications. Co-authored paper published at <a href="https://ihchoi12.github.io/assets/tran2020stealthier.pdf">IEEE S&P '20</a>, advancing cryptocurrency network security.
     </p>
     <!--  -->
     <p style="float: left; width: 50%; text-align: left;">
@@ -534,7 +537,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     </p>
     <div style="clear: both;"></div>
     <p style="text-align: justify; line-height: 1.6; margin-left: 20px; margin-right: 20px; margin-bottom: 20px; font-size: 15px;">
-      Contributed to development of a multimodal stress monitoring framework for analyzing people's physiological and behavioral reactions to stressors. Participated in designing and conducting experiments and implementing real-time signal processing framework. Co-authored paper published at UbiComp Workshop '17, presenting the framework and experimental findings.
+      Contributed to development of a multimodal stress monitoring framework for analyzing people's physiological and behavioral reactions to stressors. Participated in designing and conducting experiments and implementing real-time signal processing framework. Co-authored paper published at <a href="https://ubicomp-mental-health.github.io/papers/2017/stress-kye.pdf">UbiComp Workshop '17</a>, presenting the framework and experimental findings.
     </p>
     <!--  -->
     <div style="clear: both;"></div>
