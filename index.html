@@ -381,13 +381,13 @@ My research interests lie at the intersection of <strong>distributed systems</st
   <b>(1) ML-driven optimization.</b> We natively integrate machine learning into the OS dataplane to support dynamic parameter optimization at runtime [<a href="https://dl.acm.org/doi/pdf/10.1145/3725783.3764392">Details</a>].
   </p>
   <p style="text-align: justify; line-height: 1.6; margin-top: 8px; margin-left: 30px;">
-  <b>(2) Intra-host network-aware optimization.</b> I am conducting comprehensive analysis on intra-host network spanning across hardware-level signals (PCIe, memory access patterns, cache efficiency, DDIO), inter-device data exchange, device drivers and OS dataplane. We aim to extend this to GPU hosts, where PCIe/NVLink interconnects and GPU memory hierarchies introduce additional complexity critical for ML workloads [<a href="/assets/intra-host-net.pdf">Details</a>].
+  <b>(2) Intra-host network-aware optimization.</b> I am conducting comprehensive analysis on intra-host network spanning across hardware-level signals (e.g., PCIe, memory access patterns, cache efficiency, DDIO, etc.), inter-device data exchange, device drivers, OS dataplane. We aim to extend this to GPU hosts, where PCIe/NVLink interconnects and GPU memory hierarchies introduce additional complexity critical for ML workloads [<a href="/assets/intra-host-net.pdf">Details</a>].
   </p>
   </div>
   <div style="border-left: 3px solid rgba(13, 139, 243, 0.6); padding-left: 15px; margin-bottom: 25px;">
   <b>Dynamic Layer-4 Load Balancing with Microsecond-Scale TCP Migration<span style="color: rgba(13, 139, 243, 1);"> [Full Paper Under Review]</span></b>
   <p style="text-align: justify; line-height: 1.6; margin-top: 8px; margin-left: 15px;">
-  Layer-4 load balancers are a popular solution to high tail latencies but perform poorly under unpredictable workloads and traffic bursts because they statically assign connections to servers. We propose the first dynamic L4 load balancer with &mu;s-scale stateful connection migration. Our system leverages two trends — programmable switches and kernel-bypass — to efficiently implement TCP migration without packet loss, while maintaining transparency to clients.
+  Layer-4 load balancers are a popular approach to preventing high tail latencies, but existing solutions have fundamental limitations under unpredictable workloads and traffic bursts due to their static assignment of connections to servers. We propose the first dynamic L4 load balancer with &mu;s-scale stateful connection migration. Our system leverages two trends — programmable switches and kernel-bypass — to efficiently implement TCP migration without packet loss, while maintaining transparency to clients.
   </p>
   </div>
   <!-- Hidden for now
@@ -483,7 +483,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     </p>
     <div style="clear: both;"></div>
     <p style="text-align: justify; line-height: 1.6; margin-left: 20px; margin-right: 20px; margin-bottom: 20px; font-size: 15px;">
-      Conducted research on dynamic Layer-4 load balancing to address tail latency issues in unpredictable workloads and traffic bursts caused by static TCP connection assignment between client and server. Designed and implemented microsecond-scale TCP connection migration system leveraging programmable switches and kernel-bypass technologies, achieving packet-loss-free migration while maintaining client transparency. Published initial findings at <a href="https://dl.acm.org/doi/pdf/10.1145/3609510.3609813">APSys '23</a>, with full paper currently under submission.
+      Conducted research on dynamic Layer-4 load balancing to address tail latency issues under unpredictable workloads and traffic bursts due to static TCP connection assignment between client and server. Designed and implemented a new dynamic load balancing solution with microsecond-scale TCP connection migration, leveraging programmable switches and kernel-bypass technologies. Published initial findings at <a href="https://dl.acm.org/doi/pdf/10.1145/3609510.3609813">APSys '23</a>, with full paper currently under submission.
     </p>
     <!--  -->
     <p style="float: left; width: 50%; text-align: left;">
@@ -500,7 +500,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     </p>
     <div style="clear: both;"></div>
     <p style="text-align: justify; line-height: 1.6; margin-left: 20px; margin-right: 20px; margin-bottom: 20px; font-size: 15px;">
-      Contributed to research on hardware accelerator architectures for datacenter networks, specializing in RDMA protocol optimization and computation offloading on FPGA-based SmartNIC platforms. Participated in developing offloading techniques to enhance network stack performance while minimizing host CPU overhead. Participated in implementing and validating solutions through FPGA prototype and performance evaluation, with findings published on <a href="https://arxiv.org/pdf/2312.06207">ArXiv</a>.
+      Contributed to research on hardware accelerator architectures for datacenter networks, specializing in RDMA protocol optimization and computation offloading on FPGA-based SmartNIC platforms. Participated in implementing and validating solutions through FPGA prototype and performance evaluation, with findings published on <a href="https://arxiv.org/pdf/2312.06207">ArXiv</a>.
     </p>
     <!--  -->
     <p style="float: left; width: 50%; text-align: left;">
@@ -517,7 +517,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     </p>
     <div style="clear: both;"></div>
     <p style="text-align: justify; line-height: 1.6; margin-left: 20px; margin-right: 20px; margin-bottom: 20px; font-size: 15px;">
-      Contributed to research on network-level security vulnerabilities in Bitcoin's peer-to-peer network, analyzing how adversarial autonomous systems can execute stealth attacks without routing manipulations. Participated in developing and evaluating the EREBUS attack, demonstrating partition vulnerabilities in Bitcoin nodes and defense mechanisms through protocol modifications. Co-authored paper published at <a href="https://ihchoi12.github.io/assets/tran2020stealthier.pdf">IEEE S&P '20</a>, advancing cryptocurrency network security.
+      Contributed to research on network-level security vulnerabilities in Bitcoin's peer-to-peer network. Participated in demonstrating partitioning attacks on Bitcoin's peer-to-peer network and defense mechanisms. Co-authored a paper published at <a href="https://ihchoi12.github.io/assets/tran2020stealthier.pdf">IEEE S&P '20</a>, advancing cryptocurrency network security.
     </p>
     <!--  -->
     <p style="float: left; width: 50%; text-align: left;">
@@ -551,7 +551,7 @@ In Proceedings of the 2017 ACM International Joint Conference on Pervasive and U
     </p>
     <div style="clear: both;"></div>
     <p style="text-align: justify; line-height: 1.6; margin-left: 20px; margin-right: 20px; margin-bottom: 20px; font-size: 15px;">
-      Contributed to development of a multimodal stress monitoring framework for analyzing people's physiological and behavioral reactions to stressors. Participated in designing and conducting experiments and implementing real-time signal processing framework. Co-authored paper published at <a href="https://ubicomp-mental-health.github.io/papers/2017/stress-kye.pdf">UbiComp Workshop '17</a>, presenting the framework and experimental findings.
+      Contributed to development of a multimodal stress monitoring framework for analyzing people's physiological and behavioral reactions to stressors. Participated in designing and conducting experiments and implementing a real-time signal processing framework. Co-authored paper published at <a href="https://ubicomp-mental-health.github.io/papers/2017/stress-kye.pdf">UbiComp Workshop '17</a>, presenting the framework and experimental findings.
     </p>
     <!--  -->
     <div style="clear: both;"></div>
