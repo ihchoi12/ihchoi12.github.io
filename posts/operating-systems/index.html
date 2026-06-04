@@ -49,7 +49,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="https://ihchoi12.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
 
 <meta name="description"
-  content="Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&rsquo;s current task to run a kernel module called dispatcher, which happens frequently.">
+  content="Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&#39;s current task to run a kernel module called dispatcher, which happens frequently.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -87,7 +87,7 @@
             "url": "https://ihchoi12.github.io/images/icon.png"
         }
         },
-    "description": "Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H\/W or higher priority process) cause the OS to change a CPU from it\u0026rsquo;s current task to run a kernel module called dispatcher, which happens frequently."
+    "description": "Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H\/W or higher priority process) cause the OS to change a CPU from it\u0027s current task to run a kernel module called dispatcher, which happens frequently."
 }
 </script><meta property="og:title" content="Operating Systems | Inho Choi" />
 <meta property="og:type" content="article" />
@@ -101,7 +101,7 @@
 
 
 
-<meta property="og:description" content="Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&rsquo;s current task to run a kernel module called dispatcher, which happens frequently." />
+<meta property="og:description" content="Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&#39;s current task to run a kernel module called dispatcher, which happens frequently." />
 
 
 
@@ -227,7 +227,7 @@
 <li>Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time</li>
 </ul>
 <h1 id="context-switching">Context Switching</h1>
-<p>Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&rsquo;s current task to run a kernel module called dispatcher, which happens frequently. The dispatcher saves context (represented in the PCB) of the currently running process, and restore context of the interrupting process. It happens during the CPU preemption. Note that the CPU is not running any process during the context switching, so it&rsquo;s a pure overhead (typically it&rsquo;s a few ms).</p>
+<p>Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it's current task to run a kernel module called dispatcher, which happens frequently. The dispatcher saves context (represented in the PCB) of the currently running process, and restore context of the interrupting process. It happens during the CPU preemption. Note that the CPU is not running any process during the context switching, so it's a pure overhead (typically it's a few ms).</p>
 <h1 id="how-process-or-program-works">How process (or program) works?</h1>
 <h5 id="life-cycle-of-a-program">Life-cycle of a program</h5>
 <ul>
@@ -261,7 +261,7 @@
 <li>General Purpose Registers: registers are multiplexed by multiple processes, so a preempted process need to store the state of them so that it can restore them again when it preempts again</li>
 <li>List of Open Files: to keep it across preemptions</li>
 <li>List of Open Devices: to keep it across preemptions</li>
-<li>Protection: prevent a process from accessing other processes&rsquo; data</li>
+<li>Protection: prevent a process from accessing other processes' data</li>
 </ul>
 <ul>
 <li>OS maintains the linked-list of PBCs</li>
@@ -276,9 +276,9 @@
 <li>New (when the process is being created by OS, =&gt; program is being taken from disk)</li>
 <li>Ready (once the creation of process is completed, # of ready processes RAM can hold at a give time is limited =&gt; process is on the RAM)</li>
 <li>Run (the ready process has been chosen out of other ready processes according to the strategy, and is running =&gt; process is on the RAM)</li>
-<li>Block or Wait (when the process is in I/O time or waiting for other resources currently unavailable, so doesn&rsquo;t need for CPUs. Once finishes I/O or using other resources, go back to Ready state. =&gt; process is on RAM)</li>
-<li>Termination or Completion (once the process is done, the process will be killed and it&rsquo;s all traces like PCB context are deleted =&gt; process is deleted from RAM)</li>
-<li>Suspend Ready (the process was in Ready, then a new important process is created making RAM reaches degree of multi-programming, and this process is the least important according to the scheduling algorithm, so it&rsquo;s kicked out to the disk and is waiting to be restored =&gt; process on disk)</li>
+<li>Block or Wait (when the process is in I/O time or waiting for other resources currently unavailable, so doesn't need for CPUs. Once finishes I/O or using other resources, go back to Ready state. =&gt; process is on RAM)</li>
+<li>Termination or Completion (once the process is done, the process will be killed and it's all traces like PCB context are deleted =&gt; process is deleted from RAM)</li>
+<li>Suspend Ready (the process was in Ready, then a new important process is created making RAM reaches degree of multi-programming, and this process is the least important according to the scheduling algorithm, so it's kicked out to the disk and is waiting to be restored =&gt; process on disk)</li>
 <li>Suspend Wait or Suspend Block: (similar as Suspend Ready, but kick out Block state process instead of Ready, which is more reasonable =&gt; process on disk)</li>
 </ul>
 <hr>
@@ -293,7 +293,7 @@
 <h5 id="time-parameters-of-a-process">Time parameters of a process</h5>
 <ul>
 <li>Arrival Time: time at which the process enters into the ready state (ready queue)</li>
-<li>Burst Time: the amount of CPU time required by the process to be completed (it&rsquo;s practically difficult to estimate before execution)</li>
+<li>Burst Time: the amount of CPU time required by the process to be completed (it's practically difficult to estimate before execution)</li>
 <li>Completion Time: time at which the process finishes</li>
 <li>Turn Around Time: Completion Time - Arrival Time</li>
 <li>Waiting Time: time during which the process is waiting (to use CPU) in the ready queue or wait state</li>
@@ -322,7 +322,7 @@
 <ul>
 <li>At <em>Ready</em> or <em>Block</em> state,</li>
 <li>Whether to suspend a process or not</li>
-<li>Suspension of a process cause <em>swapping</em> &ndash; moving a process from RAM to disk, and getting it back</li>
+<li>Suspension of a process cause <em>swapping</em> -- moving a process from RAM to disk, and getting it back</li>
 <li>Good midium-term scheduler minimizes the swapping overheads</li>
 </ul>
 <h2 id="process-scheduling">Process scheduling</h2>
@@ -331,7 +331,7 @@
 <p>Process scheduler has two types of queue to implement the scheduling.</p>
 <ul>
 <li>Job queue: As processes enter the RAM, they are put into the job queue, which consist of all processes in the system</li>
-<li>Ready queue: Once a process is ready and waiting to execute, it&rsquo;s moved into the ready queue</li>
+<li>Ready queue: Once a process is ready and waiting to execute, it's moved into the ready queue</li>
 </ul>
 <p align="center">
     <img src="/posts/img/process-scheduling.png" width="500"/> <br>
@@ -340,7 +340,7 @@
 <p>Then, OS selects a process from the ready queue (according to the scheduling algorithm), and assign the CPU to the process. Here, 3 cases can happen:</p>
 <ol>
 <li>The process completes execution and becomes terminated state (ends)</li>
-<li>Another process with a higher priority comes into the ready queue, so it gets swapped-out and into the list &ldquo;partially executed and swapped-out processes&rdquo;, and then swapped into the ready queue again</li>
+<li>Another process with a higher priority comes into the ready queue, so it gets swapped-out and into the list &quot;partially executed and swapped-out processes&quot;, and then swapped into the ready queue again</li>
 <li>The process needs to use some I/O devices (e.g., PCIe devices), so it becomes <strong>I/O Wait</strong> state and get into I/O waiting queues. Once the I/O devices is available, it executes the I/O operation and go back to the ready queue.</li>
 </ol>
 <h3 id="scheduling-algorithms">Scheduling Algorithms</h3>
@@ -414,7 +414,7 @@
 <ul>
 <li>Convenience (e.g., for personal computer)</li>
 <li>Efficiency (e.g., for servers)</li>
-<li>Abstractions: users don&rsquo;t want to care about low-level details of large variations in HW configurations</li>
+<li>Abstractions: users don't want to care about low-level details of large variations in HW configurations</li>
 <li>Programmability, Portability</li>
 <li>Manage resources and coordination</li>
 </ul>
@@ -427,7 +427,7 @@
 </ul>
 <h5 id="multi-programming-wo-preemption">multi-programming w/o preemption</h5>
 <ul>
-<li>It has multiple processes in &lsquo;Ready&rsquo; state</li>
+<li>It has multiple processes in 'Ready' state</li>
 <li>When a job is taking I/O resource but not CPU, the other job can take CPU (i.e., no CPU idle time)</li>
 </ul>
 <h5 id="time-sharing-os">Time-sharing OS</h5>

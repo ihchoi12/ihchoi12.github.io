@@ -51,7 +51,7 @@
 <meta name="description"
   content="To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.
 Basic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.
-Tensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&rsquo;s great?">
+Tensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&#39;s great?">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -89,7 +89,7 @@ Tensor all data elements of a tensor are converted to have the same type (e.g., 
             "url": "https://ihchoi12.github.io/images/icon.png"
         }
         },
-    "description": "To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.\nBasic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.\nTensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it\u0026rsquo;s great?"
+    "description": "To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.\nBasic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.\nTensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it\u0027s great?"
 }
 </script><meta property="og:title" content="Pytorch Tutorial | Inho Choi" />
 <meta property="og:type" content="article" />
@@ -105,7 +105,7 @@ Tensor all data elements of a tensor are converted to have the same type (e.g., 
 
 <meta property="og:description" content="To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.
 Basic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.
-Tensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&rsquo;s great?" />
+Tensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&#39;s great?" />
 
 
 
@@ -240,7 +240,7 @@ Tensor all data elements of a tensor are converted to have the same type (e.g., 
 <ul>
 <li>a library for tensor processing</li>
 <li>the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls</li>
-<li>why it&rsquo;s great? we can automatically compute the gradient (i.e., autograd using <code>.backward()</code>) of the output w.r.t. tensors</li>
+<li>why it's great? we can automatically compute the gradient (i.e., autograd using <code>.backward()</code>) of the output w.r.t. tensors</li>
 <li>specify <code>require_grad = True</code> of a tensor to reduce unnecessary gradient calculation cost</li>
 </ul>
 <p>Example:</p>
@@ -351,7 +351,7 @@ dy/db: tensor(1.)
 </span></span><span style="display:flex;"><span>        b<span style="color:#666">.</span>grad<span style="color:#666">.</span>zero_()
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>** Note on <code>torch.no_grad()</code>: By default, PyTorch tracks all operations (during FP) on tensors with <code>required_grad=True</code>, which is called gradient context tracking by autograd engine. This tracking task has some processing and memory cost, so we deactivate it using <code>torch.no_grad()</code> when it&rsquo;s not needed.</p>
+</div><p>** Note on <code>torch.no_grad()</code>: By default, PyTorch tracks all operations (during FP) on tensors with <code>required_grad=True</code>, which is called gradient context tracking by autograd engine. This tracking task has some processing and memory cost, so we deactivate it using <code>torch.no_grad()</code> when it's not needed.</p>
 <h2 id="linear-regression-using-pytorch-built-in">Linear Regression using PyTorch Built-in</h2>
 <ul>
 <li>the above training process is common, so several built-ins are provided</li>
@@ -562,7 +562,7 @@ dy/db: tensor(1.)
 <ul>
 <li>Input: a number of variables -&gt; a single image</li>
 <li>Output: a number of variables -&gt; a single label</li>
-<li>Example: a single MNIST data consist of one image and it&rsquo;s label</li>
+<li>Example: a single MNIST data consist of one image and it's label</li>
 </ul>
 <p>However, PyTorch is a library to handle tensors, so we need to convert the images to tensors. It can be doen using <code>torchvision.transform</code>:</p>
 <div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -900,8 +900,8 @@ dy/db: tensor(1.)
 </div><h2 id="limitations-and-improvement">Limitations and Improvement</h2>
 <p>The above training algorithm works pretty well, but the accuracy improvement is saturated after about 80%. There are two potential reasons:</p>
 <ol>
-<li>the learning rate is too high, so the model is &ldquo;bouncing&rdquo; around the optimal state</li>
-<li>the linear model is not &ldquo;powerful&rdquo; enough</li>
+<li>the learning rate is too high, so the model is &quot;bouncing&quot; around the optimal state</li>
+<li>the linear model is not &quot;powerful&quot; enough</li>
 </ol>
 <p>As one way to make the model more powerful, we can add one more layer along with a hidden layer (ReLU) to add non-linearity:</p>
 <div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -995,7 +995,7 @@ dy/db: tensor(1.)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="using-a-gpu">Using a GPU</h1>
-<p>As the dataset and model are getting bigger, we use GPUs to train our model in a reasonable amount of time. First, let&rsquo;s see how to move our data to GPU. We define a <code>DeviceDataLoader</code> which wraps the existing <code>DataLoader</code> and move the batches one by one to GPU.</p>
+<p>As the dataset and model are getting bigger, we use GPUs to train our model in a reasonable amount of time. First, let's see how to move our data to GPU. We define a <code>DeviceDataLoader</code> which wraps the existing <code>DataLoader</code> and move the batches one by one to GPU.</p>
 <div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-1"> 1</a>
@@ -1060,7 +1060,7 @@ dy/db: tensor(1.)
 </span></span><span style="display:flex;"><span>train_loader <span style="color:#666">=</span> DeviceDataLoader(train_loader, device)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Note that we are moving only the data batch to be trained at the time to GPU using <code>yield</code> keyworkd. It&rsquo;s to reduce waste of GPU memories. Also, removing the trained data from GPU is automatically done by garbage collection.</p>
+</div><p>Note that we are moving only the data batch to be trained at the time to GPU using <code>yield</code> keyworkd. It's to reduce waste of GPU memories. Also, removing the trained data from GPU is automatically done by garbage collection.</p>
 <p>Then, we move the model to the GPU:</p>
 <div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">

@@ -317,18 +317,18 @@
 <ul>
 <li>Upper layer
 <ul>
-<li>Defines the methods for applications (&ldquo;consumers&rdquo; of IB) to access IB services</li>
+<li>Defines the methods for applications (&quot;consumers&quot; of IB) to access IB services</li>
 <li>Provide standard protocol interfaces (e.g., MPI, NCCL, etc.) to applications</li>
 </ul>
 </li>
 <li>Transport layer
 <ul>
-<li>Unlike traditional TCP/IP (moving data from source node&rsquo;s OS to destination node&rsquo;s OS)</li>
-<li>In IB, End-to-end virtual &ldquo;channel&rdquo; is created between two end applications
+<li>Unlike traditional TCP/IP (moving data from source node's OS to destination node's OS)</li>
+<li>In IB, End-to-end virtual &quot;channel&quot; is created between two end applications
 <ul>
 <li>IB provides H/W based transport implemented by HCA</li>
 <li>Once an application request transport of a message, the message is transmitted by the sending H/W HCA</li>
-<li>When the message arrives to the receiving H/W HCA, its delivered directly into the receiving application&rsquo;s buffer</li>
+<li>When the message arrives to the receiving H/W HCA, its delivered directly into the receiving application's buffer</li>
 </ul>
 </li>
 </ul>
@@ -357,7 +357,7 @@
 </li>
 </ul>
 <h4 id="flow-control-mechanism">Flow control mechanism</h4>
-<p>It&rsquo;s an element of the link layer in IB. The sender node dynamically tracks receive buffer usage and adjusts transmission rate, so that the receiver is not overloaded, enabling lossless network.</p>
+<p>It's an element of the link layer in IB. The sender node dynamically tracks receive buffer usage and adjusts transmission rate, so that the receiver is not overloaded, enabling lossless network.</p>
 <h1 id="references">References</h1>
 <ul>
 <li><a href="https://academy.nvidia.com/course/view.php?id=480">https://academy.nvidia.com/course/view.php?id=480</a></li>
