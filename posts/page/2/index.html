@@ -48,8 +48,13 @@
 
 <link rel="stylesheet" href="https://ihchoi12.github.io/css/custom.css">
 
-<link rel="icon" type="image/png" sizes="32x32" href="https://ihchoi12.github.io/images/icon_hu_88acdb041aa84a76.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://ihchoi12.github.io/images/icon_hu_fee0ca31fa1ccb07.png">
+
+<link rel="icon" type="image/svg+xml" sizes="any" href="https://ihchoi12.github.io/images/icon.svg">
+<link rel="icon" type="image/png" sizes="16x16" href="https://ihchoi12.github.io/images/icon_hu_290f5889d424f100.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ihchoi12.github.io/images/icon_hu_404161ae0554fedc.png">
+<link rel="icon" type="image/png" sizes="48x48" href="https://ihchoi12.github.io/images/icon_hu_32b707898317431f.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://ihchoi12.github.io/images/icon_hu_92549a89b868a486.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ihchoi12.github.io/images/icon_hu_94a45d2c50288d1c.png">
 
 
 <meta name="description"
@@ -65,21 +70,15 @@
     "itemListElement":[{
             "@type":"ListItem",
             "position":  1 ,
-            "name": "Infiniband",
-            "description": "Infiniband (IB) Industry standard defining I/O architecture Used to interconnect compute nodes, communication equipments (e.g., switches), storage, and embedded systems Independent of host OS Designed to accelearate all protocol layers (Physical - Link - Network - Transport - Upper) to achieve maximum network utilization and performance Deployed in data centers, cloud computing, HPC, ML/AI Main components [source] IB switches: Move the traffics Subnet Manager: Manages all network activities Hosts (end-nodes): The clients of IB fabric Host Channel Adapter (HCA): Enable an IB connection between the host and IB switches IB to Ethernet Gateway: Allows for IP traffic exchanges between IB and Ethernet based networks IB Router: Allows for inter-connectivity between multiple IB subnets SHARP Scalable Hierarchical Aggregation and Reduction Protocol In-network computation technology Offloads collective operations from the host CPUs or GPUs to the network switches As a result, it dramatically improves performance of accelerated computing, MPI based applications, such as ML/AI. Key Features Simplified Management IB is the first architecture to truly implement the vision of SDN IB is managed by a subnet manager which is a program that runs and manages the entire network Subnet manager provides centralized routing management, hence enables PnP of nodes High Bandwidth H/W Offloads RDMA using Kernel Bypass and H/W (NIC) based transport porotocol In ML/AI, GPU Direct RDMA Low Latency Thanks to NIC offloading and accleration techinques on the NIC, end-to-end latency is extremly low (e.g., 1us) Easy Network Scale-out Capable to deploy up to 48K nodes on a single subnet Further, multiple IB subnets can be interconnected using IB routers Quality of Service (i.e., ability to provide different priority to different apps, users, and data flows) IB switches have multiple port queues with different priorities flows are mapped to a different port queue depending on the priority Fabric Resiliency Link failures require traffic re-route Subnet manager can take about 5 seconds for this IB has a feature called Self-healing Networking: H/W based capability of Nvidia switches enabling 5000x faster link failure recovery Optimal Loadbalancing Necessary for high bandwidth utilization Use Adaptive Routing: equalize the amount of traffic sent on each switch port Nvidia switch H/W has Adaptive Routing Manager MPI Super Performance with SHARP Spport Various Topologies Fat-tree, Torus, Hypercube, HyperX, Drangonfly +, etc. Architecture IB architecture is divided into 5 layers, in a similar way to the traditional TCP/IP model But there are many differences between IB and IP protocol Traditionally, applications relied on OS for communications IB enables applications to communicate w/o directly involving OS (application-centric approch) [source] ",
-            "url": "https://ihchoi12.github.io/posts/infiniband/"
-        },{
-            "@type":"ListItem",
-            "position":  2 ,
-            "name": "AWS SageMaker",
-            "description": "Intro Using ML techniques is more challenging than it looks for some reasons including...\nData Preprocessing: to understand data that comes from different sources with different formats to decide which parameters to use in the model Select Algorithm \u0026amp; Framework many problems appears to be similar, and there is no clear guideline for a particular problem Train \u0026amp; Tune Model need to feed data for many iteration, while tuning hyperparameters depending on the progress Integrate \u0026amp; Deploy need to setup an environment for deployment need to integrate the trained model into the environment SageMaker:\n",
-            "url": "https://ihchoi12.github.io/posts/aws_sagemaker/"
-        },{
-            "@type":"ListItem",
-            "position":  3 ,
             "name": "Pytorch Tutorial",
             "description": "To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.\nBasic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.\nTensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it's great? we can automatically compute the gradient (i.e., autograd using .backward()) of the output w.r.t. tensors specify require_grad = True of a tensor to reduce unnecessary gradient calculation cost Example:\n",
             "url": "https://ihchoi12.github.io/posts/pytorch_tutorial/"
+        },{
+            "@type":"ListItem",
+            "position":  2 ,
+            "name": "Operating Systems",
+            "description": "Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it's current task to run a kernel module called dispatcher, which happens frequently. The dispatcher saves context (represented in the PCB) of the currently running process, and restore context of the interrupting process. It happens during the CPU preemption. Note that the CPU is not running any process during the context switching, so it's a pure overhead (typically it's a few ms).\n",
+            "url": "https://ihchoi12.github.io/posts/operating-systems/"
         }
     ]
 }
@@ -143,8 +142,6 @@
         <div class="text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
             <a href="/#about"
                 class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">About</a>
-            <a href="/#work-in-progress"
-                class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Work in Progress</a>
             <a href="/#publications"
                 class="block mt-4 md:inline-block md:mt-0  hover:text-eureka mr-4">Publications</a>
             <a href="/#experiences"
@@ -219,52 +216,6 @@
 
 <div class="mr-6 my-2">
     <span>2022-08-16</span>
-</div>
-
-
-
-
-
-  </div>
-
-  
-</div>
-                  </div>
-                
-                    <div class="py-3 md:py-6">
-                    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="https://ihchoi12.github.io/posts/tcp/" class="font-bold text-xl hover:text-eureka">TCP</a>
-</div>
-
-
-<div class="mr-6 my-2">
-    <span>2022-07-30</span>
-</div>
-
-
-
-
-
-  </div>
-
-  
-</div>
-                  </div>
-                
-                    <div class="py-3 md:py-6">
-                    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="https://ihchoi12.github.io/posts/rdma/" class="font-bold text-xl hover:text-eureka">RDMA</a>
-</div>
-
-
-<div class="mr-6 my-2">
-    <span>2022-06-25</span>
 </div>
 
 
@@ -365,180 +316,6 @@
 
 <div class="mr-6 my-2">
     <span>2021-06-29</span>
-</div>
-
-
-
-
-
-  </div>
-
-  
-</div>
-                  </div>
-                
-                
-            </div>
-        </div>
-    
-        <div class="flex flex-col md:flex-row my-6">
-            <div class="flex-none w-32 ml-0 text-3xl font-bold py-6" id="2020">2020</div>
-            <div class ="flex-grow overflow-hidden divide-y">
-                
-                    <div class="py-3 md:py-6">
-                    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="https://ihchoi12.github.io/posts/math-support/" class="font-bold text-xl hover:text-eureka">Math Support</a>
-</div>
-
-
-<div class="mr-6 my-2">
-    <span>2020-11-20</span>
-</div>
-
-
-
-
-
-  </div>
-
-  
-</div>
-                  </div>
-                
-                    <div class="py-3 md:py-6">
-                    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full lg:w-2/3">
-    <div class="mb-4">
-  <a href="https://ihchoi12.github.io/posts/featured-image/" class="font-bold text-xl hover:text-eureka">Featured Image</a>
-</div>
-
-
-<div class="mr-6 my-2">
-    <span>2020-05-26</span>
-</div>
-
-
-<div class="mr-6 my-2">
-    <i class="fas fa-folder mr-1"></i>
-    
-    <a href="https://ihchoi12.github.io/categories/themes/" class="hover:text-eureka">Themes</a>
-    
-</div>
-
-
-
-<div class="mr-6 my-2">
-    <i class="fas fa-th-list mr-1"></i>
-    
-    <a href="https://ihchoi12.github.io/series/themes-guide/" class="hover:text-eureka">Themes Guide</a>
-    
-</div>
-
-
-  </div>
-
-  
-  <div class="w-full lg:w-1/3 mb-4 lg:mb-0 lg:ml-8">
-    <img src="https://ihchoi12.github.io/images/hero-right.jpg" class="w-full" alt="Featured Image">
-  </div>
-  
-</div>
-                  </div>
-                
-                
-            </div>
-        </div>
-    
-        <div class="flex flex-col md:flex-row my-6">
-            <div class="flex-none w-32 ml-0 text-3xl font-bold py-6" id="2019">2019</div>
-            <div class ="flex-grow overflow-hidden divide-y">
-                
-                    <div class="py-3 md:py-6">
-                    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="https://ihchoi12.github.io/posts/markdown-syntax/" class="font-bold text-xl hover:text-eureka">Markdown Syntax Guide</a>
-</div>
-
-
-<div class="mr-6 my-2">
-    <span>2019-03-11</span>
-</div>
-
-
-<div class="mr-6 my-2">
-    <i class="fas fa-folder mr-1"></i>
-    
-    <a href="https://ihchoi12.github.io/categories/themes/" class="hover:text-eureka">Themes</a>
-    
-    
-    <span>, </span>
-    <a href="https://ihchoi12.github.io/categories/syntax/" class="hover:text-eureka">Syntax</a>
-    
-</div>
-
-
-
-<div class="mr-6 my-2">
-    <i class="fas fa-th-list mr-1"></i>
-    
-    <a href="https://ihchoi12.github.io/series/themes-guide/" class="hover:text-eureka">Themes Guide</a>
-    
-</div>
-
-
-  </div>
-
-  
-</div>
-                  </div>
-                
-                    <div class="py-3 md:py-6">
-                    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="https://ihchoi12.github.io/posts/placeholder-text/" class="font-bold text-xl hover:text-eureka">Placeholder Text</a>
-</div>
-
-
-<div class="mr-6 my-2">
-    <span>2019-03-09</span>
-</div>
-
-
-
-
-<div class="mr-6 my-2">
-    <i class="fas fa-th-list mr-1"></i>
-    
-    <a href="https://ihchoi12.github.io/series/themes-guide/" class="hover:text-eureka">Themes Guide</a>
-    
-</div>
-
-
-  </div>
-
-  
-</div>
-                  </div>
-                
-                    <div class="py-3 md:py-6">
-                    <div class="flex flex-col-reverse lg:flex-row justify-between">
-  
-  <div class="w-full ">
-    <div class="mb-4">
-  <a href="https://ihchoi12.github.io/posts/emoji-support/" class="font-bold text-xl hover:text-eureka">Emoji Support</a>
-</div>
-
-
-<div class="mr-6 my-2">
-    <span>2019-03-05</span>
 </div>
 
 
