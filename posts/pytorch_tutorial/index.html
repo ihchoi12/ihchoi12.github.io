@@ -43,15 +43,19 @@
 </script>
 
 
+
+
 <link rel="stylesheet" href="https://ihchoi12.github.io/css/custom.css">
 
-<link rel="icon" type="image/png" sizes="32x32" href="https://ihchoi12.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://ihchoi12.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ihchoi12.github.io/images/icon_hu_63b702b2a608cf4d.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ihchoi12.github.io/images/icon_hu_b2b0aca4be2d51e7.png">
+
 
 <meta name="description"
   content="To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.
 Basic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.
-Tensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&#39;s great?">
+Tensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&#39;s great? we can automatically compute the gradient (i.e., autograd using .backward()) of the output w.r.t. tensors specify require_grad = True of a tensor to reduce unnecessary gradient calculation cost Example:
+">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -70,6 +74,7 @@ Tensor all data elements of a tensor are converted to have the same type (e.g., 
 
 
 
+
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -80,7 +85,7 @@ Tensor all data elements of a tensor are converted to have the same type (e.g., 
     },
     "headline": "Pytorch Tutorial | Inho Choi","datePublished": "2022-06-14T15:52:29+08:00",
     "dateModified": "2022-06-14T15:52:29+08:00",
-    "wordCount":  3153 ,
+    "wordCount":  3156 ,
     "publisher": {
         "@type": "Person",
         "name": "C. Wang",
@@ -89,9 +94,10 @@ Tensor all data elements of a tensor are converted to have the same type (e.g., 
             "url": "https://ihchoi12.github.io/images/icon.png"
         }
         },
-    "description": "To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.\nBasic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.\nTensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it\u0027s great?"
+    "description": "To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.\nBasic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.\nTensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it\u0027s great? we can automatically compute the gradient (i.e., autograd using .backward()) of the output w.r.t. tensors specify require_grad = True of a tensor to reduce unnecessary gradient calculation cost Example:\n"
 }
-</script><meta property="og:title" content="Pytorch Tutorial | Inho Choi" />
+</script>
+<meta property="og:title" content="Pytorch Tutorial | Inho Choi" />
 <meta property="og:type" content="article" />
 
 
@@ -105,7 +111,8 @@ Tensor all data elements of a tensor are converted to have the same type (e.g., 
 
 <meta property="og:description" content="To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.
 Basic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.
-Tensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&#39;s great?" />
+Tensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&#39;s great? we can automatically compute the gradient (i.e., autograd using .backward()) of the output w.r.t. tensors specify require_grad = True of a tensor to reduce unnecessary gradient calculation cost Example:
+" />
 
 
 
@@ -246,9 +253,9 @@ Tensor all data elements of a tensor are converted to have the same type (e.g., 
 <li>specify <code>require_grad = True</code> of a tensor to reduce unnecessary gradient calculation cost</li>
 </ul>
 <p>Example:</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-1"> 1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-2"> 2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-3"> 3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-4"> 4</a>
@@ -262,7 +269,7 @@ Tensor all data elements of a tensor are converted to have the same type (e.g., 
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-0-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-0-12">12</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Create tensors.</span>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Create tensors.</span>
 </span></span><span style="display:flex;"><span>x <span style="color:#666">=</span> torch<span style="color:#666">.</span>tensor(<span style="color:#666">3.</span>)
 </span></span><span style="display:flex;"><span>w <span style="color:#666">=</span> torch<span style="color:#666">.</span>tensor(<span style="color:#666">4.</span>, requires_grad<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
 </span></span><span style="display:flex;"><span>b <span style="color:#666">=</span> torch<span style="color:#666">.</span>tensor(<span style="color:#666">5.</span>, requires_grad<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
@@ -277,10 +284,19 @@ Tensor all data elements of a tensor are converted to have the same type (e.g., 
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Output:</p>
-<pre tabindex="0"><code>dy/dx: None
-dy/dw: tensor(3.)
-dy/db: tensor(1.)
-</code></pre><ul>
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-1">1</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-2">2</a>
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-1-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-1-3">3</a>
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>dy/dx: None
+</span></span><span style="display:flex;"><span>dy/dw: tensor(3.)
+</span></span><span style="display:flex;"><span>dy/db: tensor(1.)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
 <li>PyTorch interoperates well with <code>numpy</code>, so we can use <code>numpy</code> to easily handle our data and also take benefit of PyTorch (Autograd, tensor operations on GPU).</li>
 </ul>
 <h1 id="linear-regression-y--xwt--b">Linear Regression (y = xW^T + b)</h1>
@@ -301,9 +317,9 @@ dy/db: tensor(1.)
 <li>Adjust Weights and Biases</li>
 <li>Reset Gradients to Zero (why? gradients are accumulated throughout training)</li>
 </ol>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1"> 1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-1"> 1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-2"> 2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-3"> 3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-4"> 4</a>
@@ -328,7 +344,7 @@ dy/db: tensor(1.)
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-2-23"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-2-23">23</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Weights and biases</span>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Weights and biases</span>
 </span></span><span style="display:flex;"><span>w <span style="color:#666">=</span> torch<span style="color:#666">.</span>randn(<span style="color:#666">2</span>, <span style="color:#666">3</span>, requires_grad<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
 </span></span><span style="display:flex;"><span>b <span style="color:#666">=</span> torch<span style="color:#666">.</span>randn(<span style="color:#666">2</span>, requires_grad<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
 </span></span><span style="display:flex;"><span>
@@ -362,15 +378,15 @@ dy/db: tensor(1.)
 <ul>
 <li><code>from torch.utils.data import TensorDataset</code>: allow us to handle certain rows (why? to handle data into batches, see below) of data as a tuple of (input, output)</li>
 </ul>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-1">1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-2">2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-3">3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-3-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-3-4">4</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">torch.utils.data</span> <span style="color:#008000;font-weight:bold">import</span> TensorDataset
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">torch.utils.data</span> <span style="color:#008000;font-weight:bold">import</span> TensorDataset
 </span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Define dataset</span>
 </span></span><span style="display:flex;"><span>train_ds <span style="color:#666">=</span> TensorDataset(inputs, targets)
 </span></span><span style="display:flex;"><span>train_ds[<span style="color:#666">0</span>:<span style="color:#666">3</span>]
@@ -379,15 +395,15 @@ dy/db: tensor(1.)
 </div><ul>
 <li><code>from torch.utils.data import DataLoader</code>: split data into batches while shffuling</li>
 </ul>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-1">1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-2">2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-3">3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-4-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-4-4">4</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">torch.utils.data</span> <span style="color:#008000;font-weight:bold">import</span> DataLoader
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">torch.utils.data</span> <span style="color:#008000;font-weight:bold">import</span> DataLoader
 </span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Define data loader</span>
 </span></span><span style="display:flex;"><span>batch_size <span style="color:#666">=</span> <span style="color:#666">11</span>
 </span></span><span style="display:flex;"><span>train_dl <span style="color:#666">=</span> DataLoader(train_ds, batch_size, shuffle<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>) <span style="color:#408080;font-style:italic"># why shffle? data might be sorted by default, but we want to train overall data</span>
@@ -396,9 +412,9 @@ dy/db: tensor(1.)
 </div><ul>
 <li><code>import torch.nn as nn</code>: contains utility classes for building neural networks</li>
 </ul>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1"> 1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-1"> 1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-2"> 2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-3"> 3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-4"> 4</a>
@@ -418,7 +434,7 @@ dy/db: tensor(1.)
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-5-18"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-5-18">18</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">torch.nn</span> <span style="color:#008000;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">nn</span>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">torch.nn</span> <span style="color:#008000;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">nn</span>
 </span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Define model</span>
 </span></span><span style="display:flex;"><span>model <span style="color:#666">=</span> nn<span style="color:#666">.</span>Linear(<span style="color:#666">3</span>, <span style="color:#666">2</span>) <span style="color:#408080;font-style:italic"># 3 weights, 2 biases (3 inputs, 2 outputs)</span>
 </span></span><span style="display:flex;"><span><span style="color:#008000">print</span>(model<span style="color:#666">.</span>weight)
@@ -441,9 +457,9 @@ dy/db: tensor(1.)
 </div><ul>
 <li><code>import torch.nn.functional as F</code>: built-in loss function (e.g., mse_loss)</li>
 </ul>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1">1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-1">1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-2">2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-3">3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-4">4</a>
@@ -451,7 +467,7 @@ dy/db: tensor(1.)
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-6-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-6-6">6</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#666">...</span>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#666">...</span>
 </span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Import nn.functional</span>
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">torch.nn.functional</span> <span style="color:#008000;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">F</span>
 </span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Define loss function</span>
@@ -462,16 +478,16 @@ dy/db: tensor(1.)
 </div><ul>
 <li><code>torch.optim.SGD</code>: optimize parameters using gradients instead of manually updating them (meaning of stochastic: batches are selected with random shuffling instead of the entire data)</li>
 </ul>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1">1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-1">1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-2">2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-3">3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-4">4</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-7-5"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-7-5">5</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Define optimizer</span>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Define optimizer</span>
 </span></span><span style="display:flex;"><span>opt <span style="color:#666">=</span> torch<span style="color:#666">.</span>optim<span style="color:#666">.</span>SGD(model<span style="color:#666">.</span>parameters(), lr<span style="color:#666">=</span><span style="color:#666">1e-5</span>)
 </span></span><span style="display:flex;"><span><span style="color:#ba2121">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#ba2121">tell the optimizer: &#34;matrices model.parameters() need to be updated 
@@ -480,9 +496,9 @@ dy/db: tensor(1.)
 </div>
 </div><hr>
 <p>Using all these built-ins, training model can be implemented again as follows:</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-1"> 1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-1"> 1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-2"> 2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-3"> 3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-4"> 4</a>
@@ -515,7 +531,7 @@ dy/db: tensor(1.)
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-8-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-8-31">31</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#666">...</span>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#666">...</span>
 </span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Utility function to train the model</span>
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">fit</span>(num_epochs, model, loss_fn, opt, train_dl):
 </span></span><span style="display:flex;"><span>    
@@ -567,9 +583,9 @@ dy/db: tensor(1.)
 <li>Example: a single MNIST data consist of one image and it's label</li>
 </ul>
 <p>However, PyTorch is a library to handle tensors, so we need to convert the images to tensors. It can be doen using <code>torchvision.transform</code>:</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-1"> 1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-1"> 1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-2"> 2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-3"> 3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-4"> 4</a>
@@ -581,7 +597,7 @@ dy/db: tensor(1.)
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-9-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-9-10">10</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">torchvision</span> <span style="color:#408080;font-style:italic"># a package of utilities for working with image data</span>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">torchvision</span> <span style="color:#408080;font-style:italic"># a package of utilities for working with image data</span>
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">torchvision.transforms</span> <span style="color:#008000;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">transforms</span>
 </span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># MNIST dataset, 1 data = (image, label)</span>
 </span></span><span style="display:flex;"><span>dataset <span style="color:#666">=</span> MNIST(root<span style="color:#666">=</span><span style="color:#ba2121">&#39;data/&#39;</span>, 
@@ -594,24 +610,24 @@ dy/db: tensor(1.)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Then, we split the training dataset into <strong>training set</strong> and <strong>validation set</strong>, so that we can use different datasets for validation and training (note: MNIST has a separate dataset for test with 10000 images). What is the difference between validation and test? Validation is to evaluate the model during training and adjust hyperparameters (learning rate, etc.). Test is to measure the final accuracy and compare to other models.</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-1">1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-1">1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-2">2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-3">3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-10-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-10-4">4</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">torch.utils.data</span> <span style="color:#008000;font-weight:bold">import</span> random_split
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">torch.utils.data</span> <span style="color:#008000;font-weight:bold">import</span> random_split
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>train_ds, val_ds <span style="color:#666">=</span> random_split(dataset, [<span style="color:#666">50000</span>, <span style="color:#666">10000</span>])
 </span></span><span style="display:flex;"><span><span style="color:#008000">len</span>(train_ds), <span style="color:#008000">len</span>(val_ds) <span style="color:#408080;font-style:italic"># 50000, 10000</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Then, we batch the data:</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-1">1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-1">1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-2">2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-3">3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-4">4</a>
@@ -619,7 +635,7 @@ dy/db: tensor(1.)
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-11-6"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-11-6">6</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">torch.utils.data</span> <span style="color:#008000;font-weight:bold">import</span> DataLoader
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">from</span> <span style="color:#00f;font-weight:bold">torch.utils.data</span> <span style="color:#008000;font-weight:bold">import</span> DataLoader
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>batch_size <span style="color:#666">=</span> <span style="color:#666">128</span>
 </span></span><span style="display:flex;"><span>
@@ -628,9 +644,9 @@ dy/db: tensor(1.)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>We have prepared the dataset for training. Then, how can we set the model? Interestingly, the training model is conceptually the same as linear regression (y = xW^T + b). Each pixel (of 28*28) is weighted individually, to predict the probability of the image to be each label.</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-1">1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-1">1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-2">2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-3">3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-4">4</a>
@@ -641,7 +657,7 @@ dy/db: tensor(1.)
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-12-9"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-12-9">9</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">torch.nn</span> <span style="color:#008000;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">nn</span>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">torch.nn</span> <span style="color:#008000;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">nn</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>input_size <span style="color:#666">=</span> <span style="color:#666">28</span><span style="color:#666">*</span><span style="color:#666">28</span>
 </span></span><span style="display:flex;"><span>num_classes <span style="color:#666">=</span> <span style="color:#666">10</span> <span style="color:#408080;font-style:italic"># number of outputs (labels)</span>
@@ -653,9 +669,9 @@ dy/db: tensor(1.)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>However, one issue is that the input (image) and weight shape mismatch (1,28,28 vs 784). So, we <code>reshape</code> the input before we do FP. We can add this additional functionality by extending the default <code>nn.Module</code> class from PyTorch:</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-1"> 1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-1"> 1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-2"> 2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-3"> 3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-4"> 4</a>
@@ -669,24 +685,24 @@ dy/db: tensor(1.)
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-13-12"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-13-12">12</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">MnistModel</span>(nn<span style="color:#666">.</span>Module):
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self):
-</span></span><span style="display:flex;"><span>        <span style="color:#008000">super</span>()<span style="color:#666">.</span>__init__()
-</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>linear <span style="color:#666">=</span> nn<span style="color:#666">.</span>Linear(input_size, num_classes)
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">MnistModel</span>(nn<span style="color:#666">.</span>Module):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">__init__</span>(<span style="color:#008000">self</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">super</span>()<span style="color:#666">.</span><span style="color:#00f">__init__</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">self</span><span style="color:#666">.</span>linear <span style="color:#666">=</span> nn<span style="color:#666">.</span>Linear(input_size, num_classes)
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">forward</span>(self, xb):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">forward</span>(<span style="color:#008000">self</span>, xb):
 </span></span><span style="display:flex;"><span>        xb <span style="color:#666">=</span> xb<span style="color:#666">.</span>reshape(<span style="color:#666">-</span><span style="color:#666">1</span>, <span style="color:#666">784</span>)
 </span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># by giving -1 for the first dimension, PyTorch automatically calculate it depending on the input, so we can use it with any batch size of xb </span>
-</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> self<span style="color:#666">.</span>linear(xb)
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> <span style="color:#008000">self</span><span style="color:#666">.</span>linear(xb)
 </span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> out
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>model <span style="color:#666">=</span> MnistModel()
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Now, we can use the <code>model</code> for FP:</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-1"> 1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-1"> 1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-2"> 2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-3"> 3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-4"> 4</a>
@@ -698,7 +714,7 @@ dy/db: tensor(1.)
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-14-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-14-10">10</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">for</span> images, labels <span style="color:#a2f;font-weight:bold">in</span> train_loader:
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">for</span> images, labels <span style="color:#a2f;font-weight:bold">in</span> train_loader:
 </span></span><span style="display:flex;"><span>    <span style="color:#008000">print</span>(images<span style="color:#666">.</span>shape)
 </span></span><span style="display:flex;"><span>    outputs <span style="color:#666">=</span> model(images) <span style="color:#408080;font-style:italic"># the base class nn.Module calls the forward() method by default</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">break</span>
@@ -712,9 +728,9 @@ dy/db: tensor(1.)
 </div>
 </div><h2 id="softmax-convert-to-probability">Softmax: convert to probability</h2>
 <p>Then, we want to convert the output into probability of each label. For this, we use Softmax function provided by <code>import torch.nn.functional as F</code>:</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-1"> 1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-1"> 1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-2"> 2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-3"> 3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-4"> 4</a>
@@ -726,7 +742,7 @@ dy/db: tensor(1.)
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-15-10"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-15-10">10</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Apply softmax for each output row</span>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Apply softmax for each output row</span>
 </span></span><span style="display:flex;"><span>probs <span style="color:#666">=</span> F<span style="color:#666">.</span>softmax(outputs, dim<span style="color:#666">=</span><span style="color:#666">1</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Look at sample probabilities</span>
@@ -739,15 +755,15 @@ dy/db: tensor(1.)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Now, we can calculate the accuracy of our model as follows:</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-16-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-16-1">1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-16-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-16-1">1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-16-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-16-2">2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-16-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-16-3">3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-16-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-16-4">4</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">accuracy</span>(outputs, labels):
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">accuracy</span>(outputs, labels):
 </span></span><span style="display:flex;"><span>    _, preds <span style="color:#666">=</span> torch<span style="color:#666">.</span>max(outputs, dim<span style="color:#666">=</span><span style="color:#666">1</span>)
 </span></span><span style="display:flex;"><span>    <span style="color:#408080;font-style:italic"># torch.max(dim=1) returns each row&#39;s largest element and the corresponding index.</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> torch<span style="color:#666">.</span>tensor(torch<span style="color:#666">.</span>sum(preds <span style="color:#666">==</span> labels)<span style="color:#666">.</span>item() <span style="color:#666">/</span> <span style="color:#008000">len</span>(preds))
@@ -759,15 +775,15 @@ dy/db: tensor(1.)
 <li>by taking only the final label with the maximum probability, it does NOT have enough insight about how to update the weights of each label (i.e., each column in W)</li>
 </ol>
 <p>So, for the loss function in classification problems, we commonly use <strong>cross entropy</strong> instead. This cross entropy is also provided by <code>torch.nn.functional</code>, and it internally includes the softmax operation as well (we need to pass the raw output). For a batch of data, the cross entropy averages out over all data samples.</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-1">1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-1">1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-2">2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-3">3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-17-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-17-4">4</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>loss_fn <span style="color:#666">=</span> F<span style="color:#666">.</span>cross_entropy
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>loss_fn <span style="color:#666">=</span> F<span style="color:#666">.</span>cross_entropy
 </span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Loss for current batch of data</span>
 </span></span><span style="display:flex;"><span>loss <span style="color:#666">=</span> loss_fn(outputs, labels)
 </span></span><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Interpretation: our model predicted the correct label with probability e^(-loss) in avg</span>
@@ -775,9 +791,9 @@ dy/db: tensor(1.)
 </div>
 </div><hr>
 <p>Using the above logics, the overall training process is implemented as follows:</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-18-1"> 1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-18-1"> 1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-18-2"> 2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-18-3"> 3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-18-4"> 4</a>
@@ -838,41 +854,41 @@ dy/db: tensor(1.)
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-18-59"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-18-59">59</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">evaluate</span>(model, val_loader):
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">evaluate</span>(model, val_loader):
 </span></span><span style="display:flex;"><span>    outputs <span style="color:#666">=</span> [model<span style="color:#666">.</span>validation_step(batch) <span style="color:#008000;font-weight:bold">for</span> batch <span style="color:#a2f;font-weight:bold">in</span> val_loader]
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> model<span style="color:#666">.</span>validation_epoch_end(outputs)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">MnistModel</span>(nn<span style="color:#666">.</span>Module):
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self):
-</span></span><span style="display:flex;"><span>        <span style="color:#008000">super</span>()<span style="color:#666">.</span>__init__()
-</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>linear <span style="color:#666">=</span> nn<span style="color:#666">.</span>Linear(input_size, num_classes)
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">__init__</span>(<span style="color:#008000">self</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">super</span>()<span style="color:#666">.</span><span style="color:#00f">__init__</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">self</span><span style="color:#666">.</span>linear <span style="color:#666">=</span> nn<span style="color:#666">.</span>Linear(input_size, num_classes)
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">forward</span>(self, xb):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">forward</span>(<span style="color:#008000">self</span>, xb):
 </span></span><span style="display:flex;"><span>        xb <span style="color:#666">=</span> xb<span style="color:#666">.</span>reshape(<span style="color:#666">-</span><span style="color:#666">1</span>, <span style="color:#666">784</span>)
-</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> self<span style="color:#666">.</span>linear(xb)
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> <span style="color:#008000">self</span><span style="color:#666">.</span>linear(xb)
 </span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> out
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">training_step</span>(self, batch):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">training_step</span>(<span style="color:#008000">self</span>, batch):
 </span></span><span style="display:flex;"><span>        images, labels <span style="color:#666">=</span> batch 
-</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> self(images)                  <span style="color:#408080;font-style:italic"># Generate predictions</span>
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> <span style="color:#008000">self</span>(images)                  <span style="color:#408080;font-style:italic"># Generate predictions</span>
 </span></span><span style="display:flex;"><span>        loss <span style="color:#666">=</span> F<span style="color:#666">.</span>cross_entropy(out, labels) <span style="color:#408080;font-style:italic"># Calculate loss</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> loss
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">validation_step</span>(self, batch):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">validation_step</span>(<span style="color:#008000">self</span>, batch):
 </span></span><span style="display:flex;"><span>        images, labels <span style="color:#666">=</span> batch 
-</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> self(images)                    <span style="color:#408080;font-style:italic"># Generate predictions</span>
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> <span style="color:#008000">self</span>(images)                    <span style="color:#408080;font-style:italic"># Generate predictions</span>
 </span></span><span style="display:flex;"><span>        loss <span style="color:#666">=</span> F<span style="color:#666">.</span>cross_entropy(out, labels)   <span style="color:#408080;font-style:italic"># Calculate loss</span>
 </span></span><span style="display:flex;"><span>        acc <span style="color:#666">=</span> accuracy(out, labels)           <span style="color:#408080;font-style:italic"># Calculate accuracy</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> {<span style="color:#ba2121">&#39;val_loss&#39;</span>: loss, <span style="color:#ba2121">&#39;val_acc&#39;</span>: acc}
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">validation_epoch_end</span>(self, outputs):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">validation_epoch_end</span>(<span style="color:#008000">self</span>, outputs):
 </span></span><span style="display:flex;"><span>        batch_losses <span style="color:#666">=</span> [x[<span style="color:#ba2121">&#39;val_loss&#39;</span>] <span style="color:#008000;font-weight:bold">for</span> x <span style="color:#a2f;font-weight:bold">in</span> outputs]
 </span></span><span style="display:flex;"><span>        epoch_loss <span style="color:#666">=</span> torch<span style="color:#666">.</span>stack(batch_losses)<span style="color:#666">.</span>mean()   <span style="color:#408080;font-style:italic"># Combine losses</span>
 </span></span><span style="display:flex;"><span>        batch_accs <span style="color:#666">=</span> [x[<span style="color:#ba2121">&#39;val_acc&#39;</span>] <span style="color:#008000;font-weight:bold">for</span> x <span style="color:#a2f;font-weight:bold">in</span> outputs]
 </span></span><span style="display:flex;"><span>        epoch_acc <span style="color:#666">=</span> torch<span style="color:#666">.</span>stack(batch_accs)<span style="color:#666">.</span>mean()      <span style="color:#408080;font-style:italic"># Combine accuracies</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> {<span style="color:#ba2121">&#39;val_loss&#39;</span>: epoch_loss<span style="color:#666">.</span>item(), <span style="color:#ba2121">&#39;val_acc&#39;</span>: epoch_acc<span style="color:#666">.</span>item()}
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">epoch_end</span>(self, epoch, result):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">epoch_end</span>(<span style="color:#008000">self</span>, epoch, result):
 </span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Epoch [</span><span style="color:#b68;font-weight:bold">{}</span><span style="color:#ba2121">], val_loss: </span><span style="color:#b68;font-weight:bold">{:.4f}</span><span style="color:#ba2121">, val_acc: </span><span style="color:#b68;font-weight:bold">{:.4f}</span><span style="color:#ba2121">&#34;</span><span style="color:#666">.</span>format(epoch, result[<span style="color:#ba2121">&#39;val_loss&#39;</span>], result[<span style="color:#ba2121">&#39;val_acc&#39;</span>]))
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>model <span style="color:#666">=</span> MnistModel()
@@ -906,9 +922,9 @@ dy/db: tensor(1.)
 <li>the linear model is not &quot;powerful&quot; enough</li>
 </ol>
 <p>As one way to make the model more powerful, we can add one more layer along with a hidden layer (ReLU) to add non-linearity:</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-1"> 1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-1"> 1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-2"> 2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-3"> 3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-4"> 4</a>
@@ -952,55 +968,55 @@ dy/db: tensor(1.)
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-19-42"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-19-42">42</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">MnistModel</span>(nn<span style="color:#666">.</span>Module):
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">MnistModel</span>(nn<span style="color:#666">.</span>Module):
 </span></span><span style="display:flex;"><span>    <span style="color:#ba2121">&#34;&#34;&#34;Feedfoward neural network with 1 hidden layer&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self, in_size, hidden_size, out_size):
-</span></span><span style="display:flex;"><span>        <span style="color:#008000">super</span>()<span style="color:#666">.</span>__init__()
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">__init__</span>(<span style="color:#008000">self</span>, in_size, hidden_size, out_size):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">super</span>()<span style="color:#666">.</span><span style="color:#00f">__init__</span>()
 </span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># hidden layer</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>linear1 <span style="color:#666">=</span> nn<span style="color:#666">.</span>Linear(in_size, hidden_size)
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">self</span><span style="color:#666">.</span>linear1 <span style="color:#666">=</span> nn<span style="color:#666">.</span>Linear(in_size, hidden_size)
 </span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># output layer</span>
-</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>linear2 <span style="color:#666">=</span> nn<span style="color:#666">.</span>Linear(hidden_size, out_size)
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">self</span><span style="color:#666">.</span>linear2 <span style="color:#666">=</span> nn<span style="color:#666">.</span>Linear(hidden_size, out_size)
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">forward</span>(self, xb):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">forward</span>(<span style="color:#008000">self</span>, xb):
 </span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># Flatten the image tensors</span>
 </span></span><span style="display:flex;"><span>        xb <span style="color:#666">=</span> xb<span style="color:#666">.</span>view(xb<span style="color:#666">.</span>size(<span style="color:#666">0</span>), <span style="color:#666">-</span><span style="color:#666">1</span>)
 </span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># Get intermediate outputs using hidden layer</span>
-</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> self<span style="color:#666">.</span>linear1(xb)
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> <span style="color:#008000">self</span><span style="color:#666">.</span>linear1(xb)
 </span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># Apply activation function</span>
 </span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> F<span style="color:#666">.</span>relu(out)
 </span></span><span style="display:flex;"><span>        <span style="color:#408080;font-style:italic"># Get predictions using output layer</span>
-</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> self<span style="color:#666">.</span>linear2(out)
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> <span style="color:#008000">self</span><span style="color:#666">.</span>linear2(out)
 </span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> out
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">training_step</span>(self, batch):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">training_step</span>(<span style="color:#008000">self</span>, batch):
 </span></span><span style="display:flex;"><span>        images, labels <span style="color:#666">=</span> batch 
-</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> self(images)                  <span style="color:#408080;font-style:italic"># Generate predictions</span>
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> <span style="color:#008000">self</span>(images)                  <span style="color:#408080;font-style:italic"># Generate predictions</span>
 </span></span><span style="display:flex;"><span>        loss <span style="color:#666">=</span> F<span style="color:#666">.</span>cross_entropy(out, labels) <span style="color:#408080;font-style:italic"># Calculate loss</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> loss
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">validation_step</span>(self, batch):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">validation_step</span>(<span style="color:#008000">self</span>, batch):
 </span></span><span style="display:flex;"><span>        images, labels <span style="color:#666">=</span> batch 
-</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> self(images)                    <span style="color:#408080;font-style:italic"># Generate predictions</span>
+</span></span><span style="display:flex;"><span>        out <span style="color:#666">=</span> <span style="color:#008000">self</span>(images)                    <span style="color:#408080;font-style:italic"># Generate predictions</span>
 </span></span><span style="display:flex;"><span>        loss <span style="color:#666">=</span> F<span style="color:#666">.</span>cross_entropy(out, labels)   <span style="color:#408080;font-style:italic"># Calculate loss</span>
 </span></span><span style="display:flex;"><span>        acc <span style="color:#666">=</span> accuracy(out, labels)           <span style="color:#408080;font-style:italic"># Calculate accuracy</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> {<span style="color:#ba2121">&#39;val_loss&#39;</span>: loss, <span style="color:#ba2121">&#39;val_acc&#39;</span>: acc}
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">validation_epoch_end</span>(self, outputs):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">validation_epoch_end</span>(<span style="color:#008000">self</span>, outputs):
 </span></span><span style="display:flex;"><span>        batch_losses <span style="color:#666">=</span> [x[<span style="color:#ba2121">&#39;val_loss&#39;</span>] <span style="color:#008000;font-weight:bold">for</span> x <span style="color:#a2f;font-weight:bold">in</span> outputs]
 </span></span><span style="display:flex;"><span>        epoch_loss <span style="color:#666">=</span> torch<span style="color:#666">.</span>stack(batch_losses)<span style="color:#666">.</span>mean()   <span style="color:#408080;font-style:italic"># Combine losses</span>
 </span></span><span style="display:flex;"><span>        batch_accs <span style="color:#666">=</span> [x[<span style="color:#ba2121">&#39;val_acc&#39;</span>] <span style="color:#008000;font-weight:bold">for</span> x <span style="color:#a2f;font-weight:bold">in</span> outputs]
 </span></span><span style="display:flex;"><span>        epoch_acc <span style="color:#666">=</span> torch<span style="color:#666">.</span>stack(batch_accs)<span style="color:#666">.</span>mean()      <span style="color:#408080;font-style:italic"># Combine accuracies</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> {<span style="color:#ba2121">&#39;val_loss&#39;</span>: epoch_loss<span style="color:#666">.</span>item(), <span style="color:#ba2121">&#39;val_acc&#39;</span>: epoch_acc<span style="color:#666">.</span>item()}
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">epoch_end</span>(self, epoch, result):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">epoch_end</span>(<span style="color:#008000">self</span>, epoch, result):
 </span></span><span style="display:flex;"><span>        <span style="color:#008000">print</span>(<span style="color:#ba2121">&#34;Epoch [</span><span style="color:#b68;font-weight:bold">{}</span><span style="color:#ba2121">], val_loss: </span><span style="color:#b68;font-weight:bold">{:.4f}</span><span style="color:#ba2121">, val_acc: </span><span style="color:#b68;font-weight:bold">{:.4f}</span><span style="color:#ba2121">&#34;</span><span style="color:#666">.</span>format(epoch, result[<span style="color:#ba2121">&#39;val_loss&#39;</span>], result[<span style="color:#ba2121">&#39;val_acc&#39;</span>]))
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="using-a-gpu">Using a GPU</h1>
 <p>As the dataset and model are getting bigger, we use GPUs to train our model in a reasonable amount of time. First, let's see how to move our data to GPU. We define a <code>DeviceDataLoader</code> which wraps the existing <code>DataLoader</code> and move the batches one by one to GPU.</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-1"> 1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-1"> 1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-2"> 2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-3"> 3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-4"> 4</a>
@@ -1031,7 +1047,7 @@ dy/db: tensor(1.)
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-20-29"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-20-29">29</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">get_default_device</span>():
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">get_default_device</span>():
 </span></span><span style="display:flex;"><span>    <span style="color:#ba2121">&#34;&#34;&#34;Pick GPU if available, else CPU&#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">if</span> torch<span style="color:#666">.</span>cuda<span style="color:#666">.</span>is_available():
 </span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> torch<span style="color:#666">.</span>device(<span style="color:#ba2121">&#39;cuda&#39;</span>)
@@ -1044,19 +1060,19 @@ dy/db: tensor(1.)
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">return</span> data<span style="color:#666">.</span>to(device, non_blocking<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">DeviceDataLoader</span>():
 </span></span><span style="display:flex;"><span>    <span style="color:#ba2121">&#34;&#34;&#34;Wrap a dataloader to move data to a device&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self, dl, device):
-</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>dl <span style="color:#666">=</span> dl
-</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>device <span style="color:#666">=</span> device
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">__init__</span>(<span style="color:#008000">self</span>, dl, device):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">self</span><span style="color:#666">.</span>dl <span style="color:#666">=</span> dl
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">self</span><span style="color:#666">.</span>device <span style="color:#666">=</span> device
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __iter__(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">__iter__</span>(<span style="color:#008000">self</span>):
 </span></span><span style="display:flex;"><span>        <span style="color:#ba2121">&#34;&#34;&#34;Yield a batch of data after moving it to device&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">for</span> b <span style="color:#a2f;font-weight:bold">in</span> self<span style="color:#666">.</span>dl: 
-</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">yield</span> to_device(b, self<span style="color:#666">.</span>device)
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">for</span> b <span style="color:#a2f;font-weight:bold">in</span> <span style="color:#008000">self</span><span style="color:#666">.</span>dl: 
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">yield</span> to_device(b, <span style="color:#008000">self</span><span style="color:#666">.</span>device)
 </span></span><span style="display:flex;"><span>            <span style="color:#408080;font-style:italic"># Keyword &#39;yield&#39;? It generates a value to be returned when the object is accessed. Here, one batch of data will be moved to GPU and returned every time this dala loader is accessed in for loop.</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __len__(self):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">__len__</span>(<span style="color:#008000">self</span>):
 </span></span><span style="display:flex;"><span>        <span style="color:#ba2121">&#34;&#34;&#34;Number of batches&#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> <span style="color:#008000">len</span>(self<span style="color:#666">.</span>dl)
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> <span style="color:#008000">len</span>(<span style="color:#008000">self</span><span style="color:#666">.</span>dl)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>device <span style="color:#666">=</span> get_default_device()
 </span></span><span style="display:flex;"><span>train_loader <span style="color:#666">=</span> DeviceDataLoader(train_loader, device)
@@ -1064,14 +1080,14 @@ dy/db: tensor(1.)
 </div>
 </div><p>Note that we are moving only the data batch to be trained at the time to GPU using <code>yield</code> keyworkd. It's to reduce waste of GPU memories. Also, removing the trained data from GPU is automatically done by garbage collection.</p>
 <p>Then, we move the model to the GPU:</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-21-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-21-1">1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-21-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-21-1">1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-21-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-21-2">2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-21-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-21-3">3</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Model (on GPU)</span>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Model (on GPU)</span>
 </span></span><span style="display:flex;"><span>model <span style="color:#666">=</span> MnistModel(input_size, hidden_size<span style="color:#666">=</span>hidden_size, out_size<span style="color:#666">=</span>num_classes)
 </span></span><span style="display:flex;"><span>to_device(model, device)
 </span></span></code></pre></td></tr></table>
@@ -1099,9 +1115,9 @@ dy/db: tensor(1.)
 Note that there are several operations possible for pooling (e.g., max, avg).
 <h2 id="model">Model</h2>
 <p>Using the convolution and pooling operations, we can form a CNN model as follows:</p>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-22-1"> 1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-22-1"> 1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-22-2"> 2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-22-3"> 3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-22-4"> 4</a>
@@ -1134,10 +1150,10 @@ Note that there are several operations possible for pooling (e.g., max, avg).
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-22-31"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-22-31">31</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Cifar10CnnModel</span>(ImageClassificationBase):
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> __init__(self):
-</span></span><span style="display:flex;"><span>        <span style="color:#008000">super</span>()<span style="color:#666">.</span>__init__()
-</span></span><span style="display:flex;"><span>        self<span style="color:#666">.</span>network <span style="color:#666">=</span> nn<span style="color:#666">.</span>Sequential(
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">class</span> <span style="color:#00f;font-weight:bold">Cifar10CnnModel</span>(ImageClassificationBase):
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">__init__</span>(<span style="color:#008000">self</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">super</span>()<span style="color:#666">.</span><span style="color:#00f">__init__</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#008000">self</span><span style="color:#666">.</span>network <span style="color:#666">=</span> nn<span style="color:#666">.</span>Sequential(
 </span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>Conv2d(<span style="color:#666">3</span>, <span style="color:#666">32</span>, kernel_size<span style="color:#666">=</span><span style="color:#666">3</span>, padding<span style="color:#666">=</span><span style="color:#666">1</span>),
 </span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>ReLU(),
 </span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>Conv2d(<span style="color:#666">32</span>, <span style="color:#666">64</span>, kernel_size<span style="color:#666">=</span><span style="color:#666">3</span>, stride<span style="color:#666">=</span><span style="color:#666">1</span>, padding<span style="color:#666">=</span><span style="color:#666">1</span>),
@@ -1163,8 +1179,8 @@ Note that there are several operations possible for pooling (e.g., max, avg).
 </span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>ReLU(),
 </span></span><span style="display:flex;"><span>            nn<span style="color:#666">.</span>Linear(<span style="color:#666">512</span>, <span style="color:#666">10</span>))
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">forward</span>(self, xb):
-</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> self<span style="color:#666">.</span>network(xb)
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">def</span> <span style="color:#00f">forward</span>(<span style="color:#008000">self</span>, xb):
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">return</span> <span style="color:#008000">self</span><span style="color:#666">.</span>network(xb)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="techniques-for-higher-accuracy-or-better-performance">Techniques for higher accuracy or better performance</h1>
@@ -1180,9 +1196,9 @@ Note that there are several operations possible for pooling (e.g., max, avg).
 <li>generalize the model better</li>
 <li>note that this transformation need to be applied to the training dataset only (since its to give more information to the training process)</li>
 </ul>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-1"> 1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-1"> 1</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-2"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-2"> 2</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-3"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-3"> 3</a>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-4"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-4"> 4</a>
@@ -1195,7 +1211,7 @@ Note that there are several operations possible for pooling (e.g., max, avg).
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-23-11"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-23-11">11</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Data transforms (normalization &amp; data augmentation)</span>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#408080;font-style:italic"># Data transforms (normalization &amp; data augmentation)</span>
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">import</span> <span style="color:#00f;font-weight:bold">torchvision.transforms</span> <span style="color:#008000;font-weight:bold">as</span> <span style="color:#00f;font-weight:bold">tt</span>
 </span></span><span style="display:flex;"><span>stats <span style="color:#666">=</span> ((<span style="color:#666">0.4914</span>, <span style="color:#666">0.4822</span>, <span style="color:#666">0.4465</span>), (<span style="color:#666">0.2023</span>, <span style="color:#666">0.1994</span>, <span style="color:#666">0.2010</span>))
 </span></span><span style="display:flex;"><span>train_tfms <span style="color:#666">=</span> tt<span style="color:#666">.</span>Compose([tt<span style="color:#666">.</span>RandomCrop(<span style="color:#666">32</span>, padding<span style="color:#666">=</span><span style="color:#666">4</span>, padding_mode<span style="color:#666">=</span><span style="color:#ba2121">&#39;reflect&#39;</span>), 
@@ -1213,12 +1229,12 @@ Note that there are several operations possible for pooling (e.g., max, avg).
 <li><code>num_workers</code> to leverage multiple CPU cores in parallel</li>
 <li><code>pin_memory</code> to avid repeated memory allocation and deallocation by using the same portion of RAM for loading each batch (its possible when all the batches have the same size)</li>
 </ul>
-<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-1">1</a>
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f" id="hl-24-1"><a style="outline:none;text-decoration:none;color:inherit" href="#hl-24-1">1</a>
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>train_dl <span style="color:#666">=</span> DataLoader(train_ds, batch_size, shuffle<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>, num_workers<span style="color:#666">=</span><span style="color:#666">3</span>, pin_memory<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
+<pre tabindex="0" style=";-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>train_dl <span style="color:#666">=</span> DataLoader(train_ds, batch_size, shuffle<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>, num_workers<span style="color:#666">=</span><span style="color:#666">3</span>, pin_memory<span style="color:#666">=</span><span style="color:#008000;font-weight:bold">True</span>)
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="reference">Reference</h1>
@@ -1267,7 +1283,7 @@ Note that there are several operations possible for pooling (e.g., max, avg).
   </main>
   <footer class="pl-scrollbar">
     <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+    <p class="text-sm text-tertiary-text"> Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
 </div></div>
   </footer>
 </body>

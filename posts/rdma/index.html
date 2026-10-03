@@ -43,13 +43,17 @@
 </script>
 
 
+
+
 <link rel="stylesheet" href="https://ihchoi12.github.io/css/custom.css">
 
-<link rel="icon" type="image/png" sizes="32x32" href="https://ihchoi12.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://ihchoi12.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ihchoi12.github.io/images/icon_hu_63b702b2a608cf4d.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ihchoi12.github.io/images/icon_hu_b2b0aca4be2d51e7.png">
+
 
 <meta name="description"
-  content="hi please Terminologies Infiniband (IB): consist of IB adapters and switches RoCE: RDMA using an Ethernet switched fabric instead of IB Although it uses an Ethernet layer, it has nothing to do with TCP/IP layers RoCE RDMA over Ethernet Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting Mellanox Ethernet Spectrum switches acccelerate RoCE performance For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server Over Lossy Fabric Lossy Fabric: a fabric which doesn&#39;t enforce Priority Flow Control (PFC) Originating from IB, RoCE traditionally required lossless fabric Since CX4, Mellanox enables RoCE over lossy fabric as well How?">
+  content="hi please Terminologies Infiniband (IB): consist of IB adapters and switches RoCE: RDMA using an Ethernet switched fabric instead of IB Although it uses an Ethernet layer, it has nothing to do with TCP/IP layers RoCE RDMA over Ethernet Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting Mellanox Ethernet Spectrum switches acccelerate RoCE performance For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server Over Lossy Fabric Lossy Fabric: a fabric which doesn&#39;t enforce Priority Flow Control (PFC) Originating from IB, RoCE traditionally required lossless fabric Since CX4, Mellanox enables RoCE over lossy fabric as well How? Use H/W based congestion control mechanisms of Mellanox NICs to make the network from lossy to lossless Enable Explicit Congestion Notification (ECN) on a switch using a single CLI command When the switch&#39;s queues begin to fill up, they add ECN mark to received IP packets Once these ECN marked packets arrive to the receiver, it notifies the sender to slowdown sending rate by sending CNP marked packets This approach reduces the reaction time to congestion notifications to 10s of ns (x1000 faster than S/W based approach) Also, using this approach, RoCE shows a small (or 0) difference on performance in lossy and lossless fabrics Over this network, we can add a priority mark to classify RoCE traffic from others to enable QoS or other configurations for RoCE traffic only (this can be done over layer 2 marking PCP TAG, or over layer 3 marking DSCP TAG) RDMA Advantages: lower latency, CPU bypass
+">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -65,6 +69,7 @@
       "item":"https://ihchoi12.github.io/posts/rdma/"}]
 }
 </script>
+
 
 
 
@@ -87,9 +92,10 @@
             "url": "https://ihchoi12.github.io/images/icon.png"
         }
         },
-    "description": "hi please Terminologies Infiniband (IB): consist of IB adapters and switches RoCE: RDMA using an Ethernet switched fabric instead of IB Although it uses an Ethernet layer, it has nothing to do with TCP\/IP layers RoCE RDMA over Ethernet Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting Mellanox Ethernet Spectrum switches acccelerate RoCE performance For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server Over Lossy Fabric Lossy Fabric: a fabric which doesn\u0027t enforce Priority Flow Control (PFC) Originating from IB, RoCE traditionally required lossless fabric Since CX4, Mellanox enables RoCE over lossy fabric as well How?"
+    "description": "hi please Terminologies Infiniband (IB): consist of IB adapters and switches RoCE: RDMA using an Ethernet switched fabric instead of IB Although it uses an Ethernet layer, it has nothing to do with TCP\/IP layers RoCE RDMA over Ethernet Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting Mellanox Ethernet Spectrum switches acccelerate RoCE performance For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server Over Lossy Fabric Lossy Fabric: a fabric which doesn\u0027t enforce Priority Flow Control (PFC) Originating from IB, RoCE traditionally required lossless fabric Since CX4, Mellanox enables RoCE over lossy fabric as well How? Use H\/W based congestion control mechanisms of Mellanox NICs to make the network from lossy to lossless Enable Explicit Congestion Notification (ECN) on a switch using a single CLI command When the switch\u0027s queues begin to fill up, they add ECN mark to received IP packets Once these ECN marked packets arrive to the receiver, it notifies the sender to slowdown sending rate by sending CNP marked packets This approach reduces the reaction time to congestion notifications to 10s of ns (x1000 faster than S\/W based approach) Also, using this approach, RoCE shows a small (or 0) difference on performance in lossy and lossless fabrics Over this network, we can add a priority mark to classify RoCE traffic from others to enable QoS or other configurations for RoCE traffic only (this can be done over layer 2 marking PCP TAG, or over layer 3 marking DSCP TAG) RDMA Advantages: lower latency, CPU bypass\n"
 }
-</script><meta property="og:title" content="RDMA | Inho Choi" />
+</script>
+<meta property="og:title" content="RDMA | Inho Choi" />
 <meta property="og:type" content="article" />
 
 
@@ -101,7 +107,8 @@
 
 
 
-<meta property="og:description" content="hi please Terminologies Infiniband (IB): consist of IB adapters and switches RoCE: RDMA using an Ethernet switched fabric instead of IB Although it uses an Ethernet layer, it has nothing to do with TCP/IP layers RoCE RDMA over Ethernet Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting Mellanox Ethernet Spectrum switches acccelerate RoCE performance For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server Over Lossy Fabric Lossy Fabric: a fabric which doesn&#39;t enforce Priority Flow Control (PFC) Originating from IB, RoCE traditionally required lossless fabric Since CX4, Mellanox enables RoCE over lossy fabric as well How?" />
+<meta property="og:description" content="hi please Terminologies Infiniband (IB): consist of IB adapters and switches RoCE: RDMA using an Ethernet switched fabric instead of IB Although it uses an Ethernet layer, it has nothing to do with TCP/IP layers RoCE RDMA over Ethernet Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting Mellanox Ethernet Spectrum switches acccelerate RoCE performance For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server Over Lossy Fabric Lossy Fabric: a fabric which doesn&#39;t enforce Priority Flow Control (PFC) Originating from IB, RoCE traditionally required lossless fabric Since CX4, Mellanox enables RoCE over lossy fabric as well How? Use H/W based congestion control mechanisms of Mellanox NICs to make the network from lossy to lossless Enable Explicit Congestion Notification (ECN) on a switch using a single CLI command When the switch&#39;s queues begin to fill up, they add ECN mark to received IP packets Once these ECN marked packets arrive to the receiver, it notifies the sender to slowdown sending rate by sending CNP marked packets This approach reduces the reaction time to congestion notifications to 10s of ns (x1000 faster than S/W based approach) Also, using this approach, RoCE shows a small (or 0) difference on performance in lossy and lossless fabrics Over this network, we can add a priority mark to classify RoCE traffic from others to enable QoS or other configurations for RoCE traffic only (this can be done over layer 2 marking PCP TAG, or over layer 3 marking DSCP TAG) RDMA Advantages: lower latency, CPU bypass
+" />
 
 
 
@@ -328,7 +335,7 @@
   </main>
   <footer class="pl-scrollbar">
     <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+    <p class="text-sm text-tertiary-text"> Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
 </div></div>
   </footer>
 </body>

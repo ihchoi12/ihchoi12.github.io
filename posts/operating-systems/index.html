@@ -43,13 +43,17 @@
 </script>
 
 
+
+
 <link rel="stylesheet" href="https://ihchoi12.github.io/css/custom.css">
 
-<link rel="icon" type="image/png" sizes="32x32" href="https://ihchoi12.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://ihchoi12.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ihchoi12.github.io/images/icon_hu_63b702b2a608cf4d.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ihchoi12.github.io/images/icon_hu_b2b0aca4be2d51e7.png">
+
 
 <meta name="description"
-  content="Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&#39;s current task to run a kernel module called dispatcher, which happens frequently.">
+  content="Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&#39;s current task to run a kernel module called dispatcher, which happens frequently. The dispatcher saves context (represented in the PCB) of the currently running process, and restore context of the interrupting process. It happens during the CPU preemption. Note that the CPU is not running any process during the context switching, so it&#39;s a pure overhead (typically it&#39;s a few ms).
+">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -65,6 +69,7 @@
       "item":"https://ihchoi12.github.io/posts/operating-systems/"}]
 }
 </script>
+
 
 
 
@@ -87,9 +92,10 @@
             "url": "https://ihchoi12.github.io/images/icon.png"
         }
         },
-    "description": "Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H\/W or higher priority process) cause the OS to change a CPU from it\u0027s current task to run a kernel module called dispatcher, which happens frequently."
+    "description": "Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H\/W or higher priority process) cause the OS to change a CPU from it\u0027s current task to run a kernel module called dispatcher, which happens frequently. The dispatcher saves context (represented in the PCB) of the currently running process, and restore context of the interrupting process. It happens during the CPU preemption. Note that the CPU is not running any process during the context switching, so it\u0027s a pure overhead (typically it\u0027s a few ms).\n"
 }
-</script><meta property="og:title" content="Operating Systems | Inho Choi" />
+</script>
+<meta property="og:title" content="Operating Systems | Inho Choi" />
 <meta property="og:type" content="article" />
 
 
@@ -101,7 +107,8 @@
 
 
 
-<meta property="og:description" content="Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&#39;s current task to run a kernel module called dispatcher, which happens frequently." />
+<meta property="og:description" content="Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&#39;s current task to run a kernel module called dispatcher, which happens frequently. The dispatcher saves context (represented in the PCB) of the currently running process, and restore context of the interrupting process. It happens during the CPU preemption. Note that the CPU is not running any process during the context switching, so it&#39;s a pure overhead (typically it&#39;s a few ms).
+" />
 
 
 
@@ -571,7 +578,7 @@
   </main>
   <footer class="pl-scrollbar">
     <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+    <p class="text-sm text-tertiary-text"> Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
 </div></div>
   </footer>
 </body>

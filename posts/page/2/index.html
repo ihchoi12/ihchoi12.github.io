@@ -43,10 +43,13 @@
 </script>
 
 
+
+
 <link rel="stylesheet" href="https://ihchoi12.github.io/css/custom.css">
 
-<link rel="icon" type="image/png" sizes="32x32" href="https://ihchoi12.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_32x32_fill_box_center_3.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://ihchoi12.github.io/images/icon_hu64421c6c7700f606f0ad45d807017b09_5843_180x180_fill_box_center_3.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://ihchoi12.github.io/images/icon_hu_63b702b2a608cf4d.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ihchoi12.github.io/images/icon_hu_b2b0aca4be2d51e7.png">
+
 
 <meta name="description"
   content="Eureka is a elegant and powerful theme for Hugo.">
@@ -62,24 +65,25 @@
             "@type":"ListItem",
             "position":  1 ,
             "name": "Infiniband",
-            "description": "Infiniband (IB) Industry standard defining I/O architecture Used to interconnect compute nodes, communication equipments (e.g., switches), storage, and embedded systems Independent of host OS Designed to accelearate all protocol layers (Physical - Link - Network - Transport - Upper) to achieve maximum network utilization and performance Deployed in data centers, cloud computing, HPC, ML/AI Main components [source] IB switches: Move the traffics Subnet Manager: Manages all network activities Hosts (end-nodes): The clients of IB fabric Host Channel Adapter (HCA): Enable an IB connection between the host and IB switches IB to Ethernet Gateway: Allows for IP traffic exchanges between IB and Ethernet based networks IB Router: Allows for inter-connectivity between multiple IB subnets SHARP Scalable Hierarchical Aggregation and Reduction Protocol In-network computation technology Offloads collective operations from the host CPUs or GPUs to the network switches As a result, it dramatically improves performance of accelerated computing, MPI based applications, such as ML/AI.",
+            "description": "Infiniband (IB) Industry standard defining I/O architecture Used to interconnect compute nodes, communication equipments (e.g., switches), storage, and embedded systems Independent of host OS Designed to accelearate all protocol layers (Physical - Link - Network - Transport - Upper) to achieve maximum network utilization and performance Deployed in data centers, cloud computing, HPC, ML/AI Main components [source] IB switches: Move the traffics Subnet Manager: Manages all network activities Hosts (end-nodes): The clients of IB fabric Host Channel Adapter (HCA): Enable an IB connection between the host and IB switches IB to Ethernet Gateway: Allows for IP traffic exchanges between IB and Ethernet based networks IB Router: Allows for inter-connectivity between multiple IB subnets SHARP Scalable Hierarchical Aggregation and Reduction Protocol In-network computation technology Offloads collective operations from the host CPUs or GPUs to the network switches As a result, it dramatically improves performance of accelerated computing, MPI based applications, such as ML/AI. Key Features Simplified Management IB is the first architecture to truly implement the vision of SDN IB is managed by a subnet manager which is a program that runs and manages the entire network Subnet manager provides centralized routing management, hence enables PnP of nodes High Bandwidth H/W Offloads RDMA using Kernel Bypass and H/W (NIC) based transport porotocol In ML/AI, GPU Direct RDMA Low Latency Thanks to NIC offloading and accleration techinques on the NIC, end-to-end latency is extremly low (e.g., 1us) Easy Network Scale-out Capable to deploy up to 48K nodes on a single subnet Further, multiple IB subnets can be interconnected using IB routers Quality of Service (i.e., ability to provide different priority to different apps, users, and data flows) IB switches have multiple port queues with different priorities flows are mapped to a different port queue depending on the priority Fabric Resiliency Link failures require traffic re-route Subnet manager can take about 5 seconds for this IB has a feature called Self-healing Networking: H/W based capability of Nvidia switches enabling 5000x faster link failure recovery Optimal Loadbalancing Necessary for high bandwidth utilization Use Adaptive Routing: equalize the amount of traffic sent on each switch port Nvidia switch H/W has Adaptive Routing Manager MPI Super Performance with SHARP Spport Various Topologies Fat-tree, Torus, Hypercube, HyperX, Drangonfly +, etc. Architecture IB architecture is divided into 5 layers, in a similar way to the traditional TCP/IP model But there are many differences between IB and IP protocol Traditionally, applications relied on OS for communications IB enables applications to communicate w/o directly involving OS (application-centric approch) [source] ",
             "url": "https://ihchoi12.github.io/posts/infiniband/"
         },{
             "@type":"ListItem",
             "position":  2 ,
             "name": "AWS SageMaker",
-            "description": "Intro Using ML techniques is more challenging than it looks for some reasons including...\nData Preprocessing: to understand data that comes from different sources with different formats to decide which parameters to use in the model Select Algorithm \u0026amp; Framework many problems appears to be similar, and there is no clear guideline for a particular problem Train \u0026amp; Tune Model need to feed data for many iteration, while tuning hyperparameters depending on the progress Integrate \u0026amp; Deploy need to setup an environment for deployment need to integrate the trained model into the environment SageMaker:",
+            "description": "Intro Using ML techniques is more challenging than it looks for some reasons including...\nData Preprocessing: to understand data that comes from different sources with different formats to decide which parameters to use in the model Select Algorithm \u0026amp; Framework many problems appears to be similar, and there is no clear guideline for a particular problem Train \u0026amp; Tune Model need to feed data for many iteration, while tuning hyperparameters depending on the progress Integrate \u0026amp; Deploy need to setup an environment for deployment need to integrate the trained model into the environment SageMaker:\n",
             "url": "https://ihchoi12.github.io/posts/aws_sagemaker/"
         },{
             "@type":"ListItem",
             "position":  3 ,
             "name": "Pytorch Tutorial",
-            "description": "To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.\nBasic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.\nTensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it's great?",
+            "description": "To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.\nBasic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.\nTensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it's great? we can automatically compute the gradient (i.e., autograd using .backward()) of the output w.r.t. tensors specify require_grad = True of a tensor to reduce unnecessary gradient calculation cost Example:\n",
             "url": "https://ihchoi12.github.io/posts/pytorch_tutorial/"
         }
     ]
 }
-</script><meta property="og:title" content="Posts | Inho Choi" />
+</script>
+<meta property="og:title" content="Posts | Inho Choi" />
 <meta property="og:type" content="website" />
 
 
@@ -557,7 +561,7 @@
   </main>
   <footer class="pl-scrollbar">
     <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
-    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://www.wangchucheng.com/">C. Wang</a> and <a href="https://www.ruiqima.com/">R. Ma</a> &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+    <p class="text-sm text-tertiary-text"> Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
 </div></div>
   </footer>
 </body>

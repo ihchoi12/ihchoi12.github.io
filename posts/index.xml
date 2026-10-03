@@ -1,97 +1,101 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Inho Choi</title>
-    <link>https://ihchoi12.github.io/posts/</link>
-    <description>Recent content in Posts on Inho Choi</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://www.wangchucheng.com/&#34;&gt;C. Wang&lt;/a&gt; and &lt;a href=&#34;https://www.ruiqima.com/&#34;&gt;R. Ma&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 16 Aug 2022 13:28:59 +0800</lastBuildDate>
-    <atom:link href="https://ihchoi12.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>MMIO</title>
-      <link>https://ihchoi12.github.io/posts/mmio/</link>
-      <pubDate>Tue, 16 Aug 2022 13:28:59 +0800</pubDate>
-      <guid>https://ihchoi12.github.io/posts/mmio/</guid>
-      <description>Memory: On-chip vs Off-chip On-chip (SRAM): Storage on the processor chip to decrease latency for critical/ frequently used data Works as a cache for the main memory(DRAM) Usually single cycle access Off-chip (DRAM): Much cheaper than SRAM Usually has much more latency (5–15 cycles) Memory Space The memory space is devided into 6 pre-defiened regions Code: Typically, on-chip flash (not on-chip SRAM) To store program code or data SRAM: Primarily used to store data (e.g., heaps, stacks), or code Peripheral External device External RAM System Interfacing Peripherals Usually, each on-chip peripheral device has a few registers (e.</description>
-    </item>
-    <item>
-      <title>TCP</title>
-      <link>https://ihchoi12.github.io/posts/tcp/</link>
-      <pubDate>Sat, 30 Jul 2022 02:45:11 +0000</pubDate>
-      <guid>https://ihchoi12.github.io/posts/tcp/</guid>
-      <description>d done2</description>
-    </item>
-    <item>
-      <title>RDMA</title>
-      <link>https://ihchoi12.github.io/posts/rdma/</link>
-      <pubDate>Sat, 25 Jun 2022 03:34:25 +0000</pubDate>
-      <guid>https://ihchoi12.github.io/posts/rdma/</guid>
-      <description>hi please Terminologies Infiniband (IB): consist of IB adapters and switches RoCE: RDMA using an Ethernet switched fabric instead of IB Although it uses an Ethernet layer, it has nothing to do with TCP/IP layers RoCE RDMA over Ethernet Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting Mellanox Ethernet Spectrum switches acccelerate RoCE performance For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server Over Lossy Fabric Lossy Fabric: a fabric which doesn&#39;t enforce Priority Flow Control (PFC) Originating from IB, RoCE traditionally required lossless fabric Since CX4, Mellanox enables RoCE over lossy fabric as well How?</description>
-    </item>
-    <item>
-      <title>Infiniband</title>
-      <link>https://ihchoi12.github.io/posts/infiniband/</link>
-      <pubDate>Mon, 20 Jun 2022 15:31:53 +0000</pubDate>
-      <guid>https://ihchoi12.github.io/posts/infiniband/</guid>
-      <description>Infiniband (IB) Industry standard defining I/O architecture Used to interconnect compute nodes, communication equipments (e.g., switches), storage, and embedded systems Independent of host OS Designed to accelearate all protocol layers (Physical - Link - Network - Transport - Upper) to achieve maximum network utilization and performance Deployed in data centers, cloud computing, HPC, ML/AI Main components [source] IB switches: Move the traffics Subnet Manager: Manages all network activities Hosts (end-nodes): The clients of IB fabric Host Channel Adapter (HCA): Enable an IB connection between the host and IB switches IB to Ethernet Gateway: Allows for IP traffic exchanges between IB and Ethernet based networks IB Router: Allows for inter-connectivity between multiple IB subnets SHARP Scalable Hierarchical Aggregation and Reduction Protocol In-network computation technology Offloads collective operations from the host CPUs or GPUs to the network switches As a result, it dramatically improves performance of accelerated computing, MPI based applications, such as ML/AI.</description>
-    </item>
-    <item>
-      <title>AWS SageMaker</title>
-      <link>https://ihchoi12.github.io/posts/aws_sagemaker/</link>
-      <pubDate>Sat, 18 Jun 2022 12:09:20 +0000</pubDate>
-      <guid>https://ihchoi12.github.io/posts/aws_sagemaker/</guid>
-      <description>Intro Using ML techniques is more challenging than it looks for some reasons including...&#xA;Data Preprocessing: to understand data that comes from different sources with different formats to decide which parameters to use in the model Select Algorithm &amp;amp; Framework many problems appears to be similar, and there is no clear guideline for a particular problem Train &amp;amp; Tune Model need to feed data for many iteration, while tuning hyperparameters depending on the progress Integrate &amp;amp; Deploy need to setup an environment for deployment need to integrate the trained model into the environment SageMaker:</description>
-    </item>
-    <item>
-      <title>Pytorch Tutorial</title>
-      <link>https://ihchoi12.github.io/posts/pytorch_tutorial/</link>
-      <pubDate>Tue, 14 Jun 2022 15:52:29 +0800</pubDate>
-      <guid>https://ihchoi12.github.io/posts/pytorch_tutorial/</guid>
-      <description>To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.&#xA;Basic Concepts [source] Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.&#xA;Tensor all data elements of a tensor are converted to have the same type (e.g., float) the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list) PyTorch a library for tensor processing the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls why it&#39;s great?</description>
-    </item>
-    <item>
-      <title>Operating Systems</title>
-      <link>https://ihchoi12.github.io/posts/operating-systems/</link>
-      <pubDate>Tue, 29 Jun 2021 08:58:30 +0000</pubDate>
-      <guid>https://ihchoi12.github.io/posts/operating-systems/</guid>
-      <description>Some Terminologies Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU (CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens) Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time Context Switching Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&#39;s current task to run a kernel module called dispatcher, which happens frequently.</description>
-    </item>
-    <item>
-      <title>Math Support</title>
-      <link>https://ihchoi12.github.io/posts/math-support/</link>
-      <pubDate>Fri, 20 Nov 2020 22:52:56 +0800</pubDate>
-      <guid>https://ihchoi12.github.io/posts/math-support/</guid>
-      <description>&lt;p&gt;Eureka supports the rendering of mathematical formulas by using KaTeX.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Featured Image</title>
-      <link>https://ihchoi12.github.io/posts/featured-image/</link>
-      <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
-      <guid>https://ihchoi12.github.io/posts/featured-image/</guid>
-      <description>&lt;p&gt;Maecenas maximus, elit in ornare porttitor, nisi eros hendrerit nisl, sed fermentum nulla urna blandit tellus.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Markdown Syntax Guide</title>
-      <link>https://ihchoi12.github.io/posts/markdown-syntax/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>https://ihchoi12.github.io/posts/markdown-syntax/</guid>
-      <description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Placeholder Text</title>
-      <link>https://ihchoi12.github.io/posts/placeholder-text/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>https://ihchoi12.github.io/posts/placeholder-text/</guid>
-      <description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Emoji Support</title>
-      <link>https://ihchoi12.github.io/posts/emoji-support/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      <guid>https://ihchoi12.github.io/posts/emoji-support/</guid>
-      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Posts on Inho Choi</title>
+		<link>https://ihchoi12.github.io/posts/</link>
+		<description>Recent content in Posts on Inho Choi</description>
+		<generator>Hugo</generator>
+		<language>en</language>
+		
+		
+		
+		
+			<lastBuildDate>Tue, 16 Aug 2022 13:28:59 +0800</lastBuildDate>
+		
+			<atom:link href="https://ihchoi12.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>MMIO</title>
+				<link>https://ihchoi12.github.io/posts/mmio/</link>
+				<pubDate>Tue, 16 Aug 2022 13:28:59 +0800</pubDate>
+				<guid>https://ihchoi12.github.io/posts/mmio/</guid>
+				<description>&lt;h1 id=&#34;memory-on-chip-vs-off-chip&#34;&gt;Memory: On-chip vs Off-chip&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;On-chip (SRAM):&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Storage on the processor chip to decrease latency for critical/ frequently used data&lt;/li&gt;&#xA;&lt;li&gt;Works as a cache for the main memory(DRAM)&lt;/li&gt;&#xA;&lt;li&gt;Usually single cycle access&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Off-chip (DRAM):&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Much cheaper than SRAM&lt;/li&gt;&#xA;&lt;li&gt;Usually has much more latency (5–15 cycles)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;memory-space&#34;&gt;Memory Space&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The memory space is devided into 6 pre-defiened regions&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Code:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Typically, on-chip flash (not on-chip SRAM)&lt;/li&gt;&#xA;&lt;li&gt;To store program code or data&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;SRAM:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Primarily used to store data (e.g., heaps, stacks), or code&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Peripheral&lt;/li&gt;&#xA;&lt;li&gt;External device&lt;/li&gt;&#xA;&lt;li&gt;External RAM&lt;/li&gt;&#xA;&lt;li&gt;System&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;interfacing-peripherals&#34;&gt;Interfacing Peripherals&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Usually, each on-chip peripheral device has a few registers (e.g., control. status, data input, and data output regsiters)&lt;/li&gt;&#xA;&lt;li&gt;Two approaches to exchange data between a processor core and a peripheral:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Port-mapped I/O:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;uses special CPU instructions specifically designed for I/O operations: &lt;em&gt;Special_instruction Reg, Port&lt;/em&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Memory-mapped I/O:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A simpler and more convenient way to interface I/O devices&lt;/li&gt;&#xA;&lt;li&gt;Does not need any special instructions&lt;/li&gt;&#xA;&lt;li&gt;Each device register is assigned to a memory address space&lt;/li&gt;&#xA;&lt;li&gt;Uses native CPU load/store instructions: &lt;em&gt;LDR/STR Reg, [Reg, #imm]&lt;/em&gt;&lt;/li&gt;&#xA;&lt;li&gt;If we write to the special memory location assigned to a device register (&lt;em&gt;STR&lt;/em&gt;), the written data is sent to the corresponding I/O device (by PCIe write operations)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;mmio&#34;&gt;MMIO&lt;/h1&gt;</description>
+			</item>
+			<item>
+				<title>TCP</title>
+				<link>https://ihchoi12.github.io/posts/tcp/</link>
+				<pubDate>Sat, 30 Jul 2022 02:45:11 +0000</pubDate>
+				<guid>https://ihchoi12.github.io/posts/tcp/</guid>
+				<description>&lt;h1 id=&#34;d&#34;&gt;d&lt;/h1&gt;&#xA;&lt;p&gt;done2&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>RDMA</title>
+				<link>https://ihchoi12.github.io/posts/rdma/</link>
+				<pubDate>Sat, 25 Jun 2022 03:34:25 +0000</pubDate>
+				<guid>https://ihchoi12.github.io/posts/rdma/</guid>
+				<description>&lt;h1 id=&#34;hi-please&#34;&gt;hi please&lt;/h1&gt;&#xA;&lt;h1 id=&#34;terminologies&#34;&gt;Terminologies&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Infiniband (IB): consist of IB adapters and switches&lt;/li&gt;&#xA;&lt;li&gt;RoCE:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;RDMA using an Ethernet switched fabric instead of IB&lt;/li&gt;&#xA;&lt;li&gt;Although it uses an Ethernet layer, it has nothing to do with TCP/IP layers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;roce&#34;&gt;RoCE&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;RDMA over Ethernet&lt;/li&gt;&#xA;&lt;li&gt;Mellanox Ethernet adapter (e.g., CX5) enables you to run RoCE on any ethernet fabric setting&lt;/li&gt;&#xA;&lt;li&gt;Mellanox Ethernet Spectrum switches acccelerate RoCE performance&lt;/li&gt;&#xA;&lt;li&gt;For example, NVMe over Fabric (NVMe-oF) uses RoCE to provid remote memory access at the same performance level of local memory access, which enables users to centralize pools of SSD rather than placing them on every server&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;over-lossy-fabric&#34;&gt;Over Lossy Fabric&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Lossy Fabric: a fabric which doesn&#39;t enforce Priority Flow Control (PFC)&lt;/li&gt;&#xA;&lt;li&gt;Originating from IB, RoCE traditionally required lossless fabric&lt;/li&gt;&#xA;&lt;li&gt;Since CX4, Mellanox enables RoCE over lossy fabric as well&lt;/li&gt;&#xA;&lt;li&gt;How? Use H/W based congestion control mechanisms of Mellanox NICs to make the network from lossy to lossless&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Enable Explicit Congestion Notification (ECN) on a switch using a single CLI command&lt;/li&gt;&#xA;&lt;li&gt;When the switch&#39;s queues begin to fill up, they add ECN mark to received IP packets&lt;/li&gt;&#xA;&lt;li&gt;Once these ECN marked packets arrive to the receiver, it notifies the sender to slowdown sending rate by sending CNP marked packets&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;This approach reduces the reaction time to congestion notifications to 10s of ns (x1000 faster than S/W based approach)&lt;/li&gt;&#xA;&lt;li&gt;Also, using this approach, RoCE shows a small (or 0) difference on performance in lossy and lossless fabrics&lt;/li&gt;&#xA;&lt;li&gt;Over this network, we can add a priority mark to classify RoCE traffic from others to enable QoS or other configurations for RoCE traffic only (this can be done over layer 2 marking PCP TAG, or over layer 3 marking DSCP TAG)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;rdma&#34;&gt;RDMA&lt;/h1&gt;&#xA;&lt;p&gt;Advantages: lower latency, CPU bypass&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Infiniband</title>
+				<link>https://ihchoi12.github.io/posts/infiniband/</link>
+				<pubDate>Mon, 20 Jun 2022 15:31:53 +0000</pubDate>
+				<guid>https://ihchoi12.github.io/posts/infiniband/</guid>
+				<description>&lt;h1 id=&#34;infiniband-ib&#34;&gt;Infiniband (IB)&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Industry standard defining I/O architecture&lt;/li&gt;&#xA;&lt;li&gt;Used to interconnect compute nodes, communication equipments (e.g., switches), storage, and embedded systems&lt;/li&gt;&#xA;&lt;li&gt;Independent of host OS&lt;/li&gt;&#xA;&lt;li&gt;Designed to accelearate all protocol layers (Physical - Link - Network - Transport - Upper) to achieve maximum network utilization and performance&lt;/li&gt;&#xA;&lt;li&gt;Deployed in data centers, cloud computing, HPC, ML/AI&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;main-components&#34;&gt;Main components&lt;/h3&gt;&#xA;&lt;p align=&#34;center&#34;&gt;&#xA;    &lt;img src=&#34;https://ihchoi12.github.io/posts/img/infiniband-components.png&#34; width=&#34;700&#34; /&gt; &lt;br&gt;&#xA;    &lt;a href=&#34;https://academy.nvidia.com/course/view.php?id=480&#34;&gt;[source]&lt;/a&gt; &#xA;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;IB switches: Move the traffics&lt;/li&gt;&#xA;&lt;li&gt;Subnet Manager: Manages all network activities&lt;/li&gt;&#xA;&lt;li&gt;Hosts (end-nodes): The clients of IB fabric&lt;/li&gt;&#xA;&lt;li&gt;Host Channel Adapter (HCA): Enable an IB connection between the host and IB switches&lt;/li&gt;&#xA;&lt;li&gt;IB to Ethernet Gateway: Allows for IP traffic exchanges between IB and Ethernet based networks&lt;/li&gt;&#xA;&lt;li&gt;IB Router: Allows for inter-connectivity between multiple IB subnets&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;sharp&#34;&gt;SHARP&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Scalable Hierarchical Aggregation and Reduction Protocol&lt;/li&gt;&#xA;&lt;li&gt;In-network computation technology&lt;/li&gt;&#xA;&lt;li&gt;Offloads collective operations from the host CPUs or GPUs to the network switches&lt;/li&gt;&#xA;&lt;li&gt;As a result, it dramatically improves performance of accelerated computing, MPI based applications, such as ML/AI.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;key-features&#34;&gt;Key Features&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Simplified Management&#xA;&lt;ul&gt;&#xA;&lt;li&gt;IB is the first architecture to truly implement the vision of SDN&lt;/li&gt;&#xA;&lt;li&gt;IB is managed by a subnet manager which is a program that runs and manages the entire network&lt;/li&gt;&#xA;&lt;li&gt;Subnet manager provides centralized routing management, hence enables PnP of nodes&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;High Bandwidth&lt;/li&gt;&#xA;&lt;li&gt;H/W Offloads&#xA;&lt;ul&gt;&#xA;&lt;li&gt;RDMA using Kernel Bypass and H/W (NIC) based transport porotocol&lt;/li&gt;&#xA;&lt;li&gt;In ML/AI, GPU Direct RDMA&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Low Latency&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Thanks to NIC offloading and accleration techinques on the NIC, end-to-end latency is extremly low (e.g., 1us)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Easy Network Scale-out&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Capable to deploy up to 48K nodes on a single subnet&lt;/li&gt;&#xA;&lt;li&gt;Further, multiple IB subnets can be interconnected using IB routers&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Quality of Service (i.e., ability to provide different priority to different apps, users, and data flows)&#xA;&lt;ul&gt;&#xA;&lt;li&gt;IB switches have multiple port queues with different priorities&lt;/li&gt;&#xA;&lt;li&gt;flows are mapped to a different port queue depending on the priority&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Fabric Resiliency&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Link failures require traffic re-route&lt;/li&gt;&#xA;&lt;li&gt;Subnet manager can take about 5 seconds for this&lt;/li&gt;&#xA;&lt;li&gt;IB has a feature called Self-healing Networking: H/W based capability of Nvidia switches enabling 5000x faster link failure recovery&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Optimal Loadbalancing&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Necessary for high bandwidth utilization&lt;/li&gt;&#xA;&lt;li&gt;Use Adaptive Routing: equalize the amount of traffic sent on each switch port&lt;/li&gt;&#xA;&lt;li&gt;Nvidia switch H/W has Adaptive Routing Manager&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;MPI Super Performance with SHARP&lt;/li&gt;&#xA;&lt;li&gt;Spport Various Topologies&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Fat-tree, Torus, Hypercube, HyperX, Drangonfly +, etc.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;architecture&#34;&gt;Architecture&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;IB architecture is divided into 5 layers, in a similar way to the traditional TCP/IP model&lt;/li&gt;&#xA;&lt;li&gt;But there are many differences between IB and IP protocol&lt;/li&gt;&#xA;&lt;li&gt;Traditionally, applications relied on OS for communications&lt;/li&gt;&#xA;&lt;li&gt;IB enables applications to communicate w/o directly involving OS (application-centric approch)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p align=&#34;center&#34;&gt;&#xA;    &lt;img src=&#34;https://ihchoi12.github.io/posts/img/infiniband-rdma.png&#34; width=&#34;700&#34; /&gt; &lt;br&gt;&#xA;    &lt;a href=&#34;https://academy.nvidia.com/course/view.php?id=480&#34;&gt;[source]&lt;/a&gt; &#xA;&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>AWS SageMaker</title>
+				<link>https://ihchoi12.github.io/posts/aws_sagemaker/</link>
+				<pubDate>Sat, 18 Jun 2022 12:09:20 +0000</pubDate>
+				<guid>https://ihchoi12.github.io/posts/aws_sagemaker/</guid>
+				<description>&lt;h1 id=&#34;intro&#34;&gt;Intro&lt;/h1&gt;&#xA;&lt;p&gt;Using ML techniques is more challenging than it looks for some reasons including...&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Data Preprocessing:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;to understand data that comes from different sources with different formats&lt;/li&gt;&#xA;&lt;li&gt;to decide which parameters to use in the model&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Select Algorithm &amp;amp; Framework&#xA;&lt;ul&gt;&#xA;&lt;li&gt;many problems appears to be similar, and there is no clear guideline for a particular problem&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Train &amp;amp; Tune Model&#xA;&lt;ul&gt;&#xA;&lt;li&gt;need to feed data for many iteration, while tuning hyperparameters depending on the progress&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Integrate &amp;amp; Deploy&#xA;&lt;ul&gt;&#xA;&lt;li&gt;need to setup an environment for deployment&lt;/li&gt;&#xA;&lt;li&gt;need to integrate the trained model into the environment&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;SageMaker:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Pytorch Tutorial</title>
+				<link>https://ihchoi12.github.io/posts/pytorch_tutorial/</link>
+				<pubDate>Tue, 14 Jun 2022 15:52:29 +0800</pubDate>
+				<guid>https://ihchoi12.github.io/posts/pytorch_tutorial/</guid>
+				<description>&lt;p&gt;To understand pytorch training codes better, I start to follow a full totorial and summarize my progress here.&lt;/p&gt;&#xA;&lt;h1 id=&#34;basic-concepts&#34;&gt;Basic Concepts&lt;/h1&gt;&#xA;&lt;p align=&#34;center&#34;&gt;&#xA;    &lt;img src=&#34;https://ihchoi12.github.io/posts/img/2022-06-14-16-23-53.png&#34; width=&#34;300&#34; /&gt; &lt;br&gt;&#xA;    &lt;a href=&#34;https://jovian.ai/aakashns/machine-learning-intro&#34;&gt;[source]&lt;/a&gt; &#xA;&lt;/p&gt;&#xA;&lt;p&gt;Unlike classical programming where we input data and algorithm (rules) to get the output, we give data and output to the ML training algorithm so that it can figure out the correct output for unknown data.&lt;/p&gt;&#xA;&lt;h2 id=&#34;tensor&#34;&gt;Tensor&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;all data elements of a tensor are converted to have the same type (e.g., float)&lt;/li&gt;&#xA;&lt;li&gt;the shape of a tensor must be regular 3-dimension (difference from a simple list-of-list)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;pytorch&#34;&gt;PyTorch&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;a library for tensor processing&lt;/li&gt;&#xA;&lt;li&gt;the underlying implementation is in CUDA language (c language, which is fast), but it provides a layer of python wrappers (which is slow, but easy to use) of CUDA API calls&lt;/li&gt;&#xA;&lt;li&gt;why it&#39;s great? we can automatically compute the gradient (i.e., autograd using &lt;code&gt;.backward()&lt;/code&gt;) of the output w.r.t. tensors&lt;/li&gt;&#xA;&lt;li&gt;specify &lt;code&gt;require_grad = True&lt;/code&gt; of a tensor to reduce unnecessary gradient calculation cost&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Example:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Operating Systems</title>
+				<link>https://ihchoi12.github.io/posts/operating-systems/</link>
+				<pubDate>Tue, 29 Jun 2021 08:58:30 +0000</pubDate>
+				<guid>https://ihchoi12.github.io/posts/operating-systems/</guid>
+				<description>&lt;h1 id=&#34;some-terminologies&#34;&gt;Some Terminologies&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Preemption: forcefully pause a running process (with PCB stored for resume later) and take the next ready process to the CPU&lt;/li&gt;&#xA;&lt;li&gt;(CPU) Time Quantum: a time slot (duration) assigned to a process to use CPU (once expired, preemption happens)&lt;/li&gt;&#xA;&lt;li&gt;Degree of Multi-programming: the max # of processes in ready that RAM can hold at a time&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;context-switching&#34;&gt;Context Switching&lt;/h1&gt;&#xA;&lt;p&gt;Interrupts (e.g., from H/W or higher priority process) cause the OS to change a CPU from it&#39;s current task to run a kernel module called dispatcher, which happens frequently. The dispatcher saves context (represented in the PCB) of the currently running process, and restore context of the interrupting process. It happens during the CPU preemption. Note that the CPU is not running any process during the context switching, so it&#39;s a pure overhead (typically it&#39;s a few ms).&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Math Support</title>
+				<link>https://ihchoi12.github.io/posts/math-support/</link>
+				<pubDate>Fri, 20 Nov 2020 22:52:56 +0800</pubDate>
+				<guid>https://ihchoi12.github.io/posts/math-support/</guid>
+				<description>&lt;p&gt;Eureka supports the rendering of mathematical formulas by using KaTeX.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Featured Image</title>
+				<link>https://ihchoi12.github.io/posts/featured-image/</link>
+				<pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+				<guid>https://ihchoi12.github.io/posts/featured-image/</guid>
+				<description>&lt;p&gt;Maecenas maximus, elit in ornare porttitor, nisi eros hendrerit nisl, sed fermentum nulla urna blandit tellus.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Markdown Syntax Guide</title>
+				<link>https://ihchoi12.github.io/posts/markdown-syntax/</link>
+				<pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+				<guid>https://ihchoi12.github.io/posts/markdown-syntax/</guid>
+				<description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Placeholder Text</title>
+				<link>https://ihchoi12.github.io/posts/placeholder-text/</link>
+				<pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+				<guid>https://ihchoi12.github.io/posts/placeholder-text/</guid>
+				<description>&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Emoji Support</title>
+				<link>https://ihchoi12.github.io/posts/emoji-support/</link>
+				<pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+				<guid>https://ihchoi12.github.io/posts/emoji-support/</guid>
+				<description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>
