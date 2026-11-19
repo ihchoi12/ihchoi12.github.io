@@ -431,6 +431,7 @@ Proceedings of the 2026 ACM SIGCOMM Conference (SIGCOMM <span class="yr">'</span
 <a href="https://arxiv.org/pdf/2312.06207"> A Primer on RecoNIC: RDMA-enabled Compute Offloading on SmartNIC</a> </b> <br>
 Guanwen Zhong, Aditya Kolekar, Burin Amornpaisannon, <b><u>Inho Choi</u></b>, Haris Javaid, Mario Baldi. <br>
 ArXiv, Dec, 2023 <br></p>
+  <!-- Temporarily removed — Summary of ArXiv 2023 RecoNIC paper (2026-11-14). To restore: remove this HTML comment wrapper.
   <details style="margin-top: 5px;">
     <summary style="cursor: pointer; display: inline-block; padding: 3px 10px; background-color: rgba(13, 139, 243, 0.1); border: 1px solid rgba(13, 139, 243, 0.6); border-radius: 4px; color: rgba(13, 139, 243, 1); font-size: 13px; font-weight: bold;">Summary</summary>
     <div style="text-align: justify; line-height: 1.6; margin-top: 10px; padding: 10px 15px; background-color: rgba(13, 139, 243, 0.05); border-left: 3px solid rgba(13, 139, 243, 0.6); font-size: 15px;">
@@ -439,11 +440,13 @@ ArXiv, Dec, 2023 <br></p>
       <p style="margin-bottom: 0;">My main task was verifying the overall workflow and testing an example use case of accelerating matrix multiplication using the framework. For example, we store two matrix arrays on a remote machine, and the RecoNIC host performs RDMA READ to those arrays. Then, those arrays are directly stored into the device memory. Once detecting the readiness of the two arrays, the host issues a compute control command to the Compute Logic to start computation. Once the computation is finished, the host reads the result back to the host memory for verification.</p>
     </div>
   </details>
+  -->
   <br>
 <p><b>[SIGCOMM <span class="yr">'</span>23]
 <a href="https://dl.acm.org/doi/pdf/10.1145/3603269.3604849"> Network Load Balancing with In-network Reordering Support for RDMA</a> </b> <br>
 Cha Hwan Song, Xin Zhe Khooi, Raj Joshi, <b><u>Inho Choi</u></b>, Jialin Li, and Mun Choon Chan. <br>
 Proceedings of the 2023 ACM SIGCOMM Conference (SIGCOMM <span class="yr">'</span>23) <br></p>
+  <!-- Temporarily removed — Summary of SIGCOMM '23 ConWeave paper (2026-11-14). To restore: remove this HTML comment wrapper.
   <details style="margin-top: 5px;">
     <summary style="cursor: pointer; display: inline-block; padding: 3px 10px; background-color: rgba(13, 139, 243, 0.1); border: 1px solid rgba(13, 139, 243, 0.6); border-radius: 4px; color: rgba(13, 139, 243, 1); font-size: 13px; font-weight: bold;">Summary</summary>
     <div style="text-align: justify; line-height: 1.6; margin-top: 10px; padding: 10px 15px; background-color: rgba(13, 139, 243, 0.05); border-left: 3px solid rgba(13, 139, 243, 0.6); font-size: 15px;">
@@ -451,6 +454,7 @@ Proceedings of the 2023 ACM SIGCOMM Conference (SIGCOMM <span class="yr">'</span
       <p style="margin-bottom: 0;">So we designed a new load balancing system for RDMA. The main idea is in-network packet reordering. The reason that we do the re-ordering in the network instead of the destination host is because RDMA bypasses host OS and it's hard to modify the behavior of commodity RDMA HW. So, we leverage programmable network switches for packet reordering. Recent programmable switches like Intel Tofino2 allow storing packets in the network with multiple FIFO queues and queue pause/resume features. ConWeave is a ToR-to-ToR mechanism. It makes re-routing (load-balancing) decisions at the source ToR, and re-orders packets at the destination ToR. The source ToR periodically monitors RTT of each flow. If the RTT exceeds a threshold, it treats the existing route as congested and triggers rerouting. Then, it tags a TAIL flag to the last packet going to the current path, and tags REROUTED to subsequent packets going to the new path. If a REROUTED packet arrives at the DstToR earlier than the TAIL packet, the DstToR dynamically assigns a reorder queue and buffers the packet. After DstToR receives the TAIL packet, it flushes the reorder queue and sends a CLEAR signal to the SrcToR, meaning that there are no out-of-order packets and it can start a new re-routing epoch.</p>
     </div>
   </details>
+  -->
   <br>
 <p><b>[APSYS <span class="yr">'</span>23]
 <a href="https://dl.acm.org/doi/pdf/10.1145/3609510.3609813"> Capybara: μSecond-scale live TCP migration</a> </b> <br>
@@ -573,6 +577,7 @@ In Proceedings of IEEE Symposium on Security and Privacy, May 2020 <br>
       Contributed to research on network-level security vulnerabilities in Bitcoin's peer-to-peer network. Participated in demonstrating partitioning attacks on Bitcoin's peer-to-peer network and defense mechanisms. Co-authored a paper published at <a href="https://ihchoi12.github.io/assets/tran2020stealthier.pdf">IEEE S&P <span class="yr">'</span>20</a>, advancing cryptocurrency network security.
     </p>
     <!--  -->
+<!-- Temporarily removed — MetLife summer intern (2026-11-14). To restore: remove this HTML comment wrapper.
     <p style="float: left; width: 50%; text-align: left;">
       <a class="font-bold">Metlife</a> - Summer Intern
     </p>
@@ -589,6 +594,7 @@ In Proceedings of IEEE Symposium on Security and Privacy, May 2020 <br>
     <p style="text-align: justify; line-height: 1.6; margin-left: 20px; margin-right: 20px; margin-bottom: 20px; font-size: 15px;">
       Analyzed IT infrastructure and database server architecture at MetLife Korea, investigating OAuth 2.0 protocol adoption for security enhancement. Presented findings through internal seminar.
     </p>
+-->
     <!--  -->
 <!-- Temporarily removed — Yonsei Dependable Computing Lab (Kyoungwoo Lee) research intern, related to UbiComp '17 paper. To restore: remove this HTML comment wrapper.
     <p style="float: left; width: 80%; text-align: left;">
